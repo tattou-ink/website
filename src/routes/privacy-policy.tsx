@@ -4,12 +4,13 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 import { allStatics } from 'content-collections';
 import { localizedPathNames } from '../../i18n/lib';
 import type { FileRoutesByTo } from '@/routeTree.gen';
+import { renderMarkdown } from '@/utils/markdown';
 
 type RoutePath = keyof FileRoutesByTo;
 
 export const Route = createFileRoute('/privacy-policy')({
   component: RouteComponent,
-  loader: ({ location, route }) => {
+  loader: async ({ location, route }) => {
     const locale = getLocaleForUrl(location.publicHref);
     if (!Object.keys(localizedPathNames).includes(route.id)) {
       throw notFound();
@@ -19,15 +20,17 @@ export const Route = createFileRoute('/privacy-policy')({
     if (!page) {
       throw notFound();
     }
-    return { page };
+    const markdown = await renderMarkdown(page.content);
+
+    return { markdown };
   },
 });
 
 function RouteComponent() {
-  const { page } = Route.useLoaderData();
+  const { markdown } = Route.useLoaderData();
   return (
     <main className="p-4 md:p-8 lg:px-16">
-      <Markdown content={page.content} className="prose" />
+      <Markdown markdown={markdown} className="prose" />
     </main>
   );
 }

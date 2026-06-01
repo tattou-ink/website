@@ -2,26 +2,23 @@
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
 import remarkBreaks from 'remark-breaks';
+import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 import { toString } from 'hast-util-to-string';
+import type { Root } from 'hast';
 
 export type MarkdownHeading = { id: string; text: string; level: number };
 
-export type MarkdownResult = {
-  markup: string;
-  headings: Array<MarkdownHeading>;
-};
+export type MarkdownResult = { tree: Root; headings: Array<MarkdownHeading> };
 
 export async function renderMarkdown(content: string): Promise<MarkdownResult> {
   const headings: Array<MarkdownHeading> = [];
 
-  const result = await unified()
+  const processor = unified()
     .use(remarkBreaks) // Add line breaks when line ends with 2 spaces
     .use(remarkParse) // Parse markdown
     .use(remarkGfm) // Support GitHub Flavored Markdown
@@ -33,8 +30,6 @@ export async function renderMarkdown(content: string): Promise<MarkdownResult> {
       properties: { className: ['anchor'] },
     })
     .use(() => (tree) => {
-      // Extract headings for table of contents
-
       visit(tree, 'element', (node: any) => {
         if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
           headings.push({
@@ -44,9 +39,10 @@ export async function renderMarkdown(content: string): Promise<MarkdownResult> {
           });
         }
       });
-    })
-    .use(rehypeStringify) // Serialize to HTML string
-    .process(content);
+    });
 
-  return { markup: String(result), headings };
+  const mdastTree = processor.parse(content);
+  const hastTree = await processor.run(mdastTree);
+
+  return { tree: hastTree, headings };
 }
