@@ -114,7 +114,7 @@ tattou.ink fait appel aux sous-traitants suivants. Chacun dispose de garanties c
 | Sous-traitant | Rôle | Localisation |
 |---|---|---|
 | **Supabase** | Base de données et authentification | Union Européenne (via AWS Paris) |
-| **Cloudflare** (datacenter France) | Stockage d'images | France |
+| **Cloudflare** | Stockage d'images | France |
 | **Amazon Web Services (AWS)** | Envoi d'e-mails (Amazon SES) | France |
 | **Fly.io** | Hébergement du serveur applicatif | France |
 | **Netlify** | Hébergement des interfaces front-end | Union Européenne / États-Unis* |

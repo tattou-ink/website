@@ -3,6 +3,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
+import remarkBreaks from 'remark-breaks';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -21,6 +22,7 @@ export async function renderMarkdown(content: string): Promise<MarkdownResult> {
   const headings: Array<MarkdownHeading> = [];
 
   const result = await unified()
+    .use(remarkBreaks) // Add line breaks when line ends with 2 spaces
     .use(remarkParse) // Parse markdown
     .use(remarkGfm) // Support GitHub Flavored Markdown
     .use(remarkRehype, { allowDangerousHtml: true }) // Convert to HTML AST
