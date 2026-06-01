@@ -3,7 +3,7 @@ title: Politique de confidentialité
 published: 2026-06-01
 ---
 
-# Politique de Confidentialité — tattou.ink
+# Politique de Confidentialité
 
 **Dernière mise à jour : juin 2026**
 
