@@ -5,6 +5,7 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import viteReact from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { translatedPathnames } from './i18n/lib';
+import contentCollections from "@content-collections/vite";
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
@@ -15,12 +16,13 @@ const config = defineConfig({
       outdir: './src/paraglide',
       outputStructure: 'message-modules',
       cookieName: 'PARAGLIDE_LOCALE',
-      strategy: ['url', 'cookie', 'preferredLanguage', 'baseLocale'],
+      strategy: ['cookie', 'preferredLanguage', 'baseLocale'],
       urlPatterns: translatedPathnames,
     }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
+    contentCollections(),
   ],
 });
 
