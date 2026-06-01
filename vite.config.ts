@@ -5,7 +5,8 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import viteReact from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { translatedPathnames } from './i18n/lib';
-import contentCollections from "@content-collections/vite";
+import contentCollections from '@content-collections/vite';
+import netlify from '@netlify/vite-plugin-tanstack-start';
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
@@ -19,6 +20,7 @@ const config = defineConfig({
       strategy: ['cookie', 'preferredLanguage', 'baseLocale'],
       urlPatterns: translatedPathnames,
     }),
+    netlify(),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
