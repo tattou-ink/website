@@ -18,7 +18,7 @@ export const Route = createFileRoute('/politique-de-confidentialite')({
 function RouteComponent() {
   const { page } = Route.useLoaderData();
   return (
-    <main className='p-4 md:p-8 lg:p-16'>
+    <main className='p-4 md:p-8 lg:px-16'>
 
     <article>
       <Markdown content={page.content} className="prose" />
