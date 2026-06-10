@@ -56,9 +56,16 @@ function App() {
         </main>
       </div>
       <footer>
-        <Link to={localizeHref('/privacy-policy', {locale: undefined})}>
-          {m.smart_tidy_okapi_spark()}
-        </Link>
+        <div className="grid grid-cols-2">
+          <Link to={localizeHref('/privacy-policy', { locale: undefined })}>
+            {m.smart_tidy_okapi_spark()}
+          </Link>
+          <Link
+            to={localizeHref('/terms-and-conditions', { locale: undefined })}
+          >
+            {m.chunky_every_whale_startle()}
+          </Link>
+        </div>
       </footer>
     </div>
   );

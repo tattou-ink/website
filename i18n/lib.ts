@@ -51,6 +51,10 @@ export const localizedPathNames = {
     en: '/privacy-policy',
     fr: '/politique-de-confidentialite',
   },
+  '/terms-and-conditions': {
+    en: '/terms-and-conditions',
+    fr: '/conditions-generales',
+  },
 };
 
 export const translatedPathnames =
