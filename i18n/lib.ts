@@ -37,10 +37,10 @@ function createTranslatedPathnames(
     pattern: toUrlPattern(pattern),
     localized: Object.entries(locales).map(
       ([locale, path]) =>
-        [locale as Locale, `/${locale}${toUrlPattern(path)}`] satisfies [
-          Locale,
-          string,
-        ],
+        [
+          locale as Locale,
+          `${locale === 'en' ? '' : `/${locale}`}${toUrlPattern(path)}`,
+        ] satisfies [Locale, string],
     ),
   }));
 }
