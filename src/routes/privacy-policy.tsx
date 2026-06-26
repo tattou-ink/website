@@ -2,19 +2,20 @@ import { Markdown } from '@/components/Markdown';
 import { extractLocaleFromUrl } from '@/paraglide/runtime';
 import { createFileRoute, notFound } from '@tanstack/react-router';
 import { allStatics } from 'content-collections';
-import { localizedPathNames, type PublicRoutePath } from '../../i18n/lib';
+import { localizedPathNames } from '../../i18n/lib';
+import type { PublicRoutePath } from '../../i18n/lib';
 import { renderMarkdown } from '@/utils/markdown';
 
 export const Route = createFileRoute('/privacy-policy')({
   component: RouteComponent,
   loader: async ({ location, route }) => {
-    const locale = extractLocaleFromUrl(
-      `https://tattou.ink${location.publicHref}`,
-    ) || 'en';
+    const locale =
+      extractLocaleFromUrl(`https://tattou.ink${location.publicHref}`) || 'en';
     if (!Object.keys(localizedPathNames).includes(route.id)) {
       throw notFound();
     }
-    const localizedPathName = localizedPathNames[route.id as PublicRoutePath][locale];
+    const localizedPathName =
+      localizedPathNames[route.id as PublicRoutePath][locale];
     const page = allStatics.find((p) => `/${p.slug}` === localizedPathName);
     if (!page) {
       throw notFound();
