@@ -4,9 +4,9 @@ import type { FileRoutesByTo } from '../src/routeTree.gen';
 
 type RoutePath = keyof FileRoutesByTo;
 
-const excludedPaths = ['admin', 'docs', 'api', 'sitemap.xml'] as const;
+const excludedPaths = ['sitemap.xml'] as const;
 
-type PublicRoutePath = Exclude<
+export type PublicRoutePath = Exclude<
   RoutePath,
   `${string}${(typeof excludedPaths)[number]}${string}`
 >;
