@@ -11,7 +11,7 @@ function extractFrontMatter(content: string) {
 const staticPages = defineCollection({
   name: 'static',
   directory: './src/static',
-  include: '*.md',
+  include: '**/*.md',
   schema: z.object({
     title: z.string(),
     published: z.coerce.date(),

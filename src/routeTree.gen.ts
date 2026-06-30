@@ -13,6 +13,7 @@ import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-condi
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogWhatToAskCustomersBeforeTattooSessionRouteImport } from './routes/blog/what-to-ask-customers-before-tattoo-session'
 
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
   id: '/terms-and-conditions',
@@ -34,18 +35,26 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogWhatToAskCustomersBeforeTattooSessionRoute =
+  BlogWhatToAskCustomersBeforeTattooSessionRouteImport.update({
+    id: '/blog/what-to-ask-customers-before-tattoo-session',
+    path: '/blog/what-to-ask-customers-before-tattoo-session',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blog/what-to-ask-customers-before-tattoo-session': typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blog/what-to-ask-customers-before-tattoo-session': typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,18 +62,30 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blog/what-to-ask-customers-before-tattoo-session': typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy-policy' | '/sitemap.xml' | '/terms-and-conditions'
+  fullPaths:
+    | '/'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/terms-and-conditions'
+    | '/blog/what-to-ask-customers-before-tattoo-session'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy-policy' | '/sitemap.xml' | '/terms-and-conditions'
+  to:
+    | '/'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/terms-and-conditions'
+    | '/blog/what-to-ask-customers-before-tattoo-session'
   id:
     | '__root__'
     | '/'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-and-conditions'
+    | '/blog/what-to-ask-customers-before-tattoo-session'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -72,6 +93,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  BlogWhatToAskCustomersBeforeTattooSessionRoute: typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -104,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/what-to-ask-customers-before-tattoo-session': {
+      id: '/blog/what-to-ask-customers-before-tattoo-session'
+      path: '/blog/what-to-ask-customers-before-tattoo-session'
+      fullPath: '/blog/what-to-ask-customers-before-tattoo-session'
+      preLoaderRoute: typeof BlogWhatToAskCustomersBeforeTattooSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -112,6 +141,8 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  BlogWhatToAskCustomersBeforeTattooSessionRoute:
+    BlogWhatToAskCustomersBeforeTattooSessionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -54,6 +54,10 @@ export const localizedPathNames = {
     en: '/terms-and-conditions',
     fr: '/conditions-generales',
   },
+  '/blog/what-to-ask-customers-before-tattoo-session': {
+    en: '/blog/what-to-ask-customers-before-tattoo-session',
+    fr: '/blog/quelles-informations-demander-avant-session-tatouage',
+  },
 };
 
 export const translatedPathnames =
