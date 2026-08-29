@@ -1,72 +1,36 @@
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { m } from '@/paraglide/messages';
-
-import type { Locale } from '@/paraglide/runtime';
-import { getLocale, localizeHref, setLocale } from '@/paraglide/runtime';
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { Languages } from 'lucide-react';
+import { AppSection } from '@/components/landing/AppSection';
+import { Benefit1 } from '@/components/landing/Benefit1';
+import { Benefit2 } from '@/components/landing/Benefit2';
+import { Benefit3 } from '@/components/landing/Benefit3';
+import { CtaFinal } from '@/components/landing/CtaFinal';
+import { Footer } from '@/components/landing/Footer';
+import { Hero } from '@/components/landing/Hero';
+import { Manifesto } from '@/components/landing/Manifesto';
+import { Pricing } from '@/components/landing/Pricing';
+import { Problem } from '@/components/landing/Problem';
+import { PromiseSection } from '@/components/landing/Promise';
+import { Testimony } from '@/components/landing/Testimony';
+import { Ticker } from '@/components/landing/Ticker';
+import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({ component: App });
 
 function App() {
-  const locale = getLocale();
   return (
-    <div className="flex h-screen flex-col p-4 md:p-8 lg:px-16">
-      <header className="flex flex-row justify-end">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon">
-              <Languages />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-40" align="start">
-            <DropdownMenuRadioGroup
-              value={locale}
-              onValueChange={(newLanguage: string) => {
-                setLocale(newLanguage as Locale);
-              }}
-            >
-              <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </header>
-      <div className="flex flex-1 items-center justify-center bg-white">
-        <main className="flex w-full max-w-3xl flex-col items-center justify-center gap-10">
-          <img
-            className=""
-            src="/tattou-wip.gif"
-            alt="Work In Progress tattou.ink"
-            width={300}
-            height={87}
-          />
-          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-[5px] text-black">
-              WIP
-            </h1>
-          </div>
-        </main>
-      </div>
-      <footer>
-        <div className="grid grid-cols-2">
-          <Link to={localizeHref('/privacy-policy', { locale: undefined })}>
-            {m.smart_tidy_okapi_spark()}
-          </Link>
-          <Link
-            to={localizeHref('/terms-and-conditions', { locale: undefined })}
-          >
-            {m.chunky_every_whale_startle()}
-          </Link>
-        </div>
-      </footer>
-    </div>
+    <main>
+      <Hero />
+      <Ticker />
+      <Problem />
+      <PromiseSection />
+      <Benefit1 />
+      <Benefit2 />
+      <Benefit3 />
+      <Testimony />
+      <AppSection />
+      <Pricing />
+      <Manifesto />
+      <CtaFinal />
+      <Footer />
+    </main>
   );
 }

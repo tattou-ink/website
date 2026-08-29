@@ -1,0 +1,24 @@
+import { m } from '@/paraglide/messages';
+
+import { SECTION_IDS } from './anchors';
+import { CtaButton, Highlight } from './ui';
+
+export function CtaFinal() {
+  return (
+    <section
+      id={SECTION_IDS.join}
+      className="w-full bg-ink px-5 py-12 lg:px-20 lg:py-24"
+    >
+      <div className="flex flex-col gap-8 border-y border-cream-muted/30 py-8 lg:flex-row lg:items-center lg:justify-between lg:py-12">
+        <h2 className="font-display text-[40px] leading-[40px] font-black text-cream lg:text-[48px] lg:leading-[50px]">
+          {m.landing_hero_title_line1()}
+          <br />
+          <Highlight tone="brand">{m.landing_hero_title_line2()}</Highlight>
+        </h2>
+        <CtaButton href={`#${SECTION_IDS.join}`} className="shrink-0">
+          {m.landing_hero_cta()}
+        </CtaButton>
+      </div>
+    </section>
+  );
+}
