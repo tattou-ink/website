@@ -46,7 +46,7 @@ export function Problem() {
           </p>
         </div>
 
-        <div className="relative -mx-5 h-75 border-y-2 border-stencil lg:hidden overflow-hidden">
+        <div className="relative -mx-5 h-75 md:h-100 border-y-2 border-stencil lg:hidden overflow-hidden">
           <img
             src="/images/landing/problem/photo.jpg"
             alt=""

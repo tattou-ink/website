@@ -47,13 +47,13 @@ export function Highlight({
 
 export function CompareColumn({
   variant,
-  tone = 'dark',
+  tone,
   label,
   items,
   className = '',
 }: {
   variant: 'before' | 'after';
-  tone?: 'dark' | 'light';
+  tone: 'dark' | 'light';
   label: string;
   items: string[];
   className?: string;
@@ -83,7 +83,7 @@ export function CompareColumn({
 }
 
 export function CompareColumns({
-  tone,
+  tone = 'dark',
   before,
   after,
 }: {
@@ -98,14 +98,14 @@ export function CompareColumns({
         label={before.label}
         items={before.items}
         variant="before"
-        className='col-span-12 lg:col-span-6'
+        className="col-span-12 lg:col-span-6"
       />
       <CompareColumn
         tone={tone}
         label={after.label}
         items={after.items}
         variant="after"
-        className='col-span-12 lg:col-span-6'
+        className="col-span-12 lg:col-span-6"
       />
     </div>
   );
