@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { m } from '@/paraglide/messages';
+import { Accordion } from 'radix-ui';
 
 import { SECTION_IDS } from './anchors';
 import { Eyebrow, Heading, Highlight } from './ui';
@@ -85,59 +86,69 @@ export function AppSection() {
             </p>
           </div>
 
-          <div className="flex w-full flex-col border-t border-cream-muted/30">
+          <Accordion.Root
+            type="single"
+            value={String(expandedIndex)}
+            onValueChange={(value) => {
+              if (value) setExpandedIndex(Number(value));
+            }}
+            className="flex w-full flex-col border-t border-cream-muted/30"
+          >
             {features.map((feature, i) => {
               const isExpanded = i === expandedIndex;
               const isInteractive = Boolean(feature.title);
               return (
-                <div
+                <Accordion.Item
                   key={feature.label}
+                  value={String(i)}
+                  disabled={!isInteractive}
                   className="border-b border-cream-muted/30"
                 >
-                  <button
-                    type="button"
-                    disabled={!isInteractive}
-                    onClick={() => setExpandedIndex(i)}
-                    className="flex w-full items-center justify-between py-4 text-left font-body text-sm leading-[21px] font-medium text-stencil uppercase disabled:cursor-default"
-                  >
-                    {feature.label}
-                    {isInteractive ? (
-                      <span aria-hidden>{isExpanded ? '−' : '+'}</span>
-                    ) : (
-                      <span aria-hidden className="text-cream-muted">
-                        +
-                      </span>
-                    )}
-                  </button>
-                  {isExpanded && feature.title ? (
-                    <div className="flex flex-col gap-2 pb-6">
-                      <h3 className="font-display text-xl leading-tight font-black text-cream uppercase lg:text-2xl">
-                        {feature.title}
-                      </h3>
-                      <p className="font-body text-sm leading-[21px] text-cream">
-                        {feature.body}
-                      </p>
-                      {feature.screenshot ? (
-                        <img
-                          src={feature.screenshot.mobile}
-                          alt=""
-                          className="mt-4 w-full lg:hidden"
-                        />
-                      ) : null}
-                    </div>
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between py-4 text-left font-body text-sm leading-[21px] font-medium text-stencil uppercase disabled:cursor-default">
+                      {feature.label}
+                      {isInteractive ? (
+                        <span aria-hidden>{isExpanded ? '−' : '+'}</span>
+                      ) : (
+                        <span aria-hidden className="text-cream-muted">
+                          +
+                        </span>
+                      )}
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  {isInteractive ? (
+                    <Accordion.Content className="overflow-hidden data-open:animate-accordion-down data-closed:animate-accordion-up">
+                      <div className="flex flex-col gap-2 pb-6">
+                        <h3 className="font-display text-xl leading-tight font-black text-cream uppercase lg:text-2xl">
+                          {feature.title}
+                        </h3>
+                        <p className="font-body text-sm leading-[21px] text-cream">
+                          {feature.body}
+                        </p>
+                        {feature.screenshot ? (
+                          <img
+                            src={feature.screenshot.mobile}
+                            alt=""
+                            className="mt-4 w-full lg:hidden"
+                          />
+                        ) : null}
+                      </div>
+                    </Accordion.Content>
                   ) : null}
-                </div>
+                </Accordion.Item>
               );
             })}
-          </div>
+          </Accordion.Root>
         </div>
 
         {expandedFeature.screenshot ? (
-          <img
-            src={expandedFeature.screenshot.desktop}
-            alt=""
-            className="hidden aspect-[201/437] mt-4 w-full max-w-[318px] justify-self-end lg:block"
-          />
+          <div className="flex justify-center">
+            <img
+              src={expandedFeature.screenshot.desktop}
+              alt=""
+              className="mt-4 hidden aspect-[201/437] w-full max-w-[318px] justify-self-end lg:block"
+            />
+          </div>
         ) : null}
       </div>
     </section>
