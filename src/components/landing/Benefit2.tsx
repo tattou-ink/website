@@ -1,6 +1,6 @@
 import { m } from '@/paraglide/messages';
 
-import { CompareColumn, Eyebrow, Heading, Highlight } from './ui';
+import { CompareColumns, Eyebrow, Heading, Highlight } from './ui';
 
 const beforeItems = [
   m.landing_benefit2_before_1(),
@@ -54,17 +54,16 @@ export function Benefit2() {
           </div>
 
           <div className="flex w-full flex-col gap-4">
-            <CompareColumn
-              variant="before"
+            <CompareColumns
               tone="light"
-              label={m.landing_benefit2_before_label()}
-              items={beforeItems}
-            />
-            <CompareColumn
-              variant="after"
-              tone="light"
-              label={m.landing_benefit2_after_label()}
-              items={afterItems}
+              before={{
+                label: m.landing_benefit2_before_label(),
+                items: beforeItems,
+              }}
+              after={{
+                label: m.landing_benefit2_after_label(),
+                items: afterItems,
+              }}
             />
           </div>
 

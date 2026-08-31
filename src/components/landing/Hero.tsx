@@ -122,20 +122,20 @@ export function Hero() {
       <img
         src="/images/landing/hero-photo.jpg"
         alt=""
-        className="absolute inset-0 -z-10 size-full object-cover object-[70%_30%] lg:object-center"
+        className="absolute inset-0 -z-10 size-full object-cover object-[47%_30%] lg:object-center"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(28,25,23,0.55),rgba(28,25,23,0)_60%)] lg:hidden" />
 
       <Header />
 
-      <div className="relative z-10 flex flex-1 items-center px-5 lg:px-20">
-        <div className="flex max-w-[362px] flex-col items-start gap-8 lg:max-w-[519px]">
+      <div className="relative z-10 flex flex-1 px-5 pt-40 lg:px-20 lg:pt-60">
+        <div className="flex flex-col items-start gap-8 lg:max-w-140">
           <div className="flex flex-col items-start gap-6">
             <div className="flex flex-col items-start gap-1">
               <p className="font-script text-[18px] text-cream lg:text-[28px]">
                 {m.landing_hero_script()}
               </p>
-              <h1 className="font-display text-[40px] leading-[40px] font-black text-cream lg:text-[70px] lg:leading-[70px]">
+              <h1 className="font-display text-[40px] leading-[40px] font-black text-cream uppercase lg:text-[70px] lg:leading-[70px]">
                 {m.landing_hero_title_line1()}
                 <br />
                 <Highlight tone="brand">

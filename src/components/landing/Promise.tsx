@@ -12,7 +12,7 @@ const items = [
 
 export function PromiseSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
+    <section className="relative flex w-full flex-col gap-8 overflow-hidden bg-panel pb-16 lg:pt-8 lg:pb-24">
       <img
         src="/images/landing/problem/paint-blob.png"
         alt=""
@@ -26,16 +26,8 @@ export function PromiseSection() {
         className="pointer-events-none absolute bottom-8 left-0 w-20 -rotate-90 lg:hidden"
       />
 
-      <div className="relative flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-16">
-        <div className="relative aspect-square w-full shrink-0 lg:w-[46%]">
-          <img
-            src="/images/landing/promise/photo.jpg"
-            alt=""
-            className="size-full object-cover"
-          />
-        </div>
-
-        <div className="flex flex-col items-start gap-6">
+      <div className="relative flex flex-col items-center gap-8 lg:flex-row-reverse lg:items-center lg:gap-16">
+        <div className="flex flex-col items-start gap-6 px-5 lg:px-20">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow>{m.landing_promise_eyebrow()}</Eyebrow>
             <Heading className="text-ink">
@@ -57,6 +49,13 @@ export function PromiseSection() {
           <p className="font-body text-sm leading-[21px] font-semibold text-stencil uppercase">
             {m.landing_promise_kicker()}
           </p>
+        </div>
+        <div className="relative aspect-square max-lg:h-90 w-full shrink-0 lg:w-[46%]">
+          <img
+            src="/images/landing/promise/photo.jpg"
+            alt=""
+            className="size-full object-cover"
+          />
         </div>
       </div>
     </section>

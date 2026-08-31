@@ -46,21 +46,20 @@ export function Problem() {
           </p>
         </div>
 
-        <div className="relative -mx-5 h-[298px] border-y-2 border-stencil lg:hidden">
+        <div className="relative -mx-5 h-75 border-y-2 border-stencil lg:hidden overflow-hidden">
           <img
             src="/images/landing/problem/photo.jpg"
             alt=""
-            className="h-full w-full object-cover object-[30%_25%]"
+            className="h-full w-full object-cover object-[60%_0%] scale-150 -translate-x-20 translate-y-10"
           />
         </div>
-
         <div className="relative hidden shrink-0 lg:block">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <img
               src="/images/landing/problem/photo.jpg"
               alt=""
-              className="h-full w-full object-cover object-[30%_25%]"
+              className="h-full w-full object-cover object-[80%_25%]"
             />
           </div>
         </div>

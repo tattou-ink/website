@@ -17,7 +17,7 @@ export function Heading({
 }) {
   return (
     <h2
-      className={`font-display text-[32px] leading-[34px] font-black lg:text-[48px] lg:leading-[50px] ${className}`}
+      className={`font-display text-[32px] leading-[34px] font-black uppercase lg:text-[48px] lg:leading-[50px] ${className}`}
     >
       {children}
     </h2>
@@ -78,6 +78,35 @@ export function CompareColumn({
           <li key={item}>{item}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+export function CompareColumns({
+  tone,
+  before,
+  after,
+}: {
+  tone?: 'dark' | 'light';
+  before: { label: string; items: string[] };
+  after: { label: string; items: string[] };
+}) {
+  return (
+    <div className="grid grid-cols-12 gap-4">
+      <CompareColumn
+        tone={tone}
+        label={before.label}
+        items={before.items}
+        variant="before"
+        className='col-span-12 lg:col-span-6'
+      />
+      <CompareColumn
+        tone={tone}
+        label={after.label}
+        items={after.items}
+        variant="after"
+        className='col-span-12 lg:col-span-6'
+      />
     </div>
   );
 }

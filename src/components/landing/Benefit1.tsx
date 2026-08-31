@@ -1,7 +1,13 @@
 import { m } from '@/paraglide/messages';
 
 import { SECTION_IDS } from './anchors';
-import { CompareColumn, Eyebrow, Heading, Highlight } from './ui';
+import {
+  CompareColumn,
+  CompareColumns,
+  Eyebrow,
+  Heading,
+  Highlight,
+} from './ui';
 
 const beforeItems = [
   m.landing_benefit1_before_1(),
@@ -39,17 +45,15 @@ export function Benefit1() {
         </div>
 
         <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-center">
-          <CompareColumn
-            variant="before"
-            label={m.landing_benefit1_before_label()}
-            items={beforeItems}
-            className="lg:max-w-[300px]"
-          />
-          <CompareColumn
-            variant="after"
-            label={m.landing_benefit1_after_label()}
-            items={afterItems}
-            className="lg:max-w-[425px]"
+          <CompareColumns
+            before={{
+              label: m.landing_benefit1_before_label(),
+              items: beforeItems,
+            }}
+            after={{
+              label: m.landing_benefit1_after_label(),
+              items: afterItems,
+            }}
           />
         </div>
 
