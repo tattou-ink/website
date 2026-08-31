@@ -11,11 +11,14 @@ import { Problem } from '@/components/landing/Problem';
 import { PromiseSection } from '@/components/landing/Promise';
 import { Testimony } from '@/components/landing/Testimony';
 import { Ticker } from '@/components/landing/Ticker';
+import { useActiveSectionHash } from '@/components/landing/useActiveSectionHash';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({ component: App });
 
 function App() {
+  useActiveSectionHash();
+
   return (
     <main>
       <Hero />
