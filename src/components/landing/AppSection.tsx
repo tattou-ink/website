@@ -18,14 +18,46 @@ const features: Feature[] = [
     title: m.landing_app_feature_1_title(),
     body: m.landing_app_feature_1_body(),
     screenshot: {
-      desktop: '/images/landing/app/screen-rendezvous-desktop.jpg',
-      mobile: '/images/landing/app/screen-rendezvous-mobile.jpg',
+      desktop: '/images/landing/app/calendar.png',
+      mobile: '/images/landing/app/calendar.png',
     },
   },
-  { label: m.landing_app_feature_2_label() },
-  { label: m.landing_app_feature_3_label() },
-  { label: m.landing_app_feature_4_label() },
-  { label: m.landing_app_feature_5_label() },
+  {
+    label: m.landing_app_feature_2_label(),
+    title: m.landing_app_feature_2_title(),
+    body: m.landing_app_feature_2_body(),
+    screenshot: {
+      desktop: '/images/landing/app/session.png',
+      mobile: '/images/landing/app/session.png',
+    },
+  },
+  {
+    label: m.landing_app_feature_3_label(),
+    title: m.landing_app_feature_3_title(),
+    body: m.landing_app_feature_3_body(),
+    screenshot: {
+      desktop: '/images/landing/app/flashbook.png',
+      mobile: '/images/landing/app/flashbook.png',
+    },
+  },
+  {
+    label: m.landing_app_feature_4_label(),
+    title: m.landing_app_feature_4_title(),
+    body: m.landing_app_feature_4_body(),
+    screenshot: {
+      desktop: '/images/landing/app/session.png', // TODO: Replace with form builder screenshot.
+      mobile: '/images/landing/app/session.png', // TODO: Replace with form builder screenshot.
+    },
+  },
+  {
+    label: m.landing_app_feature_5_label(),
+    title: m.landing_app_feature_5_title(),
+    body: m.landing_app_feature_5_body(),
+    screenshot: {
+      desktop: '/images/landing/app/flashbook-configuration.png',
+      mobile: '/images/landing/app/flashbook-configuration.png',
+    },
+  },
   { label: m.landing_app_feature_6_label() },
   { label: m.landing_app_feature_7_label() },
 ];

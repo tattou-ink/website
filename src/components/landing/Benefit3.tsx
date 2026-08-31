@@ -27,24 +27,18 @@ export function Benefit3() {
           </p>
         </div>
 
-        <div className="relative aspect-[402/758] w-full lg:aspect-[708/822] lg:w-[54%]">
+        <div className="relative aspect-[402/900] w-full lg:block lg:aspect-[708/822] lg:w-[54%]">
           <img
-            src="/images/landing/benefit3/mobile.jpg"
+            src="/images/landing/benefit3/photo-desktop.jpg"
             alt=""
-            className="size-full object-cover lg:hidden"
+            className="size-full object-cover"
           />
-          <div className="relative hidden size-full lg:block">
-            <img
-              src="/images/landing/benefit3/photo-desktop.jpg"
-              alt=""
-              className="size-full object-cover"
-            />
-            <img
-              src="/images/landing/benefit3/iphone.png"
-              alt=""
-              className="absolute top-[11.7%] left-[26.7%] w-[42.7%]"
-            />
-          </div>
+          <div className="absolute inset-0 bg-linear-to-b from-stencil-dark to-transparent to-10% lg:bg-linear-to-l lg:to-20%" />
+          <img
+            src="/images/landing/benefit3/profile-with-frame.png"
+            alt=""
+            className="absolute top-1/2 left-1/2 w-[80%] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:transform lg:top-[11.7%] lg:left-[26.7%] lg:w-[42.7%]"
+          />
         </div>
       </div>
     </section>
