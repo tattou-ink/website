@@ -121,12 +121,23 @@ export function CtaButton({
   children,
   variant = 'light',
   className = '',
+  disabled = false,
 }: {
   href: string;
   children: ReactNode;
   variant?: keyof typeof ctaButtonVariants;
   className?: string;
+  disabled?: boolean;
 }) {
+  if (disabled) {
+    return (
+      <span
+        className={`inline-flex items-center justify-center border-2 px-6 py-4 font-body text-sm font-medium uppercase ${ctaButtonVariants[variant]} ${className} opacity-40`}
+      >
+        {children}
+      </span>
+    );
+  }
   return (
     <a
       href={href}

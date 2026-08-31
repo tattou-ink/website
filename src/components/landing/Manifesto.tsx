@@ -18,7 +18,7 @@ export function Manifesto() {
             <p>{m.landing_manifesto_body_1()}</p>
             <p>{m.landing_manifesto_body_2()}</p>
           </div>
-          <p className="text-lg text-cream lg:text-xl">
+          <p className="text-xl text-cream lg:text-2xl">
             <span className="font-script">
               {m.landing_manifesto_baseline_prefix()}{' '}
             </span>

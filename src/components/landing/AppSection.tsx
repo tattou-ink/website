@@ -71,7 +71,7 @@ export function AppSection() {
       id={SECTION_IDS.app}
       className="w-full bg-ink px-5 py-16 lg:px-20 lg:py-24"
     >
-      <div className="grid gap-12 lg:grid-cols-[628px_1fr] lg:items-center lg:gap-16">
+      <div className="grid gap-12 lg:grid-cols-[628px_1fr] lg:items-start lg:gap-16">
         <div className="flex flex-col items-start gap-8">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow>{m.landing_app_eyebrow()}</Eyebrow>
@@ -136,7 +136,7 @@ export function AppSection() {
           <img
             src={expandedFeature.screenshot.desktop}
             alt=""
-            className="hidden w-full max-w-[318px] justify-self-end lg:block"
+            className="hidden aspect-[201/437] mt-4 w-full max-w-[318px] justify-self-end lg:block"
           />
         ) : null}
       </div>

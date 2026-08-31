@@ -23,16 +23,18 @@ function PriceCard({
   price,
   badge,
   highlighted = false,
+  disabled = false,
 }: {
   name: string;
   note: string;
   price: string;
   badge?: string;
   highlighted?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <div
-      className={`relative flex w-full flex-col items-start gap-8 rounded border p-8 ${
+      className={`relative flex w-full min-w-60 flex-col items-start gap-8 rounded border p-8 ${
         highlighted ? 'border-stencil' : 'border-cream-muted'
       }`}
     >
@@ -50,8 +52,14 @@ function PriceCard({
           {price}
         </p>
       </div>
-      <CtaButton href={`#${SECTION_IDS.join}`} variant="dark">
-        {m.landing_pricing_cta()}
+      <CtaButton
+        disabled={disabled}
+        href={`#${SECTION_IDS.join}`}
+        variant="dark"
+      >
+        {disabled
+          ? m.landing_pricing_disabled_label()
+          : m.landing_pricing_cta()}
       </CtaButton>
     </div>
   );
@@ -94,13 +102,14 @@ export function Pricing() {
               name={m.landing_pricing_monthly_name()}
               note={m.landing_pricing_monthly_note()}
               price={m.landing_pricing_monthly_price()}
+              badge={m.landing_pricing_monthly_badge()}
+              highlighted
             />
             <PriceCard
               name={m.landing_pricing_yearly_name()}
               note={m.landing_pricing_yearly_note()}
               price={m.landing_pricing_yearly_price()}
-              badge={m.landing_pricing_yearly_badge()}
-              highlighted
+              disabled
             />
           </div>
 
