@@ -4,6 +4,7 @@ import { m } from '@/paraglide/messages';
 
 import { Eyebrow, Heading, Highlight } from './ui';
 
+// TODO: Use real testimonials when we have them.
 const testimonials = [
   {
     quote: m.landing_testimony_1_quote,

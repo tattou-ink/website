@@ -9,7 +9,7 @@ import { Manifesto } from '@/components/landing/Manifesto';
 import { Pricing } from '@/components/landing/Pricing';
 import { Problem } from '@/components/landing/Problem';
 import { PromiseSection } from '@/components/landing/Promise';
-import { Testimony } from '@/components/landing/Testimony';
+// import { Testimony } from '@/components/landing/Testimony';
 import { Ticker } from '@/components/landing/Ticker';
 import { useActiveSectionHash } from '@/components/landing/useActiveSectionHash';
 import { createFileRoute } from '@tanstack/react-router';
@@ -28,7 +28,7 @@ function App() {
       <Benefit1 />
       <Benefit2 />
       <Benefit3 />
-      <Testimony />
+      {/* <Testimony /> */}
       <AppSection />
       <Pricing />
       <Manifesto />
