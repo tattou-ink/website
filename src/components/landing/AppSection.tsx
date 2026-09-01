@@ -46,8 +46,8 @@ const features: Feature[] = [
     title: m.landing_app_feature_4_title(),
     body: m.landing_app_feature_4_body(),
     screenshot: {
-      desktop: '/images/landing/app/session.png', // TODO: Replace with form builder screenshot.
-      mobile: '/images/landing/app/session.png', // TODO: Replace with form builder screenshot.
+      desktop: '/images/landing/app/forms.png',
+      mobile: '/images/landing/app/forms.png',
     },
   },
   {
@@ -59,8 +59,24 @@ const features: Feature[] = [
       mobile: '/images/landing/app/flashbook-configuration.png',
     },
   },
-  { label: m.landing_app_feature_6_label() },
-  { label: m.landing_app_feature_7_label() },
+  {
+    label: m.landing_app_feature_6_label(),
+    title: m.landing_app_feature_6_title(),
+    body: m.landing_app_feature_6_body(),
+    screenshot: {
+      desktop: '/images/landing/app/studios.png',
+      mobile: '/images/landing/app/studios.png',
+    },
+  },
+  {
+    label: m.landing_app_feature_7_label(),
+    title: m.landing_app_feature_7_title(),
+    body: m.landing_app_feature_7_body(),
+    screenshot: {
+      desktop: '/images/landing/app/chat.png',
+      mobile: '/images/landing/app/chat.png',
+    },
+  },
 ];
 
 export function AppSection() {
