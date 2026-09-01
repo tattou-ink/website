@@ -7,11 +7,12 @@
   "landing_nav_pricing": "Pricing",
   "landing_nav_join": "Join",
   "landing_nav_blog": "Blog",
+  "landing_nav_open_app": "Log in",
   "landing_hero_script": "focus on the ink",
   "landing_hero_title_line1": "You tattoo.",
   "landing_hero_title_line2": "We handle the rest.",
   "landing_hero_subline": "Less admin. More creation.",
-  "landing_hero_cta": "Join the beta",
+  "landing_hero_cta": "Learn more",
   "landing_ticker_text": "APPOINTMENTS — FLASHBOOK — AUTO REMINDERS — TRACKED PAYMENTS · Stripe — IOS · ANDROID · WEB APP — FOCUS ON THE INK — EARLY ACCESS — ",
   "landing_problem_eyebrow": "01 - The daily grind",
   "landing_problem_title_line1": "The day is over.",
@@ -118,6 +119,9 @@
   "landing_app_feature_7_label": "07 / Chat",
   "landing_app_feature_7_title": "Discuss projects in the chat.",
   "landing_app_feature_7_body": "No need to remember if they got in touch with you through email, DMs or Whatsapp. It's in the chat, just like that.",
+  "landing_app_feature_8_label": "08 / Your website",
+  "landing_app_feature_8_title": "Get your own website.",
+  "landing_app_feature_8_body": "Your work is available at yourname.tattou.ink. No need to build a website, we take care of it.",
   "landing_pricing_eyebrow": "06 - It's simple",
   "landing_pricing_title_highlight": "One plan.",
   "landing_pricing_title_rest": "No headaches.",
@@ -152,5 +156,7 @@
   "landing_footer_privacy": "Privacy",
   "landing_footer_legal_notice": "Legal notice",
   "landing_footer_terms": "Terms",
-  "landing_footer_copyright": "© 2026 Tattou.ink"
+  "landing_footer_copyright": "© 2026 Tattou.ink",
+  "major_any_newt_fry": "tattou.ink | Tattoo admin made simple",
+  "wise_this_panther_race": "Publish your flashbook, keep your clients organized, plan guests abroad, all in one app."
 }

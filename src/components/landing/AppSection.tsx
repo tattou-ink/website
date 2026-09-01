@@ -77,6 +77,15 @@ const features: Feature[] = [
       mobile: '/images/landing/app/chat.png',
     },
   },
+  {
+    label: m.landing_app_feature_8_label(),
+    title: m.landing_app_feature_8_title(),
+    body: m.landing_app_feature_8_body(),
+    screenshot: {
+      desktop: '/images/landing/app/website.png',
+      mobile: '/images/landing/app/website.png',
+    },
+  },
 ];
 
 export function AppSection() {
@@ -158,12 +167,32 @@ export function AppSection() {
         </div>
 
         {expandedFeature.screenshot ? (
-          <div className="flex justify-center">
-            <img
-              src={expandedFeature.screenshot.desktop}
-              alt=""
-              className="mt-4 hidden aspect-[201/437] w-full max-w-[318px] justify-self-end md:block"
-            />
+          <div className="hidden justify-center md:flex">
+            <div className="relative aspect-[201/437] w-full max-w-[318px] overflow-hidden">
+              <div
+                className="flex h-full transition-transform duration-500 ease-out"
+                style={{
+                  width: `${features.length * 100}%`,
+                  transform: `translateX(-${(100 / features.length) * expandedIndex}%)`,
+                }}
+              >
+                {features.map((feature) => (
+                  <div
+                    key={feature.label}
+                    className="h-full shrink-0"
+                    style={{ width: `${100 / features.length}%` }}
+                  >
+                    {feature.screenshot ? (
+                      <img
+                        src={feature.screenshot.desktop}
+                        alt=""
+                        className="size-full object-cover"
+                      />
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         ) : null}
       </div>

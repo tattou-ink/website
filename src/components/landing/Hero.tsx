@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { m } from '@/paraglide/messages';
 import type { Locale } from '@/paraglide/runtime';
-import { getLocale, setLocale } from '@/paraglide/runtime';
+import { getLocale, localizeHref, setLocale } from '@/paraglide/runtime';
 import { X } from 'lucide-react';
 
 import { SECTION_IDS } from './anchors';
@@ -15,8 +15,9 @@ const navLinks = [
   { label: m.landing_nav_join, href: `#${SECTION_IDS.join}` },
   {
     label: m.landing_nav_blog,
-    href: '/blog/what-to-ask-customers-before-tattoo-session',
+    href: localizeHref('/blog/what-to-ask-customers-before-tattoo-session'),
   },
+  { label: m.landing_nav_open_app, href: 'https://pro.tattou.ink' },
 ];
 
 function LangSwitcher({ className = '' }: { className?: string }) {
@@ -56,8 +57,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between px-4 transition-colors duration-300 lg:px-12 ${
-        isScrolled ? 'bg-ink shadow-md' : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-20 flex items-center justify-between px-4 transition-all duration-300 lg:px-12 ${
+        isScrolled ? 'h-16 bg-ink shadow-md' : 'h-24 bg-transparent'
       }`}
     >
       <a
@@ -109,7 +110,9 @@ export function Header() {
           <div
             aria-hidden="true"
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-x-0 top-24 bottom-0 z-10 bg-ink/60 lg:hidden"
+            className={`fixed inset-x-0 bottom-0 z-10 bg-ink/60 transition-all duration-300 lg:hidden ${
+              isScrolled ? 'top-16' : 'top-24'
+            }`}
           />
           <div className="absolute top-full right-0 left-0 z-20 flex flex-col gap-6 bg-ink px-4 py-8 lg:hidden">
             <nav className="flex flex-col gap-4">
@@ -164,7 +167,7 @@ export function Hero() {
               {m.landing_hero_subline()}
             </p>
           </div>
-          <CtaButton href={`#${SECTION_IDS.join}`}>
+          <CtaButton href={`#${SECTION_IDS.features}`}>
             {m.landing_hero_cta()}
           </CtaButton>
         </div>

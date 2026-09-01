@@ -12,9 +12,26 @@ import { PromiseSection } from '@/components/landing/Promise';
 // import { Testimony } from '@/components/landing/Testimony';
 import { Ticker } from '@/components/landing/Ticker';
 import { useActiveSectionHash } from '@/components/landing/useActiveSectionHash';
+import { m } from '@/paraglide/messages';
 import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/')({ component: App });
+export const Route = createFileRoute('/')({
+  component: App,
+  head: () => {
+    const title = m.major_any_newt_fry();
+    const description = m.wise_this_panther_race();
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: description },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
+      ],
+    };
+  },
+});
 
 function App() {
   useActiveSectionHash();
