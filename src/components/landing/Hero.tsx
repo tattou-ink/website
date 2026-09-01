@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { m } from '@/paraglide/messages';
 import type { Locale } from '@/paraglide/runtime';
@@ -43,11 +43,23 @@ function LangSwitcher({ className = '' }: { className?: string }) {
   );
 }
 
-function Header() {
+export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 32);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-20 flex h-24 items-center justify-between px-4 lg:px-12">
+    <header
+      className={`fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between px-4 transition-colors duration-300 lg:px-12 ${
+        isScrolled ? 'bg-ink shadow-md' : 'bg-transparent'
+      }`}
+    >
       <a
         href={`#${SECTION_IDS.top}`}
         className="block h-[18px] w-auto shrink-0 lg:h-[41px]"
@@ -93,21 +105,28 @@ function Header() {
       </button>
 
       {menuOpen ? (
-        <div className="absolute top-full right-0 left-0 flex flex-col gap-6 bg-ink px-4 py-8 lg:hidden">
-          <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="font-body text-base leading-[26px] font-bold text-cream uppercase"
-              >
-                {link.label()}
-              </a>
-            ))}
-          </nav>
-          <LangSwitcher />
-        </div>
+        <>
+          <div
+            aria-hidden="true"
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-x-0 top-24 bottom-0 z-10 bg-ink/60 lg:hidden"
+          />
+          <div className="absolute top-full right-0 left-0 z-20 flex flex-col gap-6 bg-ink px-4 py-8 lg:hidden">
+            <nav className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="font-body text-base leading-[26px] font-bold text-cream uppercase"
+                >
+                  {link.label()}
+                </a>
+              ))}
+            </nav>
+            <LangSwitcher />
+          </div>
+        </>
       ) : null}
     </header>
   );
@@ -125,8 +144,6 @@ export function Hero() {
         className="absolute inset-0 -z-10 size-full object-cover object-[47%_30%] lg:object-center"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(28,25,23,0.55),rgba(28,25,23,0)_60%)] lg:hidden" />
-
-      <Header />
 
       <div className="relative z-10 flex flex-1 px-5 pt-40 lg:px-20 lg:pt-60">
         <div className="flex flex-col items-start gap-8 lg:max-w-140">
