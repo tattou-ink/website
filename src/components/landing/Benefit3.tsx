@@ -5,8 +5,8 @@ import { Eyebrow, Heading, Highlight } from './ui';
 export function Benefit3() {
   return (
     <section className="relative w-full overflow-hidden bg-ink">
-      <div className="flex flex-col lg:flex-row-reverse lg:items-center">
-        <div className="flex flex-col items-start gap-8 px-5 py-16 lg:w-[46%] lg:px-20 lg:py-24">
+      <div className="flex flex-col md:flex-row-reverse md:items-center">
+        <div className="flex flex-col items-start gap-8 px-5 py-16 md:w-[60%] lg:w-[46%] md:px-20 md:py-24">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow>{m.landing_benefit3_eyebrow()}</Eyebrow>
             <Heading className="text-cream uppercase">
@@ -27,7 +27,7 @@ export function Benefit3() {
           </p>
         </div>
 
-        <div className="relative aspect-[402/900] w-full lg:block lg:aspect-[708/822] lg:w-[54%]">
+        <div className="relative aspect-[402/900] w-full lg:block lg:aspect-[708/822] md:w-[40%] lg:w-[54%]">
           <img
             src="/images/landing/benefit3/photo-desktop.jpg"
             alt=""
