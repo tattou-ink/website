@@ -1,6 +1,7 @@
 import { m } from '@/paraglide/messages';
 
 import { Eyebrow, Heading, Highlight } from './ui';
+import { cn } from '@/lib/utils';
 
 export function Problem() {
   return (
@@ -9,19 +10,20 @@ export function Problem() {
         src="/images/landing/problem/paint-stroke.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute -top-16 -left-32 w-72 rotate-[172deg] opacity-90 lg:-top-20 lg:-left-24 lg:w-[300px]"
+        className={cn(
+          'pointer-events-none absolute',
+          '-top-8 -right-36 w-72 rotate-[45deg]',
+          'lg:-top-8 lg:-right-64 lg:w-96',
+        )}
       />
       <img
         src="/images/landing/problem/paint-blob.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute top-0 -right-10 hidden w-40 lg:block"
-      />
-      <img
-        src="/images/landing/problem/paint-blob.png"
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute right-2 -bottom-6 w-16 lg:hidden"
+        className={cn(
+          'pointer-events-none absolute hidden lg:block',
+          'bottom-0 -left-16 w-40',
+        )}
       />
 
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -46,11 +48,11 @@ export function Problem() {
           </p>
         </div>
 
-        <div className="relative -mx-5 h-75 md:h-100 border-y-2 border-stencil lg:hidden overflow-hidden">
+        <div className="relative -mx-5 h-75 overflow-hidden border-y-2 border-stencil md:h-100 lg:hidden">
           <img
             src="/images/landing/problem/photo.jpg"
             alt=""
-            className="h-full w-full object-cover object-[60%_0%] scale-150 -translate-x-20 translate-y-10"
+            className="h-full w-full -translate-x-20 translate-y-10 scale-150 object-cover object-[60%_0%]"
           />
         </div>
         <div className="relative hidden shrink-0 lg:block">

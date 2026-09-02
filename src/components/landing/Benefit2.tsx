@@ -1,6 +1,7 @@
 import { m } from '@/paraglide/messages';
 
 import { CompareColumns, Eyebrow, Heading, Highlight } from './ui';
+import { cn } from '@/lib/utils';
 
 const beforeItems = [
   m.landing_benefit2_before_1(),
@@ -20,22 +21,24 @@ export function Benefit2() {
   return (
     <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
       <img
-        src="/images/landing/problem/paint-blob.png"
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute top-0 left-0 hidden w-40 lg:block"
-      />
-      <img
         src="/images/landing/problem/paint-stroke.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute right-0 bottom-24 hidden w-72 rotate-180 lg:block"
+        className={cn(
+          'pointer-events-none absolute',
+          '-top-4 -left-8 w-32 rotate-[0deg]',
+          'lg:-top-8 lg:-left-12 lg:w-64',
+        )}
       />
       <img
-        src="/images/landing/problem/paint-blob.png"
+        src="/images/landing/promise/paint-tattou.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute top-0 right-8 w-12 lg:hidden"
+        className={cn(
+          'pointer-events-none absolute',
+          'hidden',
+          'lg:-right-48 lg:-bottom-48 lg:block lg:w-150 lg:rotate-[-10deg]',
+        )}
       />
 
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">

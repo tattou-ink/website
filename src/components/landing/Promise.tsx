@@ -1,6 +1,7 @@
 import { m } from '@/paraglide/messages';
 
 import { Eyebrow, Heading, Highlight } from './ui';
+import { cn } from '@/lib/utils';
 
 const items = [
   m.landing_promise_item_1,
@@ -14,18 +15,15 @@ export function PromiseSection() {
   return (
     <section className="relative flex w-full flex-col gap-8 overflow-hidden bg-panel pb-16 lg:pt-8 lg:pb-24">
       <img
-        src="/images/landing/problem/paint-blob.png"
+        src="/images/landing/promise/paint-tattou.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute right-4 bottom-24 hidden w-32 rotate-180 lg:block"
+        className={cn(
+          'pointer-events-none absolute',
+          '-bottom-16 -right-36 w-96 rotate-[-15deg]',
+          'lg:-bottom-32 lg:-right-92 lg:w-150 lg:rotate-[0deg]',
+        )}
       />
-      <img
-        src="/images/landing/problem/paint-stroke.png"
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute bottom-8 left-0 w-20 -rotate-90 lg:hidden"
-      />
-
       <div className="relative flex flex-col items-center gap-8 lg:flex-row-reverse lg:items-center lg:gap-16">
         <div className="flex flex-col items-start gap-6 px-5 lg:px-20">
           <div className="flex flex-col items-start gap-6">
@@ -50,7 +48,7 @@ export function PromiseSection() {
             {m.landing_promise_kicker()}
           </p>
         </div>
-        <div className="relative aspect-square max-lg:h-90 w-full shrink-0 lg:w-[46%]">
+        <div className="relative aspect-square w-full shrink-0 max-lg:h-90 lg:w-[46%]">
           <img
             src="/images/landing/promise/photo.jpg"
             alt=""
