@@ -2,6 +2,7 @@ import { m } from '@/paraglide/messages';
 
 import { Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
+import { ParaglideMessage } from '@inlang/paraglide-js-react';
 
 const items = [
   m.landing_promise_item_1,
@@ -20,8 +21,8 @@ export function PromiseSection() {
         aria-hidden
         className={cn(
           'pointer-events-none absolute',
-          '-bottom-16 -right-36 w-96 rotate-[-15deg]',
-          'lg:-bottom-32 lg:-right-92 lg:w-150 lg:rotate-[0deg]',
+          '-right-36 -bottom-16 w-96 rotate-[-15deg]',
+          'lg:-right-92 lg:-bottom-32 lg:w-150 lg:rotate-[0deg]',
         )}
       />
       <div className="relative flex flex-col items-center gap-8 lg:flex-row-reverse lg:items-center lg:gap-16">
@@ -37,12 +38,19 @@ export function PromiseSection() {
           </div>
           <div className="flex flex-col gap-1 font-body text-base leading-[25px] text-ink lg:text-[18px] lg:leading-[24px]">
             <p className="mb-3">{m.landing_promise_intro()}</p>
-            <ul>
+            <ul className='list-["•"] pl-2 *:pl-4 *:marker:text-stencil'>
               {items.map((item) => (
-                <li key={item()}>• {item()}</li>
+                <li key={item()}>
+                  <b>{item()}</b>
+                </li>
               ))}
             </ul>
-            <p className="mt-3">{m.landing_promise_outro()}</p>
+            <p className="mt-3">
+              <ParaglideMessage
+                message={m.landing_promise_outro}
+                markup={{ b: ({ children }) => <b>{children}</b> }}
+              />
+            </p>
           </div>
           <p className="font-body text-sm leading-[21px] font-semibold text-stencil uppercase">
             {m.landing_promise_kicker()}

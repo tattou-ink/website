@@ -1,3 +1,4 @@
+import { ParaglideMessage } from '@inlang/paraglide-js-react';
 import { m } from '@/paraglide/messages';
 
 import { Eyebrow, Heading, Highlight } from './ui';
@@ -27,7 +28,7 @@ export function Problem() {
       />
 
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-col items-start gap-6 lg:max-w-[628px] lg:gap-8">
+        <div className="flex flex-col items-start gap-6 lg:max-w-[680px] lg:gap-8">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow>{m.landing_problem_eyebrow()}</Eyebrow>
             <Heading className="text-ink">
@@ -39,9 +40,39 @@ export function Problem() {
             </Heading>
           </div>
           <div className="flex flex-col gap-4 font-body text-base leading-[25px] text-ink lg:text-[18px] lg:leading-[24px]">
-            <p>{m.landing_problem_body_1()}</p>
-            <p>{m.landing_problem_body_2()}</p>
-            <p>{m.landing_problem_body_3()}</p>
+            <p>
+              <ParaglideMessage
+                message={m.landing_problem_body_1}
+                markup={{
+                  b: ({ children }) => <b>{children}</b>,
+                  br: () => <br />,
+                }}
+              />
+            </p>
+            <p>
+              <i>{m.landing_problem_body_2()}</i>
+            </p>
+            <ul className='list-["•"] pl-2 *:pl-4 *:marker:text-stencil'>
+              <ParaglideMessage
+                message={m.landing_problem_body_3}
+                markup={{
+                  li: ({ children }) => (
+                    <li>
+                      <b>{children}</b>
+                    </li>
+                  ),
+                }}
+              />
+            </ul>
+            <p>
+              <ParaglideMessage
+                message={m.landing_problem_body_4}
+                markup={{
+                  b: ({ children }) => <b>{children}</b>,
+                  br: () => <br />,
+                }}
+              />
+            </p>
           </div>
           <p className="font-display text-2xl leading-[26px] font-bold text-stencil uppercase lg:text-[34px] lg:leading-[37px]">
             {m.landing_problem_highlight()}
