@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { m } from '@/paraglide/messages';
 import type { Locale } from '@/paraglide/runtime';
-import { getLocale, localizeHref, setLocale } from '@/paraglide/runtime';
+import { getLocale, setLocale } from '@/paraglide/runtime';
 import { X } from 'lucide-react';
 
 import { SECTION_IDS } from './anchors';
@@ -13,10 +13,10 @@ const navLinks = [
   { label: m.landing_nav_features, href: `#${SECTION_IDS.features}` },
   { label: m.landing_nav_pricing, href: `#${SECTION_IDS.pricing}` },
   { label: m.landing_nav_join, href: `#${SECTION_IDS.join}` },
-  {
-    label: m.landing_nav_blog,
-    href: localizeHref('/blog/what-to-ask-customers-before-tattoo-session'),
-  },
+  // {
+  //   label: m.landing_nav_blog,
+  //   href: localizeHref('/blog/what-to-ask-customers-before-tattoo-session'),
+  // },
   { label: m.landing_nav_open_app, href: 'https://pro.tattou.ink' },
 ];
 
