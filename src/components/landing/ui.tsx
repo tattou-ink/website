@@ -122,28 +122,30 @@ export function CtaButton({
   variant = 'light',
   className = '',
   disabled = false,
+  onClick,
 }: {
-  href: string;
+  href?: string;
   children: ReactNode;
   variant?: keyof typeof ctaButtonVariants;
   className?: string;
   disabled?: boolean;
+  onClick?: () => void;
 }) {
+  const sharedClassName = `inline-flex items-center justify-center border-2 px-6 py-4 font-body text-sm font-medium uppercase ${ctaButtonVariants[variant]} ${className}`;
+
   if (disabled) {
+    return <span className={`${sharedClassName} opacity-40`}>{children}</span>;
+  }
+  if (href) {
     return (
-      <span
-        className={`inline-flex items-center justify-center border-2 px-6 py-4 font-body text-sm font-medium uppercase ${ctaButtonVariants[variant]} ${className} opacity-40`}
-      >
+      <a href={href} onClick={onClick} className={sharedClassName}>
         {children}
-      </span>
+      </a>
     );
   }
   return (
-    <a
-      href={href}
-      className={`inline-flex items-center justify-center border-2 px-6 py-4 font-body text-sm font-medium uppercase ${ctaButtonVariants[variant]} ${className}`}
-    >
+    <button type="button" onClick={onClick} className={sharedClassName}>
       {children}
-    </a>
+    </button>
   );
 }

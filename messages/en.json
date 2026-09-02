@@ -158,5 +158,10 @@
   "landing_footer_terms": "Terms",
   "landing_footer_copyright": "© 2026 Tattou.ink",
   "major_any_newt_fry": "tattou.ink | Tattoo admin made simple",
-  "wise_this_panther_race": "Publish your flashbook, keep your clients organized, plan guests abroad, all in one app."
+  "wise_this_panther_race": "Publish your flashbook, keep your clients organized, plan guests abroad, all in one app.",
+  "landing_cta_cta": "Get started",
+  "landing_android_dialog_title": "Not available on Android just yet",
+  "landing_android_dialog_body": "Our Android app is almost ready, but we need to manually approve new testers before you can install it. Email us and we'll set you up, or start using the web app right away, no install needed.",
+  "landing_android_dialog_web_cta": "Use the web app",
+  "landing_android_dialog_email_cta": "Email us instead"
 }
