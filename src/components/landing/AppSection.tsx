@@ -116,7 +116,7 @@ export function AppSection() {
           )}
         />
       )}
-      <div className="grid gap-12 md:grid-cols-[628px_1fr] md:items-start md:gap-16">
+      <div className="grid gap-12 md:grid-cols-[500px_1fr] lg:grid-cols-[628px_1fr] md:items-start md:gap-16">
         <div className="flex flex-col items-start gap-8">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow theme={theme}>{m.landing_app_eyebrow()}</Eyebrow>
@@ -230,7 +230,7 @@ export function AppSection() {
         </div>
 
         {expandedFeature.screenshot ? (
-          <div className="hidden shrink-0 justify-center md:flex">
+          <div className="hidden shrink-0 justify-center mt-20 md:flex min-w-[220px]">
             <div className="relative w-full max-w-[318px] border-2 border-stencil">
               <div className="absolute top-4 left-4 aspect-[201/437] w-full border-2 border-stencil" />
               <div className="aspect-[201/437] w-full overflow-hidden">

@@ -74,15 +74,18 @@ export function Pricing() {
       id={SECTION_IDS.pricing}
       className={cn(
         'relative w-full bg-panel px-5 py-16 lg:px-20 lg:py-24',
-        isAppSectionDark ? 'overflow-hidden' : 'pt-0 lg:pt-0',
+        isAppSectionDark && 'overflow-hidden',
+        !isAppSectionDark &&
+          'before:content-[" "] before:absolute before:top-0 before:right-5 before:left-5 lg:before:right-20 lg:before:left-20 before:block before:border-b-10 lg:before:border-b before:border-b-accent-highlight',
       )}
     >
       <img
         src="/images/landing/problem/paint-blob.png"
         alt=""
         aria-hidden
-        className={cn("pointer-events-none absolute -right-16 hidden w-48 rotate-90 lg:block",
-          isAppSectionDark ? '-top-8' :'-top-24'
+        className={cn(
+          'pointer-events-none absolute -right-16 hidden w-48 rotate-90 lg:block',
+          isAppSectionDark ? '-top-8' : '-top-24',
         )}
       />
       <img
