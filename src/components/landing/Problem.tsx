@@ -30,7 +30,7 @@ export function Problem() {
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col items-start gap-6 lg:max-w-[680px] lg:gap-8">
           <div className="flex flex-col items-start gap-6">
-            <Eyebrow>{m.landing_problem_eyebrow()}</Eyebrow>
+            <Eyebrow theme="light">{m.landing_problem_eyebrow()}</Eyebrow>
             <Heading className="text-ink">
               {m.landing_problem_title_line1()}
               <br />

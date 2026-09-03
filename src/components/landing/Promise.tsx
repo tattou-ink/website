@@ -28,7 +28,7 @@ export function PromiseSection() {
       <div className="relative flex flex-col items-center gap-8 lg:flex-row-reverse lg:items-center lg:gap-16">
         <div className="flex flex-col items-start gap-6 px-5 lg:px-20">
           <div className="flex flex-col items-start gap-6">
-            <Eyebrow>{m.landing_promise_eyebrow()}</Eyebrow>
+            <Eyebrow theme="light">{m.landing_promise_eyebrow()}</Eyebrow>
             <Heading className="text-ink">
               {m.landing_promise_title_line1()}
               <br />

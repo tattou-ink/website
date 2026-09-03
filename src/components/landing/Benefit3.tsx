@@ -8,7 +8,7 @@ export function Benefit3() {
       <div className="flex flex-col md:flex-row-reverse md:items-center">
         <div className="flex flex-col items-start gap-8 px-5 py-16 md:w-[60%] lg:w-[46%] md:px-20 md:py-24">
           <div className="flex flex-col items-start gap-6">
-            <Eyebrow>{m.landing_benefit3_eyebrow()}</Eyebrow>
+            <Eyebrow theme="dark">{m.landing_benefit3_eyebrow()}</Eyebrow>
             <Heading className="text-cream uppercase">
               {m.landing_benefit3_title_line1()}
               <br />
@@ -22,7 +22,7 @@ export function Benefit3() {
               {m.landing_benefit3_body()}
             </p>
           </div>
-          <p className="font-display text-2xl leading-[26px] font-bold text-stencil uppercase lg:text-[34px] lg:leading-[37px]">
+          <p className="font-display text-2xl leading-[26px] font-bold text-accent-highlight-dark uppercase lg:text-[34px] lg:leading-[37px]">
             {m.landing_benefit3_highlight()}
           </p>
         </div>

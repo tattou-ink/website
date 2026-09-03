@@ -5,6 +5,7 @@ import { Accordion } from 'radix-ui';
 
 import { SECTION_IDS } from './anchors';
 import { Eyebrow, Heading, Highlight } from './ui';
+import { cn } from '@/lib/utils';
 
 type Feature = {
   label: string;
@@ -100,7 +101,7 @@ export function AppSection() {
       <div className="grid gap-12 md:grid-cols-[628px_1fr] md:items-start md:gap-16">
         <div className="flex flex-col items-start gap-8">
           <div className="flex flex-col items-start gap-6">
-            <Eyebrow>{m.landing_app_eyebrow()}</Eyebrow>
+            <Eyebrow theme="dark">{m.landing_app_eyebrow()}</Eyebrow>
             <Heading className="text-cream">
               <Highlight tone="brand">{m.landing_app_title_line1()}</Highlight>
               <br />
@@ -117,7 +118,7 @@ export function AppSection() {
             onValueChange={(value) => {
               if (value) setExpandedIndex(Number(value));
             }}
-            className="flex w-full flex-col border-t border-cream-muted/30"
+            className="flex w-full flex-col"
           >
             {features.map((feature, i) => {
               const isExpanded = i === expandedIndex;
@@ -127,10 +128,21 @@ export function AppSection() {
                   key={feature.label}
                   value={String(i)}
                   disabled={!isInteractive}
-                  className="border-b border-cream-muted/30"
+                  className={cn(
+                    'border-t',
+                    isExpanded
+                      ? 'border-accent-highlight-dark'
+                      : 'border-cream-muted/30',
+                  )}
                 >
                   <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between py-4 text-left font-body text-sm leading-[21px] font-medium text-stencil uppercase disabled:cursor-default">
+                    <Accordion.Trigger
+                     className={cn(
+                    "flex w-full items-center justify-between py-4 text-left font-body text-sm leading-[21px] font-medium uppercase disabled:cursor-default",
+                    isExpanded
+                      ? 'text-accent-highlight-dark'
+                      : 'text-cream-muted',
+                  )}>
                       {feature.label}
                       {isInteractive ? (
                         <span aria-hidden>{isExpanded ? '−' : '+'}</span>

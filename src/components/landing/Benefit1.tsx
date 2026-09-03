@@ -31,7 +31,7 @@ export function Benefit1() {
     >
       <div className="mx-auto flex max-w-[898px] flex-col items-start gap-8 lg:items-center">
         <div className="flex flex-col items-start gap-6 lg:items-center lg:text-center">
-          <Eyebrow>{m.landing_benefit1_eyebrow()}</Eyebrow>
+          <Eyebrow theme="dark">{m.landing_benefit1_eyebrow()}</Eyebrow>
           <Heading className="text-cream">
             <Highlight tone="brand">
               {m.landing_benefit1_title_line1()}
@@ -57,9 +57,11 @@ export function Benefit1() {
           />
         </div>
 
-        <div className="flex flex-col gap-1 font-body text-sm leading-[21px] text-stencil lg:items-center lg:text-center">
-          <p className="uppercase">{m.landing_benefit1_kicker_title()}</p>
-          <p>
+        <div className="flex flex-col gap-1 font-body text-sm leading-[21px] lg:items-center lg:text-center">
+          <p className="text-accent-highlight-dark uppercase">
+            {m.landing_benefit1_kicker_title()}
+          </p>
+          <p className="text-cream">
             {m.landing_benefit1_kicker_line1()}
             <br />
             {m.landing_benefit1_kicker_line2()}

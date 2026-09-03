@@ -1,8 +1,22 @@
+import { cn } from '@/lib/utils';
 import type { ReactNode } from 'react';
 
-export function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({
+  children,
+  theme,
+}: {
+  children: ReactNode;
+  theme: 'dark' | 'light';
+}) {
   return (
-    <p className="font-body text-[11px] leading-[15px] font-medium text-stencil uppercase">
+    <p
+      className={cn(
+        'font-body text-[11px] leading-[15px] font-medium uppercase',
+        theme === 'dark'
+          ? 'text-accent-highlight-dark'
+          : 'text-accent-highlight',
+      )}
+    >
       {children}
     </p>
   );
@@ -59,20 +73,29 @@ export function CompareColumn({
   className?: string;
 }) {
   const isAfter = variant === 'after';
-  const isFilled = isAfter && tone === 'light';
+  const isFilledAndLight = isAfter && tone === 'light';
   const mutedTextClass = tone === 'dark' ? 'text-cream-muted' : 'text-taupe';
 
   return (
     <div
-      className={`rounded border p-6 ${isAfter ? 'border-stencil' : 'border-cream-muted'} ${isFilled ? 'bg-stencil' : ''} ${className}`}
+      className={cn(
+        `rounded border p-6`,
+        isFilledAndLight ? 'bg-stencil' : '',
+        isAfter
+          ? tone === 'light'
+            ? 'border-stencil'
+            : 'border-accent-highlight-dark'
+          : 'border-cream-muted',
+        className,
+      )}
     >
       <p
-        className={`mb-2 font-body text-sm leading-[21px] font-semibold uppercase ${isAfter ? (isFilled ? 'text-cream' : 'text-stencil') : mutedTextClass}`}
+        className={`mb-2 font-body text-sm leading-[21px] font-semibold uppercase ${isAfter ? (isFilledAndLight ? 'text-cream' : 'text-accent-highlight-dark') : mutedTextClass}`}
       >
         {label}
       </p>
       <ul
-        className={`list-disc space-y-1 pl-5 font-body text-sm leading-[21px] ${isAfter ? 'text-cream' : mutedTextClass}`}
+        className={`list-["•"] space-y-1 pl-4 font-body text-sm leading-[21px] *:pl-2 ${isAfter ? 'text-cream' : mutedTextClass}`}
       >
         {items.map((item) => (
           <li key={item}>{item}</li>
@@ -86,10 +109,12 @@ export function CompareColumns({
   tone = 'dark',
   before,
   after,
+  forceColumnDisplay,
 }: {
   tone?: 'dark' | 'light';
   before: { label: string; items: string[] };
   after: { label: string; items: string[] };
+  forceColumnDisplay?: boolean;
 }) {
   return (
     <div className="grid grid-cols-12 gap-4">
@@ -98,14 +123,18 @@ export function CompareColumns({
         label={before.label}
         items={before.items}
         variant="before"
-        className="col-span-12 lg:col-span-6"
+        className={cn(
+          forceColumnDisplay ? 'col-span-12' : 'col-span-12 lg:col-span-6',
+        )}
       />
       <CompareColumn
         tone={tone}
         label={after.label}
         items={after.items}
         variant="after"
-        className="col-span-12 lg:col-span-6"
+        className={cn(
+          forceColumnDisplay ? 'col-span-12' : 'col-span-12 lg:col-span-6',
+        )}
       />
     </div>
   );

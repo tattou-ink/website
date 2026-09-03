@@ -7,7 +7,7 @@ export function Manifesto() {
     <section className="w-full bg-ink px-5 py-16 lg:px-20 lg:py-24">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
         <div className="flex flex-col items-start gap-6 lg:w-[411px] lg:shrink-0">
-          <Eyebrow>{m.landing_manifesto_eyebrow()}</Eyebrow>
+          <Eyebrow theme="dark">{m.landing_manifesto_eyebrow()}</Eyebrow>
           <h2 className="font-display text-[32px] leading-[34px] font-black text-cream uppercase lg:text-[48px] lg:leading-[50px]">
             <Highlight tone="brand">{m.landing_manifesto_title()}</Highlight>
           </h2>
@@ -22,7 +22,7 @@ export function Manifesto() {
             <span className="font-script">
               {m.landing_manifesto_baseline_prefix()}{' '}
             </span>
-            <span className="font-script text-stencil">
+            <span className="font-script text-accent-highlight-dark">
               {m.landing_manifesto_baseline()}
             </span>
           </p>

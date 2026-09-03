@@ -86,7 +86,7 @@ export function Pricing() {
 
       <div className="relative flex flex-col gap-12">
         <div className="flex flex-col items-start gap-6">
-          <Eyebrow>{m.landing_pricing_eyebrow()}</Eyebrow>
+          <Eyebrow theme="light">{m.landing_pricing_eyebrow()}</Eyebrow>
           <Heading className="text-ink">
             <Highlight>{m.landing_pricing_title_highlight()}</Highlight>{' '}
             {m.landing_pricing_title_rest()}
@@ -114,7 +114,7 @@ export function Pricing() {
           </div>
 
           <div className="flex flex-col gap-6 lg:max-w-[600px]">
-            <p className="font-body text-base leading-[24px] text-ink lg:text-[18px]">
+            <p className="font-body font-semibold text-base leading-[24px] text-ink lg:text-[18px]">
               {m.landing_pricing_features_intro()}{' '}
               <span className="text-stencil">
                 {m.landing_pricing_features_highlight()}
@@ -123,13 +123,13 @@ export function Pricing() {
             <div className="border-t border-cream-muted" />
             <div className="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
               {featureColumns.map((column, i) => (
-                <ul key={i} className="flex flex-col gap-2">
+                <ul key={i} className={`flex flex-col gap-2 list-["•"] pl-2 *:pl-4`}>
                   {column.map((item) => (
                     <li
                       key={item}
                       className="font-body text-sm leading-[21px] text-ink"
                     >
-                      • {item}
+                      {item}
                     </li>
                   ))}
                 </ul>

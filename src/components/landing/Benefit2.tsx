@@ -44,7 +44,7 @@ export function Benefit2() {
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col items-start gap-6 lg:max-w-[628px] lg:gap-6">
           <div className="flex flex-col items-start gap-6">
-            <Eyebrow>{m.landing_benefit2_eyebrow()}</Eyebrow>
+            <Eyebrow theme="light">{m.landing_benefit2_eyebrow()}</Eyebrow>
             <Heading className="text-ink">
               {m.landing_benefit2_title_line1()}
               <br />
@@ -58,6 +58,7 @@ export function Benefit2() {
 
           <div className="flex w-full flex-col gap-4">
             <CompareColumns
+              forceColumnDisplay
               tone="light"
               before={{
                 label: m.landing_benefit2_before_label(),
@@ -68,12 +69,6 @@ export function Benefit2() {
                 items: afterItems,
               }}
             />
-          </div>
-
-          <div className="flex flex-col gap-2 font-body text-sm leading-[21px] text-taupe">
-            <p className="uppercase">{m.landing_benefit2_caption_title()}</p>
-            <p>{m.landing_benefit2_caption_body()}</p>
-            <p className="uppercase">{m.landing_benefit2_caption_footer()}</p>
           </div>
         </div>
 
