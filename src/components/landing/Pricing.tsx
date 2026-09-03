@@ -2,6 +2,7 @@ import { m } from '@/paraglide/messages';
 
 import { SECTION_IDS } from './anchors';
 import { CtaButton, Eyebrow, Heading, Highlight } from './ui';
+import { cn } from '@/lib/utils';
 
 const featureColumns = [
   [
@@ -65,17 +66,24 @@ function PriceCard({
   );
 }
 
+const isAppSectionDark: boolean = false as const;
+
 export function Pricing() {
   return (
     <section
       id={SECTION_IDS.pricing}
-      className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24"
+      className={cn(
+        'relative w-full bg-panel px-5 py-16 lg:px-20 lg:py-24',
+        isAppSectionDark ? 'overflow-hidden' : 'pt-0 lg:pt-0',
+      )}
     >
       <img
-        src="/images/landing/pricing/paint-tr.png"
+        src="/images/landing/problem/paint-blob.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute top-0 right-0 hidden w-64 lg:block"
+        className={cn("pointer-events-none absolute -right-16 hidden w-48 rotate-90 lg:block",
+          isAppSectionDark ? '-top-8' :'-top-24'
+        )}
       />
       <img
         src="/images/landing/pricing/paint-bl.png"
@@ -114,7 +122,7 @@ export function Pricing() {
           </div>
 
           <div className="flex flex-col gap-6 lg:max-w-[600px]">
-            <p className="font-body font-semibold text-base leading-[24px] text-ink lg:text-[18px]">
+            <p className="font-body text-base leading-[24px] font-semibold text-ink lg:text-[18px]">
               {m.landing_pricing_features_intro()}{' '}
               <span className="text-stencil">
                 {m.landing_pricing_features_highlight()}
@@ -123,7 +131,10 @@ export function Pricing() {
             <div className="border-t border-cream-muted" />
             <div className="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
               {featureColumns.map((column, i) => (
-                <ul key={i} className={`flex flex-col gap-2 list-["•"] pl-2 *:pl-4`}>
+                <ul
+                  key={i}
+                  className={`flex list-["•"] flex-col gap-2 pl-2 *:pl-4`}
+                >
                   {column.map((item) => (
                     <li
                       key={item}

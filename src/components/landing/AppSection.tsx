@@ -14,6 +14,8 @@ type Feature = {
   screenshot?: { desktop: string; mobile: string };
 };
 
+const theme: 'dark' | 'light' = 'light';
+
 const features: Feature[] = [
   {
     label: m.landing_app_feature_1_label(),
@@ -96,18 +98,43 @@ export function AppSection() {
   return (
     <section
       id={SECTION_IDS.app}
-      className="w-full bg-ink px-5 py-16 lg:px-20 lg:py-24"
+      className={cn(
+        'relative overflow-hidden',
+        'w-full px-5 py-16 lg:px-20 lg:py-24',
+        theme === 'dark' ? 'bg-ink' : 'bg-panel',
+      )}
     >
+      {theme === 'light' && (
+        <img
+          src="/images/landing/problem/paint-stroke.png"
+          alt=""
+          aria-hidden
+          className={cn(
+            'pointer-events-none absolute',
+            '-top-8 -right-36 w-72 rotate-[60deg]',
+            'lg:-top-8 lg:-right-32 lg:w-72',
+          )}
+        />
+      )}
       <div className="grid gap-12 md:grid-cols-[628px_1fr] md:items-start md:gap-16">
         <div className="flex flex-col items-start gap-8">
           <div className="flex flex-col items-start gap-6">
-            <Eyebrow theme="dark">{m.landing_app_eyebrow()}</Eyebrow>
-            <Heading className="text-cream">
-              <Highlight tone="brand">{m.landing_app_title_line1()}</Highlight>
+            <Eyebrow theme={theme}>{m.landing_app_eyebrow()}</Eyebrow>
+            <Heading
+              className={cn(theme === 'dark' ? 'text-cream' : 'text-ink')}
+            >
+              <Highlight tone={theme === 'dark' ? 'brand' : 'light'}>
+                {m.landing_app_title_line1()}
+              </Highlight>
               <br />
               {m.landing_app_title_line2()}
             </Heading>
-            <p className="font-body text-base leading-[24px] text-cream lg:text-[18px]">
+            <p
+              className={cn(
+                'font-body text-base leading-[24px] text-cream lg:text-[18px]',
+                theme === 'dark' ? 'text-cream' : 'text-charcoal-700',
+              )}
+            >
               {m.landing_app_body()}
             </p>
           </div>
@@ -130,19 +157,31 @@ export function AppSection() {
                   disabled={!isInteractive}
                   className={cn(
                     'border-t',
+                    'transition-[border]',
                     isExpanded
-                      ? 'border-accent-highlight-dark'
-                      : 'border-cream-muted/30',
+                      ? theme === 'dark'
+                        ? 'border-accent-highlight-dark'
+                        : 'border-accent-highlight'
+                      : theme === 'dark'
+                        ? 'border-charcoal-700 hover:border-stencil-200'
+                        : 'border-charcoal-300 hover:border-stencil-300',
                   )}
                 >
-                  <Accordion.Header>
+                  <Accordion.Header className="group">
                     <Accordion.Trigger
-                     className={cn(
-                    "flex w-full items-center justify-between py-4 text-left font-body text-sm leading-[21px] font-medium uppercase disabled:cursor-default",
-                    isExpanded
-                      ? 'text-accent-highlight-dark'
-                      : 'text-cream-muted',
-                  )}>
+                      className={cn(
+                        'transition-all',
+                        'flex w-full items-center justify-between pt-4 text-left font-body text-sm leading-[21px] font-medium uppercase disabled:cursor-default',
+                        isExpanded ? 'pb-2' : 'pb-4',
+                        isExpanded
+                          ? theme === 'dark'
+                            ? 'text-accent-highlight-dark'
+                            : 'text-accent-highlight'
+                          : theme === 'dark'
+                            ? 'text-cream group-hover:text-stencil-200'
+                            : 'text-charcoal-700 group-hover:text-stencil-600',
+                      )}
+                    >
                       {feature.label}
                       {isInteractive ? (
                         <span aria-hidden>{isExpanded ? '−' : '+'}</span>
@@ -156,10 +195,22 @@ export function AppSection() {
                   {isInteractive ? (
                     <Accordion.Content className="overflow-hidden data-open:animate-accordion-down data-closed:animate-accordion-up">
                       <div className="flex flex-col gap-2 pb-6">
-                        <h3 className="font-display text-xl leading-tight font-black text-cream uppercase lg:text-2xl">
+                        <h3
+                          className={cn(
+                            'font-display text-xl leading-tight font-black uppercase lg:text-2xl',
+                            theme === 'dark' ? 'text-cream' : '',
+                          )}
+                        >
                           {feature.title}
                         </h3>
-                        <p className="font-body text-sm leading-[21px] text-cream">
+                        <p
+                          className={cn(
+                            'font-body text-sm leading-[21px]',
+                            theme === 'dark'
+                              ? 'text-cream'
+                              : 'text-charcoal-700',
+                          )}
+                        >
                           {feature.body}
                         </p>
                         {feature.screenshot ? (
@@ -179,30 +230,33 @@ export function AppSection() {
         </div>
 
         {expandedFeature.screenshot ? (
-          <div className="hidden justify-center md:flex">
-            <div className="relative aspect-[201/437] w-full max-w-[318px] overflow-hidden">
-              <div
-                className="flex h-full transition-transform duration-500 ease-out"
-                style={{
-                  width: `${features.length * 100}%`,
-                  transform: `translateX(-${(100 / features.length) * expandedIndex}%)`,
-                }}
-              >
-                {features.map((feature) => (
-                  <div
-                    key={feature.label}
-                    className="h-full shrink-0"
-                    style={{ width: `${100 / features.length}%` }}
-                  >
-                    {feature.screenshot ? (
-                      <img
-                        src={feature.screenshot.desktop}
-                        alt=""
-                        className="size-full object-cover"
-                      />
-                    ) : null}
-                  </div>
-                ))}
+          <div className="hidden shrink-0 justify-center md:flex">
+            <div className="relative w-full max-w-[318px] border-2 border-stencil">
+              <div className="absolute top-4 left-4 aspect-[201/437] w-full border-2 border-stencil" />
+              <div className="aspect-[201/437] w-full overflow-hidden">
+                <div
+                  className="flex h-full transition-transform duration-500 ease-out"
+                  style={{
+                    width: `${features.length * 100}%`,
+                    transform: `translateX(-${(100 / features.length) * expandedIndex}%)`,
+                  }}
+                >
+                  {features.map((feature) => (
+                    <div
+                      key={feature.label}
+                      className="h-full shrink-0"
+                      style={{ width: `${100 / features.length}%` }}
+                    >
+                      {feature.screenshot ? (
+                        <img
+                          src={feature.screenshot.desktop}
+                          alt=""
+                          className="size-full object-cover"
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
