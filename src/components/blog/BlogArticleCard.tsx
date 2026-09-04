@@ -16,10 +16,10 @@ export function BlogArticleCard({
   const locale = getLocale();
 
   return (
-    <Link to={href} className={cn('flex flex-col gap-3', className)}>
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-charcoal-300">
+    <Link to={href} className={cn('flex flex-col gap-3 transition-all hover:scale-102', className)}>
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-charcoal-300 border-2 border-accent-highlight">
         <img src={post.heroImage} alt="" className="size-full object-cover" />
-        <span className="absolute top-3 left-3 rounded-full bg-accent-highlight-dark px-3 py-1 font-body text-[10px] leading-none font-semibold text-ink uppercase">
+        <span className="absolute top-3 left-3 rounded-xs bg-accent-highlight px-2 py-1 font-body text-[10px] leading-none text-cream uppercase">
           {post.category}
         </span>
       </div>
