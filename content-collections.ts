@@ -1,4 +1,3 @@
-// content-collections.ts
 import { z } from 'zod';
 import { defineCollection, defineConfig } from '@content-collections/core';
 import matter from 'gray-matter';
@@ -55,7 +54,6 @@ const blogPosts = defineCollection({
     return {
       ...post,
       slug: `blog/${post._meta.path}`,
-      description: frontMatter.data.description,
       content: frontMatter.body,
     };
   },

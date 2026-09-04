@@ -15,7 +15,7 @@ const navLinks = [
   { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },
   {
     label: m.landing_nav_blog,
-    href: localizeHref('/blog/what-to-ask-customers-before-tattoo-session'),
+    href: localizeHref('/blog'),
   },
   {
     label: m.landing_footer_instagram,

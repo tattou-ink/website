@@ -166,5 +166,10 @@
   "landing_android_dialog_web_cta": "Utiliser l'application web",
   "landing_android_dialog_email_cta": "Nous envoyer un email",
   "blog_nav_home": "Accueil",
-  "blog_related_heading": "J'en veux plus !"
+  "blog_related_heading": "J'en veux plus !",
+  "blog_index_eyebrow": "Le blog",
+  "blog_index_title_line": "Conseils, outils et retours {#b}pour tatoueur·ses{/b}.",
+  "blog_index_subtitle": "Ce qu'on apprend en construisant Tattou.ink avec des artistes qui vivent le métier au quotidien.",
+  "blog_pagination_previous": "Page précédente",
+  "blog_pagination_next": "Page suivante"
 }

@@ -1,4 +1,3 @@
-import { m } from '@/paraglide/messages';
 import type { MarkdownResult } from '@/utils/markdown';
 import { getLocale, localizeHref } from '@/paraglide/runtime';
 import type { BlogPost } from '@/lib/blogUtils';
@@ -18,15 +17,8 @@ import {
 
 import { BlogHero } from './BlogHero';
 import { BlogRelatedArticles } from './BlogRelatedArticles';
-import React from 'react';
-
-const blogNavLinks: NavLink[] = [
-  { label: m.blog_nav_home, href: localizeHref('/') },
-  {
-    label: m.landing_nav_blog,
-    href: localizeHref('/blog/what-to-ask-customers-before-tattoo-session'),
-  },
-];
+import { getBlogNavLinks } from './blogNav';
+import React, { useEffect, useState } from 'react';
 
 const getChildrenWithHeaderProps = (children: React.ReactNode) =>
   React.Children.map(children, (child) => {
@@ -108,9 +100,15 @@ export function BlogArticleTemplate({
 }) {
   const locale = getLocale();
 
+  const [navLinks, setNavLinks] = useState<NavLink[]>([]);
+
+  useEffect(() => {
+    setNavLinks(getBlogNavLinks());
+  }, []);
+
   return (
     <main className="w-full bg-panel">
-      <Header navLinks={blogNavLinks} theme="light" />
+      <Header navLinks={navLinks} theme="light" />
       <BlogHero src={post.heroImage} />
 
       <article className="mx-auto flex w-full max-w-[800px] flex-col gap-4 px-5 py-16 lg:px-0 lg:py-24">

@@ -4,20 +4,34 @@ import { renderMarkdown } from '@/utils/markdown';
 import { notFound } from '@tanstack/router-core';
 import type { ParsedLocation, AnyRoute } from '@tanstack/router-core';
 import { allBlogPosts } from 'content-collections';
-import { localizedPathNames  } from '../../i18n/lib';
-import type {PublicRoutePath} from '../../i18n/lib';
+import { localizedPathNames } from '../../i18n/lib';
+import type { PublicRoutePath } from '../../i18n/lib';
+import { getLanguagePrefix } from './languageUtils';
 
 type BlogPost = (typeof allBlogPosts)[number];
 
 export function resolveBlogPostByRouteId(routeId: string, locale: Locale) {
   const localizedPathName =
-    localizedPathNames[routeId as PublicRoutePath]?.[locale];
+    localizedPathNames[routeId as PublicRoutePath][locale];
   if (!localizedPathName) return undefined;
 
   const post = allBlogPosts.find((p) => `/${p.slug}` === localizedPathName);
   if (!post) return undefined;
 
   return { post, href: localizedPathName };
+}
+
+export function getAllBlogPosts(locale: Locale) {
+  return Object.keys(localizedPathNames)
+    .filter((routeId) => routeId.startsWith('/blog/'))
+    .map((routeId) => {
+      const blogPost = resolveBlogPostByRouteId(routeId, locale);
+      if (!blogPost) return blogPost;
+      const { post, href } = blogPost;
+      return { post, href: `${getLanguagePrefix(locale)}${href}` };
+    })
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+    .sort((a, b) => b.post.published.getTime() - a.post.published.getTime());
 }
 
 export async function getBlogArticleDataOrThrowNotFound(
