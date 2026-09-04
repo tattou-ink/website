@@ -19,6 +19,7 @@ import { BlogHero } from './BlogHero';
 import { BlogRelatedArticles } from './BlogRelatedArticles';
 import { getBlogNavLinks } from './blogNav';
 import React, { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const getChildrenWithHeaderProps = (children: React.ReactNode) =>
   React.Children.map(children, (child) => {
@@ -107,35 +108,60 @@ export function BlogArticleTemplate({
   }, []);
 
   return (
-    <main className="w-full bg-panel">
+    <main className="relative w-full bg-panel">
       <Header navLinks={navLinks} theme="light" />
       <BlogHero src={post.heroImage} />
 
-      <article className="mx-auto flex w-full max-w-[800px] flex-col gap-4 px-5 py-16 lg:px-0 lg:py-24">
-        <div className="flex flex-col">
-          <Eyebrow theme="light">
-            {post.category} / {formatBlogDate(post.published, locale)}
-          </Eyebrow>
-        </div>
+      <div className="relative overflow-hidden">
+        <img
+          src="/images/landing/problem/paint-stroke.png"
+          alt=""
+          aria-hidden
+          className={cn(
+            'z-1',
+            'pointer-events-none absolute',
+            '-top-6 -right-18 w-38 rotate-[-10deg]',
+            'lg:-top-16 lg:-right-32 lg:w-72',
+          )}
+        />
+        <img
+          src="/images/landing/problem/paint-stroke.png"
+          alt=""
+          aria-hidden
+          className={cn(
+            'z-1',
+            'pointer-events-none absolute',
+            '-bottom-6 -left-18 w-38 rotate-[-10deg]',
+            'lg:-bottom-8 lg:-left-32 lg:w-72',
+          )}
+        />
 
-        <Markdown markdown={markdown} components={markdownComponents} />
+        <article className="mx-auto flex w-full max-w-[800px] flex-col gap-4 px-5 py-16 lg:px-0 lg:py-24">
+          <div className="flex flex-col">
+            <Eyebrow theme="light">
+              {post.category} / {formatBlogDate(post.published, locale)}
+            </Eyebrow>
+          </div>
 
-        {post.cta.type === 'app' ? (
-          <SmartCtaButton
-            label={post.cta.label}
-            variant="dark"
-            className="self-start"
-          />
-        ) : (
-          <CtaButton
-            href={`${localizeHref('/')}${post.cta.anchor ? `#${post.cta.anchor}` : ''}`}
-            variant="dark"
-            className="self-start"
-          >
-            {post.cta.label}
-          </CtaButton>
-        )}
-      </article>
+          <Markdown markdown={markdown} components={markdownComponents} />
+
+          {post.cta.type === 'app' ? (
+            <SmartCtaButton
+              label={post.cta.label}
+              variant="dark"
+              className="self-start"
+            />
+          ) : (
+            <CtaButton
+              href={`${localizeHref('/')}${post.cta.anchor ? `#${post.cta.anchor}` : ''}`}
+              variant="dark"
+              className="self-start"
+            >
+              {post.cta.label}
+            </CtaButton>
+          )}
+        </article>
+      </div>
 
       <BlogRelatedArticles related={related} />
 

@@ -11,6 +11,7 @@ import { BlogPagination } from './BlogPagination';
 import { getBlogNavLinks } from './blogNav';
 import { useEffect, useState } from 'react';
 import { ParaglideMessage } from '@inlang/paraglide-js-react';
+import { cn } from '@/lib/utils';
 
 export function BlogIndexPage({
   posts,
@@ -31,7 +32,17 @@ export function BlogIndexPage({
     <main className="w-full bg-panel">
       <Header navLinks={navLinks} theme="light" />
 
-      <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-12 px-5 py-16 lg:px-20 lg:py-24">
+      <div className="relative mx-auto flex w-full max-w-[1240px] flex-col gap-12 overflow-hidden px-5 py-16 lg:px-20 lg:py-24">
+        <img
+          src="/images/landing/problem/paint-stroke.png"
+          alt=""
+          aria-hidden
+          className={cn(
+            'pointer-events-none absolute',
+            '-top-8 -right-18 w-48 rotate-[180deg]',
+            'lg:-top-8 lg:-right-32 lg:w-72',
+          )}
+        />
         <div className="flex flex-col gap-4">
           <Eyebrow theme="light">{m.blog_index_eyebrow()}</Eyebrow>
           <Heading className="text-ink">
