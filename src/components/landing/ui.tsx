@@ -106,7 +106,7 @@ export function CompareColumn({
         {label}
       </p>
       <ul
-        className={`list-["•"] space-y-1 pl-4 font-body text-sm leading-[21px] *:pl-2 ${isAfter ? 'text-cream' : mutedTextClass}`}
+        className={`list-["•"] space-y-1 pl-2 font-body text-sm leading-[21px] *:pl-2 ${isAfter ? 'text-cream' : mutedTextClass}`}
       >
         {items.map((item) => (
           <li key={item}>{item}</li>

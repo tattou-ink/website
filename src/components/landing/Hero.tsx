@@ -153,7 +153,7 @@ export function Hero() {
   return (
     <section
       id={SECTION_IDS.top}
-      className="relative isolate flex min-h-[874px] w-full flex-col overflow-hidden bg-ink lg:min-h-[900px]"
+      className="relative isolate flex min-h-screen w-full flex-col overflow-hidden bg-ink"
     >
       <img
         src="/images/landing/hero-photo.jpg"

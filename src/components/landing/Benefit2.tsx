@@ -41,7 +41,7 @@ export function Benefit2() {
         )}
       />
 
-      <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+      <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col items-start gap-6 lg:max-w-[628px] lg:gap-6">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow theme="light">{m.landing_benefit2_eyebrow()}</Eyebrow>
@@ -80,7 +80,7 @@ export function Benefit2() {
           />
         </div>
 
-        <div className="relative hidden shrink-0 lg:block">
+        <div className="relative hidden shrink-0 lg:block lg:mt-10">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <img

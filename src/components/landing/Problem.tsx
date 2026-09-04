@@ -27,7 +27,7 @@ export function Problem() {
         )}
       />
 
-      <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+      <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col items-start gap-6 lg:max-w-[680px] lg:gap-8">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow theme="light">{m.landing_problem_eyebrow()}</Eyebrow>
@@ -86,7 +86,7 @@ export function Problem() {
             className="h-full w-full -translate-x-20 translate-y-10 scale-150 object-cover object-[60%_0%]"
           />
         </div>
-        <div className="relative hidden shrink-0 lg:block">
+        <div className="relative hidden shrink-0 lg:block lg:mt-10">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <img

@@ -52,11 +52,6 @@ export function Footer({
     theme === 'dark' && 'text-cream',
   );
 
-  const mutedClass = cn(
-    'font-body text-sm uppercase',
-    theme === 'dark' ? 'text-cream-muted' : 'text-charcoal-500',
-  );
-
   return (
     <footer
       className={cn(
@@ -108,7 +103,7 @@ export function Footer({
             </Link>
           </div>
 
-          <p className={mutedClass}>{m.landing_footer_copyright()}</p>
+          <p className={linkClass}>{m.landing_footer_copyright()}</p>
         </div>
       </div>
     </footer>

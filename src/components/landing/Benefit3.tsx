@@ -1,12 +1,13 @@
 import { m } from '@/paraglide/messages';
 
 import { Eyebrow, Heading, Highlight } from './ui';
+import { SmartCtaButton } from '../SmartCtaButton';
 
 export function Benefit3() {
   return (
     <section className="relative w-full overflow-hidden bg-ink">
       <div className="flex flex-col md:flex-row-reverse md:items-center">
-        <div className="flex flex-col items-start gap-8 px-5 py-16 md:w-[60%] lg:w-[46%] md:px-20 md:py-24">
+        <div className="flex flex-col items-start gap-8 px-5 py-16 md:w-[60%] md:px-20 md:py-24 lg:w-[46%]">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow theme="dark">{m.landing_benefit3_eyebrow()}</Eyebrow>
             <Heading className="text-cream uppercase">
@@ -25,15 +26,17 @@ export function Benefit3() {
           <p className="font-display text-2xl leading-[26px] font-bold text-accent-highlight-dark uppercase lg:text-[34px] lg:leading-[37px]">
             {m.landing_benefit3_highlight()}
           </p>
+          <SmartCtaButton label={m.landing_cta_cta()} className="shrink-0" />
         </div>
 
-        <div className="relative aspect-[402/900] w-full lg:block lg:aspect-[708/822] md:w-[40%] lg:w-[54%]">
+        <div className="relative aspect-[402/900] w-full md:w-[40%] lg:block lg:aspect-[708/822] lg:w-[54%]">
           <img
             src="/images/landing/benefit3/photo-desktop.jpg"
             alt=""
             className="size-full object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-b from-stencil-dark to-transparent to-10% lg:bg-linear-to-l lg:to-20%" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#1C1917] to-transparent to-10% lg:bg-linear-to-r lg:to-20%" />
           <img
             src="/images/landing/benefit3/profile-with-frame.png"
             alt=""
