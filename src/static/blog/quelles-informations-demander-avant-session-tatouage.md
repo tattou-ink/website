@@ -3,6 +3,11 @@ title: "Quelles informations demander à mes clients avant une séance de tatoua
 description: "Une checklist pratique d'avant-séance pour les tatoueurs : les questions qui évitent les absences, les mauvaises surprises et le temps perdu sur la chaise — avec un modèle de formulaire prêt à l'emploi."
 published: 2026-06-30
 author: tattou.ink
+category: Clients
+heroImage: /images/blog/what-to-ask-customers-before-tattoo-session.jpg
+cta:
+  type: app
+  label: Créer mon formulaire
 tags:
   - business du tatouage
   - informations client
@@ -10,7 +15,7 @@ tags:
   - consultation
 ---
 
-# Quelles informations demander à mes clients avant une séance de tatouage ?
+# __Quelles informations demander à mes clients__ avant une séance de tatouage ?
 
 Chaque tatoueur a déjà vécu cette histoire : le client réserve une « petite pièce en noir et gris », se présente en s'attendant à de la couleur sur tout l'avant-bras, a oublié qu'il prend des anticoagulants, n'a apporté aucune référence, et doit repartir dans 90 minutes. La séance qui aurait dû couler de source vire à la gestion de crise.
 

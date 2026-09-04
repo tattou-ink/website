@@ -4,9 +4,13 @@ import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
 import { Link } from '@tanstack/react-router';
 import type { MarkdownResult } from '@/utils/markdown';
 
-type MarkdownProps = { markdown: MarkdownResult; className?: string };
+type MarkdownProps = {
+  markdown: MarkdownResult;
+  className?: string;
+  components?: Record<string, any>;
+};
 
-export function Markdown({ markdown, className }: MarkdownProps) {
+export function Markdown({ markdown, className, components }: MarkdownProps) {
   const content = toJsxRuntime(markdown.tree, {
     Fragment,
     jsx,
@@ -72,6 +76,7 @@ export function Markdown({ markdown, className }: MarkdownProps) {
           className="rounded-lg shadow-md"
         />
       ),
+      ...components,
     },
   });
 

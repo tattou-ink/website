@@ -58,6 +58,7 @@ export const localizedPathNames = {
     en: '/blog/what-to-ask-customers-before-tattoo-session',
     fr: '/blog/quelles-informations-demander-avant-session-tatouage',
   },
+  '/blog': { en: '/blog', fr: '/blog' },
 };
 
 export const translatedPathnames =
