@@ -61,7 +61,7 @@ export function Header({
           src={
             isDark ? '/images/landing/logo.svg' : '/images/landing/logo-dark.svg'
           }
-          alt="Tattou.ink"
+          alt="tattou.ink"
           className="h-full w-auto"
         />
       </a>
