@@ -88,6 +88,15 @@ const markdownComponents = {
       {children}
     </pre>
   ),
+  blockquote: ({ children }: any) => {
+    return (
+      <blockquote className="mt-3 rounded border border-charcoal-500">
+        <div className="border-l-8 border-l-accent-highlight p-5 pt-2">
+          {children}
+        </div>
+      </blockquote>
+    );
+  },
 };
 
 export function BlogArticleTemplate({

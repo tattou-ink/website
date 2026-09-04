@@ -71,7 +71,6 @@ C'est la section qui vous protège le plus, vous et votre client. Restez factuel
 ### 4. Attentes et confort
 
 - **Quelle est votre tolérance à la douleur, et avez-vous mangé avant de venir ?** Un simple rappel de manger et de s'hydrater évite la plupart des malaises.
-- **Souhaitez-vous des pauses prévues dans la séance ?**
 - **Y a-t-il quelque chose qui vous mettrait plus à l'aise** — de la musique, une personne de soutien, un moment précis de la journée ?
 
 ### 5. Les confirmations pratiques
@@ -95,43 +94,6 @@ Quand l'accueil client est dispersé, vous passez vos soirées à courir après 
 
 Une meilleure approche : envoyer **un seul formulaire d'accueil structuré** au moment de la réservation, pour que chaque réponse arrive au même endroit, dans un format que vous pouvez parcourir en dix secondes avant la séance.
 
-## Un modèle de formulaire d'avant-séance prêt à l'emploi
-
-Copiez ceci, adaptez-le à votre studio, et envoyez-le à chaque client au moment de la réservation :
-
-```
-ACCUEIL AVANT SÉANCE — [Nom de votre studio]
-
-VOUS
-- Nom complet :
-- Date de naissance (18 ans minimum) :
-- Téléphone / contact préféré :
-
-LE TATOUAGE
-- Décrivez le motif :
-- Emplacement sur le corps :
-- Taille approximative (cm/pouces) :
-- Couleur ou noir et gris :
-- S'agit-il d'un recouvrement ? (oui/non — joindre une photo si oui) :
-- Images de référence jointes ? (oui/non) :
-- Est-ce votre premier tatouage ? (oui/non) :
-
-SANTÉ & SÉCURITÉ
-- Êtes-vous enceinte ou allaitez-vous ? (oui/non) :
-- Affections cutanées sur la zone ? (eczéma, psoriasis, chéloïdes) :
-- Médicaments (anticoagulants, Roaccutane, etc.) :
-- Allergies (latex, encres, anesthésiques) :
-- Problème cardiaque, diabète, épilepsie ou antécédents de malaise ? (précisez) :
-
-LE JOUR J
-- Combien de temps pouvez-vous accorder ? :
-- Besoins de confort (pauses, musique, personne de soutien) :
-
-CONFIRMATIONS
-- J'ai lu la politique d'acompte et d'annulation (oui/non) :
-- Je mangerai et m'hydraterai avant ma séance (oui/non) :
-```
-
 Gardez-le assez court pour que les clients le remplissent vraiment, mais assez complet pour que rien d'important n'arrive sur la chaise comme une surprise.
 
 ## En résumé
@@ -146,16 +108,11 @@ Si vous avez déjà terminé une longue journée de tatouage pour ensuite passer
 
 Connaître les bonnes questions est une chose. Les envoyer d'une manière qui vous ressemble *vraiment* — et avoir chaque réponse rassemblée au même endroit — en est une autre. C'est exactement ce pour quoi [**tattou.ink**](https://tattou.ink) a été conçu.
 
-Avec tattou.ink, vous pouvez **créer des formulaires librement** et les façonner à votre style : ajoutez les champs qui comptent pour vous, retirez ceux qui ne servent pas, et formulez tout avec vos propres mots pour que le formulaire soit une extension de votre studio plutôt qu'un questionnaire générique. Aucun tatoueur ne travaille de la même façon, et votre accueil client ne devrait pas l'être non plus.
+Par défaut, tattou.ink collecte :
 
-Chaque formulaire intègre déjà l'essentiel. Par défaut, tattou.ink collecte :
-
-- **Le nom du client** — pour que chaque réservation soit reliée à une vraie personne, pas à un pseudo de DM.
+- **Le nom du client** — pour que chaque réservation soit reliée à une vraie personne, pas à un pseudo Insta ou une adresse email.
 - **La carnation** — pour que vous puissiez préparer votre palette et vos ombrages avant même qu'il s'assoie.
-- **S'il s'agit de son premier tatouage** — pour savoir d'emblée combien l'accompagner sur la douleur, la cicatrisation et les soins.
+- **S'il s'agit de son premier tatouage** — pour savoir d'emblée comment l'accompagner sur la douleur, la cicatrisation et les soins.
+- **L'emplacement et la taille de chaque tatouage souhaité** - pour ne pas avoir de surprise de placement et bien adapté son devis.
 
-Et pour les **projets de flash**, tattou.ink collecte **l'emplacement et la taille de chaque tatouage souhaité** — ainsi, quand un client choisit plusieurs pièces de votre flash, vous savez déjà exactement où va chacune et quelle taille elle doit faire avant même qu'il s'assoie.
-
-Ensuite, c'est à vous de personnaliser : briefs créatifs, questions médicales, acomptes, images de référence, besoins de confort — tout ce que votre organisation demande. Au lieu de courir après les détails entre les DM Instagram, les e-mails et les SMS, vous obtenez un seul formulaire structuré et un seul endroit bien rangé pour lire les réponses avant l'arrivée du client.
-
-Si l'envoi des invitations, les mêmes questions à répéter et le réagencement des séances grignotent vos soirées, ça vaut le coup d'œil : [tattou.ink](https://tattou.ink).
+Vous pouvez par ailleurs **créer des formulaires librement** et les façonner à votre style : ajoutez les champs qui comptent pour vous, retirez ceux qui ne servent pas, et formulez tout avec vos propres mots pour que le formulaire soit une extension de votre studio plutôt qu'un questionnaire générique.
