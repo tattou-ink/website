@@ -73,7 +73,7 @@ export function Pricing() {
     <section
       id={SECTION_IDS.pricing}
       className={cn(
-        'relative w-full bg-panel px-5 py-16 lg:px-20 lg:py-24',
+        'relative w-full bg-panel px-5 py-16 lg:px-20 lg:py-24 overflow-x-clip',
         isAppSectionDark && 'overflow-hidden',
         !isAppSectionDark &&
           'before:content-[" "] before:absolute before:top-0 before:right-5 before:left-5 lg:before:right-20 lg:before:left-20 before:block before:border-b-10 lg:before:border-b before:border-b-accent-highlight',
