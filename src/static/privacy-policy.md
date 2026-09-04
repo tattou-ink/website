@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-published: 2026-06-01
+published: 2026-09-04
 ---
 
 # Privacy Policy
@@ -48,6 +48,7 @@ When a Client registers to book a session, we collect:
 - Instagram handle (optional, self-declared)
 - Whether it is their first tattoo (yes / no)
 - Skin tone (potentially sensitive data — see section 4) (optional, self-declared)
+- Billing address (for invoicing purposes, so Artists can issue invoices with the Client's information)
 
 ### 3.3 Data collected during use of the platform
 
@@ -102,6 +103,7 @@ Your data is used exclusively for the following purposes:
 - Enabling chat communication between Artist and Client.
 - Sending automated emails related to bookings (confirmations, reminders, etc.).
 - Processing booking fees and sending payment links (if activated by the Artist).
+- Enabling Artists to issue invoices to Clients using their billing address.
 - Ensuring the technical security and stability of the platform.
 - Complying with our legal and accounting obligations.
 

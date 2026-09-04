@@ -1,6 +1,6 @@
 ---
 title: Politique de confidentialité
-published: 2026-06-01
+published: 2026-09-04
 ---
 
 # Politique de Confidentialité
@@ -48,6 +48,7 @@ Lors de l'inscription d'un Client pour réserver une séance, nous collectons :
 - Identifiant Instagram (optionnel, déclaratif)
 - Indication s'il s'agit d'un premier tatouage (oui / non)
 - Phototype de peau (autrement dit la couleur de peau, données potentiellement sensibles — voir section 4) (optionnel, déclaratif)
+- Adresse de facturation (à des fins de facturation, afin que les Artistes puissent émettre des factures avec les informations du Client)
 
 ### 3.3 Données collectées lors de l'utilisation de la plateforme
 
@@ -102,6 +103,7 @@ Vos données sont utilisées exclusivement pour les finalités suivantes :
 - Permettre la communication par chat entre Artiste et Client.
 - Envoyer des e-mails automatiques liés aux réservations (confirmation, rappels, etc.).
 - Traiter les arrhes et envoyer des liens de paiement (si l'Artiste active cette fonctionnalité).
+- Permettre aux Artistes d'émettre des factures aux Clients à partir de leur adresse de facturation.
 - Assurer la sécurité et la stabilité technique de la plateforme.
 - Respecter nos obligations légales et comptables.
 
