@@ -8,27 +8,27 @@ import { X } from 'lucide-react';
 import { LangSwitcher } from '@/components/LangSwitcher';
 import { SECTION_IDS } from './anchors';
 import { CtaButton, Highlight } from './ui';
+import { Link } from '@tanstack/react-router';
 
+export type NavLink = { label: () => string } & (
+  | { href: string }
+  | { hash: string }
+  | { path: string; hash?: string }
+);
 
-export type NavLink = { label: () => string; href: string };
-
-const home = localizeHref('/');
 const defaultNavLinks: NavLink[] = [
-  { label: m.landing_nav_app, href: `${home}#${SECTION_IDS.app}` },
-  { label: m.landing_nav_features, href: `${home}#${SECTION_IDS.features}` },
-  { label: m.landing_nav_pricing, href: `${home}#${SECTION_IDS.pricing}` },
-  { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },
-  { label: m.landing_nav_join, href: `${home}/blog` },
+  { label: m.landing_nav_app, path: '/', hash: SECTION_IDS.app },
+  { label: m.landing_nav_features, hash: SECTION_IDS.features },
+  { label: m.landing_nav_pricing, hash: SECTION_IDS.pricing },
+  { label: m.landing_nav_join, hash: SECTION_IDS.join },
+  { label: m.landing_nav_blog, path: '/blog' },
   { label: m.landing_nav_open_app, href: 'https://pro.tattou.ink' },
 ];
 
 export function Header({
   navLinks = defaultNavLinks,
   theme = 'dark',
-}: {
-  navLinks?: NavLink[];
-  theme?: 'dark' | 'light';
-} = {}) {
+}: { navLinks?: NavLink[]; theme?: 'dark' | 'light' } = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isDark = theme === 'dark';
@@ -40,6 +40,56 @@ export function Header({
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isDark]);
+
+  const renderNavLink = ({
+    link,
+    label,
+    className,
+    onClick,
+  }: {
+    link: NavLink;
+    label: string;
+    className: string;
+    onClick: () => void;
+  }) => {
+    if ('path' in link) {
+      return (
+        <Link
+          key={label}
+          to={localizeHref(link.path)}
+          hash={link.hash}
+          className={className}
+          onClick={onClick}
+        >
+          {label}
+        </Link>
+      );
+    }
+    if ('href' in link) {
+      return (
+        <Link
+          key={label}
+          to={link.href}
+          href={link.href}
+          className={className}
+          onClick={onClick}
+        >
+          {label}
+        </Link>
+      );
+    }
+    return (
+      <Link
+        key={label}
+        to={'.'}
+        hash={link.hash}
+        className={className}
+        onClick={onClick}
+      >
+        {label}
+      </Link>
+    );
+  };
 
   return (
     <header
@@ -53,33 +103,32 @@ export function Header({
           : 'sticky top-0 h-12 bg-panel shadow-sm lg:h-16',
       )}
     >
-      <a
-        href={`${home}#${SECTION_IDS.top}`}
+      <Link
+        to={localizeHref('/')}
+        hash={SECTION_IDS.top}
         className="block h-[18px] w-auto shrink-0 lg:h-[41px]"
       >
         <img
           src={
-            isDark ? '/images/landing/logo.svg' : '/images/landing/logo-dark.svg'
+            isDark
+              ? '/images/landing/logo.svg'
+              : '/images/landing/logo-dark.svg'
           }
           alt="tattou.ink"
           className="h-full w-auto"
         />
-      </a>
+      </Link>
 
       <div className="hidden items-center gap-12 lg:flex">
         <nav className="flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'px-2 py-1 font-body text-base leading-[26px] font-bold uppercase hover:opacity-70',
-                isDark ? 'text-cream' : 'text-ink',
-              )}
-            >
-              {link.label()}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const label = link.label();
+            const className = cn(
+              'px-2 py-1 font-body text-base leading-[26px] font-bold uppercase hover:opacity-70',
+              isDark ? 'text-cream' : 'text-ink',
+            );
+            return renderNavLink({ link, label, className });
+          })}
         </nav>
         <LangSwitcher theme={theme} />
       </div>
@@ -127,19 +176,20 @@ export function Header({
             )}
           >
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={cn(
-                    'font-body text-base leading-[26px] font-bold uppercase',
-                    isDark ? 'text-cream' : 'text-ink',
-                  )}
-                >
-                  {link.label()}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const label = link.label();
+                const className = cn(
+                  'font-body text-base leading-[26px] font-bold uppercase',
+                  isDark ? 'text-cream' : 'text-ink',
+                );
+
+                return renderNavLink({
+                  link,
+                  label,
+                  className,
+                  onClick: () => setMenuOpen(false),
+                });
+              })}
             </nav>
             <LangSwitcher theme={theme} />
           </div>
