@@ -1,72 +1,65 @@
 import { useEffect, useState } from 'react';
 
 import { m } from '@/paraglide/messages';
-import type { Locale } from '@/paraglide/runtime';
-import { getLocale, setLocale } from '@/paraglide/runtime';
+import { localizeHref } from '@/paraglide/runtime';
+import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 
+import { LangSwitcher } from '@/components/LangSwitcher';
 import { SECTION_IDS } from './anchors';
 import { CtaButton, Highlight } from './ui';
 
-const navLinks = [
-  { label: m.landing_nav_app, href: `#${SECTION_IDS.app}` },
-  { label: m.landing_nav_features, href: `#${SECTION_IDS.features}` },
-  { label: m.landing_nav_pricing, href: `#${SECTION_IDS.pricing}` },
-  { label: m.landing_nav_join, href: `#${SECTION_IDS.join}` },
-  // {
-  //   label: m.landing_nav_blog,
-  //   href: localizeHref('/blog/what-to-ask-customers-before-tattoo-session'),
-  // },
+const home = localizeHref('/');
+
+export type NavLink = { label: () => string; href: string };
+
+const defaultNavLinks: NavLink[] = [
+  { label: m.landing_nav_app, href: `${home}#${SECTION_IDS.app}` },
+  { label: m.landing_nav_features, href: `${home}#${SECTION_IDS.features}` },
+  { label: m.landing_nav_pricing, href: `${home}#${SECTION_IDS.pricing}` },
+  { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },
   { label: m.landing_nav_open_app, href: 'https://pro.tattou.ink' },
 ];
 
-function LangSwitcher({ className = '' }: { className?: string }) {
-  const locale = getLocale();
-  return (
-    <div className={`flex items-center gap-1 ${className}`}>
-      {(['fr', 'en'] as Locale[]).map((lng, i) => (
-        <div key={lng} className="flex items-center">
-          <button
-            type="button"
-            onClick={() => setLocale(lng)}
-            className={`p-1 font-body text-base uppercase ${
-              locale === lng
-                ? 'text-cream underline'
-                : 'text-cream-muted hover:text-cream'
-            }`}
-          >
-            {lng}
-          </button>
-          {i === 0 ? <span className="px-0.5 text-cream">·</span> : null}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export function Header() {
+export function Header({
+  navLinks = defaultNavLinks,
+  theme = 'dark',
+}: {
+  navLinks?: NavLink[];
+  theme?: 'dark' | 'light';
+} = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isDark = theme === 'dark';
 
   useEffect(() => {
+    if (!isDark) return;
     const handleScroll = () => setIsScrolled(window.scrollY > 32);
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isDark]);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-20 flex items-center justify-between px-4 transition-all duration-300 lg:px-12 ${
-        isScrolled ? 'h-16 bg-ink shadow-md' : 'h-24 bg-transparent'
-      }`}
+      className={cn(
+        'z-20 flex items-center justify-between px-4 transition-all duration-300 lg:px-12',
+        isDark
+          ? cn(
+              'fixed inset-x-0 top-0',
+              isScrolled ? 'h-16 bg-ink shadow-md' : 'h-24 bg-transparent',
+            )
+          : 'sticky top-0 h-12 bg-panel shadow-sm lg:h-16',
+      )}
     >
       <a
-        href={`#${SECTION_IDS.top}`}
+        href={`${home}#${SECTION_IDS.top}`}
         className="block h-[18px] w-auto shrink-0 lg:h-[41px]"
       >
         <img
-          src="/images/landing/logo.svg"
+          src={
+            isDark ? '/images/landing/logo.svg' : '/images/landing/logo-dark.svg'
+          }
           alt="Tattou.ink"
           className="h-full w-auto"
         />
@@ -78,13 +71,16 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="px-2 py-1 font-body text-base leading-[26px] font-bold text-cream uppercase hover:opacity-70"
+              className={cn(
+                'px-2 py-1 font-body text-base leading-[26px] font-bold uppercase hover:opacity-70',
+                isDark ? 'text-cream' : 'text-ink',
+              )}
             >
               {link.label()}
             </a>
           ))}
         </nav>
-        <LangSwitcher />
+        <LangSwitcher theme={theme} />
       </div>
 
       <button
@@ -95,12 +91,18 @@ export function Header() {
         className="flex w-6 shrink-0 flex-col gap-1 lg:hidden"
       >
         {menuOpen ? (
-          <X className="size-6 text-cream" />
+          <X className={cn('size-6', isDark ? 'text-cream' : 'text-ink')} />
         ) : (
           <>
-            <span className="h-px w-full bg-cream" />
-            <span className="h-px w-full bg-cream" />
-            <span className="h-px w-full bg-cream" />
+            <span
+              className={cn('h-px w-full', isDark ? 'bg-cream' : 'bg-ink')}
+            />
+            <span
+              className={cn('h-px w-full', isDark ? 'bg-cream' : 'bg-ink')}
+            />
+            <span
+              className={cn('h-px w-full', isDark ? 'bg-cream' : 'bg-ink')}
+            />
           </>
         )}
       </button>
@@ -110,24 +112,35 @@ export function Header() {
           <div
             aria-hidden="true"
             onClick={() => setMenuOpen(false)}
-            className={`fixed inset-x-0 bottom-0 z-10 bg-ink/60 transition-all duration-300 lg:hidden ${
-              isScrolled ? 'top-16' : 'top-24'
-            }`}
+            className={cn(
+              'fixed inset-x-0 bottom-0 z-10 transition-all duration-300 lg:hidden',
+              isDark
+                ? cn('bg-ink/60', isScrolled ? 'top-16' : 'top-24')
+                : 'top-12 bg-ink/40 lg:top-16',
+            )}
           />
-          <div className="absolute top-full right-0 left-0 z-20 flex flex-col gap-6 bg-ink px-4 py-8 lg:hidden">
+          <div
+            className={cn(
+              'absolute top-full right-0 left-0 z-20 flex flex-col gap-6 px-4 py-8 lg:hidden',
+              isDark ? 'bg-ink' : 'bg-panel',
+            )}
+          >
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-body text-base leading-[26px] font-bold text-cream uppercase"
+                  className={cn(
+                    'font-body text-base leading-[26px] font-bold uppercase',
+                    isDark ? 'text-cream' : 'text-ink',
+                  )}
                 >
                   {link.label()}
                 </a>
               ))}
             </nav>
-            <LangSwitcher />
+            <LangSwitcher theme={theme} />
           </div>
         </>
       ) : null}

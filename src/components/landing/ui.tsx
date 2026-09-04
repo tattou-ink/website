@@ -25,10 +25,21 @@ export function Eyebrow({
 export function Heading({
   children,
   className = '',
+  level,
 }: {
   children: ReactNode;
   className?: string;
+  level?: 1 | 2;
 }) {
+  if (level === 1) {
+    return (
+      <h1
+        className={`font-display text-[32px] leading-[34px] font-black uppercase lg:text-[48px] lg:leading-[50px] ${className}`}
+      >
+        {children}
+      </h1>
+    );
+  }
   return (
     <h2
       className={`font-display text-[32px] leading-[34px] font-black uppercase lg:text-[48px] lg:leading-[50px] ${className}`}

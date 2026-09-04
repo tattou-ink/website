@@ -3,6 +3,11 @@ title: "What Should I Ask My Customers Before a Tattoo Session?"
 description: "A practical pre-session checklist for tattoo artists: the questions that prevent no-shows, surprises, and wasted chair time — plus a ready-to-use intake template."
 published: 2026-06-30
 author: tattou
+category: Clients
+heroImage: /images/blog/what-to-ask-customers-before-tattoo-session.jpg
+cta:
+  type: app
+  label: Create my form
 tags:
   - tattoo business
   - client intake
@@ -10,7 +15,7 @@ tags:
   - consultation
 ---
 
-# What Should I Ask My Customers Before a Tattoo Session?
+# What Should I Ask My Customers __Before a Tattoo Session__?
 
 Every tattoo artist has lived this story: the client books a "small black-and-gray piece," shows up expecting full color the size of a forearm, forgot they're on blood thinners, didn't bring a reference, and now needs to be somewhere in 90 minutes. The session that should have flowed turns into damage control.
 

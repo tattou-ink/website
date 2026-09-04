@@ -164,5 +164,7 @@
   "landing_android_dialog_title": "Pas encore disponible sur Android",
   "landing_android_dialog_body": "Notre application Android est presque prête, mais nous devons valider manuellement chaque nouveau testeur avant que vous puissiez l'installer. Envoyez-nous un email et on s'occupe de vous, ou utilisez dès maintenant l'application web, sans rien installer.",
   "landing_android_dialog_web_cta": "Utiliser l'application web",
-  "landing_android_dialog_email_cta": "Nous envoyer un email"
+  "landing_android_dialog_email_cta": "Nous envoyer un email",
+  "blog_nav_home": "Accueil",
+  "blog_related_heading": "J'en veux plus !"
 }

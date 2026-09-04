@@ -1,26 +1,37 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Markdown } from '@/components/Markdown';
-import { getBlogArticleMarkdownOrThrowNotFound } from '@/lib/blogUtils';
+import { BlogArticleTemplate } from '@/components/blog/BlogArticleTemplate';
+import { getBlogArticleDataOrThrowNotFound } from '@/lib/blogUtils';
 
 export const Route = createFileRoute(
   '/blog/what-to-ask-customers-before-tattoo-session',
 )({
   component: RouteComponent,
   loader: async ({ location, route }) => {
-    const markdown = await getBlogArticleMarkdownOrThrowNotFound(
+    const { post, markdown, related } = await getBlogArticleDataOrThrowNotFound(
       location,
       route,
     );
 
-    return { markdown };
+    return { post, markdown, related };
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) return {};
+    const { post } = loaderData;
+    return {
+      meta: [
+        { title: post.title },
+        { name: 'description', content: post.description },
+        { property: 'og:title', content: post.title },
+        { property: 'og:description', content: post.description },
+        { property: 'og:image', content: post.heroImage },
+        { name: 'twitter:title', content: post.title },
+        { name: 'twitter:description', content: post.description },
+      ],
+    };
   },
 });
 
 function RouteComponent() {
-  const { markdown } = Route.useLoaderData();
-  return (
-    <main className="p-4 md:p-8 lg:px-16">
-      <Markdown markdown={markdown} className="prose" />
-    </main>
-  );
+  const { post, markdown, related } = Route.useLoaderData();
+  return <BlogArticleTemplate post={post} markdown={markdown} related={related} />;
 }

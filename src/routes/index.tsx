@@ -3,7 +3,7 @@ import { Benefit1 } from '@/components/landing/Benefit1';
 import { Benefit2 } from '@/components/landing/Benefit2';
 import { Benefit3 } from '@/components/landing/Benefit3';
 import { CtaFinal } from '@/components/landing/CtaFinal';
-import { Footer } from '@/components/landing/Footer';
+import { Footer } from '@/components/Footer';
 import { Header, Hero } from '@/components/landing/Hero';
 import { Manifesto } from '@/components/landing/Manifesto';
 import { Pricing } from '@/components/landing/Pricing';
@@ -51,7 +51,7 @@ function App() {
       <Pricing />
       <Manifesto />
       <CtaFinal />
-      <Footer />
+      <Footer mergeWithPreviousDarkSection={true} theme='dark' />
     </main>
   );
 }

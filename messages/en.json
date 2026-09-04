@@ -164,5 +164,7 @@
   "landing_android_dialog_title": "Not available on Android just yet",
   "landing_android_dialog_body": "Our Android app is almost ready, but we need to manually approve new testers before you can install it. Email us and we'll set you up, or start using the web app right away, no install needed.",
   "landing_android_dialog_web_cta": "Use the web app",
-  "landing_android_dialog_email_cta": "Email us instead"
+  "landing_android_dialog_email_cta": "Email us instead",
+  "blog_nav_home": "Home",
+  "blog_related_heading": "I want more!"
 }
