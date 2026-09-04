@@ -4,7 +4,8 @@ import { Benefit2 } from '@/components/landing/Benefit2';
 import { Benefit3 } from '@/components/landing/Benefit3';
 import { CtaFinal } from '@/components/landing/CtaFinal';
 import { Footer } from '@/components/Footer';
-import { Header, Hero } from '@/components/landing/Hero';
+import { Header, Hero  } from '@/components/landing/Hero';
+import type {NavLink} from '@/components/landing/Hero';
 import { Manifesto } from '@/components/landing/Manifesto';
 import { Pricing } from '@/components/landing/Pricing';
 import { Problem } from '@/components/landing/Problem';
@@ -14,6 +15,8 @@ import { Ticker } from '@/components/landing/Ticker';
 import { useActiveSectionHash } from '@/components/landing/useActiveSectionHash';
 import { m } from '@/paraglide/messages';
 import { createFileRoute } from '@tanstack/react-router';
+import { useEffect, useState } from 'react';
+import { getLandingNavLinks } from '@/lib/navUtils';
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -36,9 +39,15 @@ export const Route = createFileRoute('/')({
 function App() {
   useActiveSectionHash();
 
+  const [navLinks, setNavLinks] = useState<NavLink[]>([]);
+
+  useEffect(() => {
+    setNavLinks(getLandingNavLinks());
+  }, []);
+
   return (
     <main>
-      <Header />
+      <Header navLinks={navLinks} />
       <Hero />
       <Ticker />
       <Problem />
@@ -51,7 +60,7 @@ function App() {
       <Pricing />
       <Manifesto />
       <CtaFinal />
-      <Footer mergeWithPreviousDarkSection={true} theme='dark' />
+      <Footer mergeWithPreviousDarkSection={true} theme="dark" />
     </main>
   );
 }

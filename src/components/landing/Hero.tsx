@@ -9,15 +9,16 @@ import { LangSwitcher } from '@/components/LangSwitcher';
 import { SECTION_IDS } from './anchors';
 import { CtaButton, Highlight } from './ui';
 
-const home = localizeHref('/');
 
 export type NavLink = { label: () => string; href: string };
 
+const home = localizeHref('/');
 const defaultNavLinks: NavLink[] = [
   { label: m.landing_nav_app, href: `${home}#${SECTION_IDS.app}` },
   { label: m.landing_nav_features, href: `${home}#${SECTION_IDS.features}` },
   { label: m.landing_nav_pricing, href: `${home}#${SECTION_IDS.pricing}` },
   { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },
+  { label: m.landing_nav_join, href: `${home}/blog` },
   { label: m.landing_nav_open_app, href: 'https://pro.tattou.ink' },
 ];
 
