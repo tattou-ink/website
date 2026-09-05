@@ -36,9 +36,9 @@ The app is called **tattou.ink** (all lowercase) — never "Tattou", "Tattou.ink
 
 ## The tattou.ink call-to-action (always last)
 
-Separate it with a `---` and an enthusiastic `###` heading tied to the article's theme. Lead with the feature most relevant to the article, then a soft link. Pick the facts that fit — **don't dump the whole list.**
+Separate it with a `---` and an enthusiastic `###` heading tied to the article's theme. Lead with the feature most relevant to the article, then a soft link. Pick the facts that fit — **don't dump the whole list, focus on 1 or 2, 3 at most.**
 
-Product facts to draw on:
+Product facts to draw on::
 
 - **One place for all client admin** — replaces the scatter of Instagram DMs, email, texts, and spreadsheets.
 - **Free-form form builder** — artists _create forms freely_ and shape them to their own style/voice/vibe; add or drop any field.
