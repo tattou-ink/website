@@ -15,6 +15,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogWhatToAskCustomersBeforeTattooSessionRouteImport } from './routes/blog/what-to-ask-customers-before-tattoo-session'
+import { Route as BlogHowToAppearProfessionalToTattooClientsRouteImport } from './routes/blog/how-to-appear-professional-to-tattoo-clients'
 
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
   id: '/terms-and-conditions',
@@ -47,12 +48,19 @@ const BlogWhatToAskCustomersBeforeTattooSessionRoute =
     path: '/blog/what-to-ask-customers-before-tattoo-session',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogHowToAppearProfessionalToTattooClientsRoute =
+  BlogHowToAppearProfessionalToTattooClientsRouteImport.update({
+    id: '/blog/how-to-appear-professional-to-tattoo-clients',
+    path: '/blog/how-to-appear-professional-to-tattoo-clients',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blog/how-to-appear-professional-to-tattoo-clients': typeof BlogHowToAppearProfessionalToTattooClientsRoute
   '/blog/what-to-ask-customers-before-tattoo-session': typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -61,6 +69,7 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blog/how-to-appear-professional-to-tattoo-clients': typeof BlogHowToAppearProfessionalToTattooClientsRoute
   '/blog/what-to-ask-customers-before-tattoo-session': typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -70,6 +79,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blog/how-to-appear-professional-to-tattoo-clients': typeof BlogHowToAppearProfessionalToTattooClientsRoute
   '/blog/what-to-ask-customers-before-tattoo-session': typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -80,6 +90,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-and-conditions'
+    | '/blog/how-to-appear-professional-to-tattoo-clients'
     | '/blog/what-to-ask-customers-before-tattoo-session'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +99,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-and-conditions'
+    | '/blog/how-to-appear-professional-to-tattoo-clients'
     | '/blog/what-to-ask-customers-before-tattoo-session'
     | '/blog'
   id:
@@ -96,6 +108,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-and-conditions'
+    | '/blog/how-to-appear-professional-to-tattoo-clients'
     | '/blog/what-to-ask-customers-before-tattoo-session'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -105,6 +118,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  BlogHowToAppearProfessionalToTattooClientsRoute: typeof BlogHowToAppearProfessionalToTattooClientsRoute
   BlogWhatToAskCustomersBeforeTattooSessionRoute: typeof BlogWhatToAskCustomersBeforeTattooSessionRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
@@ -153,6 +167,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogWhatToAskCustomersBeforeTattooSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/how-to-appear-professional-to-tattoo-clients': {
+      id: '/blog/how-to-appear-professional-to-tattoo-clients'
+      path: '/blog/how-to-appear-professional-to-tattoo-clients'
+      fullPath: '/blog/how-to-appear-professional-to-tattoo-clients'
+      preLoaderRoute: typeof BlogHowToAppearProfessionalToTattooClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -161,6 +182,8 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  BlogHowToAppearProfessionalToTattooClientsRoute:
+    BlogHowToAppearProfessionalToTattooClientsRoute,
   BlogWhatToAskCustomersBeforeTattooSessionRoute:
     BlogWhatToAskCustomersBeforeTattooSessionRoute,
   BlogIndexRoute: BlogIndexRoute,

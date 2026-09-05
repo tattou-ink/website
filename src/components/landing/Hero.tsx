@@ -50,7 +50,7 @@ export function Header({
     link: NavLink;
     label: string;
     className: string;
-    onClick: () => void;
+    onClick?: () => void;
   }) => {
     if ('path' in link) {
       return (
