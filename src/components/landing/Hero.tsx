@@ -67,15 +67,9 @@ export function Header({
     }
     if ('href' in link) {
       return (
-        <Link
-          key={label}
-          to={link.href}
-          href={link.href}
-          className={className}
-          onClick={onClick}
-        >
+        <a key={label} href={link.href} className={className} onClick={onClick}>
           {label}
-        </Link>
+        </a>
       );
     }
     return (
