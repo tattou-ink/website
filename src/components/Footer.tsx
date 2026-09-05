@@ -5,28 +5,6 @@ import { Link } from '@tanstack/react-router';
 import { SECTION_IDS } from './landing/anchors';
 import { cn } from '@/lib/utils';
 
-const locale = getLocale();
-const home = localizeHref('/');
-
-const navLinks = [
-  { label: m.landing_nav_app, href: `${home}#${SECTION_IDS.app}` },
-  { label: m.landing_nav_features, href: `${home}#${SECTION_IDS.features}` },
-  { label: m.landing_nav_pricing, href: `${home}#${SECTION_IDS.pricing}` },
-  { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },
-  {
-    label: m.landing_nav_blog,
-    href: localizeHref('/blog'),
-  },
-  {
-    label: m.landing_footer_instagram,
-    href:
-      locale === 'fr'
-        ? 'https://instagram.com/tattou.ink_fr'
-        : 'https://instagram.com/tattou.ink',
-  },
-  { label: m.landing_footer_contact, href: 'mailto:contact@tattou.ink' },
-];
-
 const Separator = ({ theme }: { theme: 'dark' | 'light' }) => (
   <span
     className={cn(
@@ -52,6 +30,25 @@ export function Footer({
     theme === 'dark' && 'text-cream',
   );
 
+  const locale = getLocale();
+  const home = localizeHref('/');
+
+  const navLinks = [
+    { label: m.landing_nav_app, href: `${home}#${SECTION_IDS.app}` },
+    { label: m.landing_nav_features, href: `${home}#${SECTION_IDS.features}` },
+    { label: m.landing_nav_pricing, href: `${home}#${SECTION_IDS.pricing}` },
+    { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },
+    { label: m.landing_nav_blog, href: localizeHref('/blog') },
+    {
+      label: m.landing_footer_instagram,
+      href:
+        locale === 'fr'
+          ? 'https://instagram.com/tattou.ink_fr'
+          : 'https://instagram.com/tattou.ink',
+    },
+    { label: m.landing_footer_contact, href: 'mailto:contact@tattou.ink' },
+  ];
+
   return (
     <footer
       className={cn(
@@ -59,7 +56,7 @@ export function Footer({
         theme === 'dark' ? 'bg-ink' : 'bg-panel',
         mergeWithPreviousDarkSection ? 'pb-12' : 'py-12',
         withSeparator &&
-          'relative before:content-[" "] before:absolute before:top-0 before:right-5 before:left-5 before:block before:border-b before:border-b-charcoal-300 lg:before:right-20 lg:before:left-20',
+          'before:content-[" "] relative before:absolute before:top-0 before:right-5 before:left-5 before:block before:border-b before:border-b-charcoal-300 lg:before:right-20 lg:before:left-20',
       )}
     >
       <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-between">
