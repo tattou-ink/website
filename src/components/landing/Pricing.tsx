@@ -4,20 +4,6 @@ import { SECTION_IDS } from './anchors';
 import { CtaButton, Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
 
-const featureColumns = [
-  [
-    m.landing_pricing_feature_1(),
-    m.landing_pricing_feature_2(),
-    m.landing_pricing_feature_3(),
-    m.landing_pricing_feature_4(),
-  ],
-  [
-    m.landing_pricing_feature_5(),
-    m.landing_pricing_feature_6(),
-    m.landing_pricing_feature_7(),
-  ],
-];
-
 function PriceCard({
   name,
   note,
@@ -70,6 +56,20 @@ function PriceCard({
 const isAppSectionDark: boolean = false as const;
 
 export function Pricing() {
+  const featureColumns = [
+    [
+      m.landing_pricing_feature_1(),
+      m.landing_pricing_feature_2(),
+      m.landing_pricing_feature_3(),
+      m.landing_pricing_feature_4(),
+    ],
+    [
+      m.landing_pricing_feature_5(),
+      m.landing_pricing_feature_6(),
+      m.landing_pricing_feature_7(),
+    ],
+  ];
+
   return (
     <section
       id={SECTION_IDS.pricing}

@@ -1,29 +1,22 @@
 import { m } from '@/paraglide/messages';
 
 import { SECTION_IDS } from './anchors';
-import {
-  CompareColumn,
-  CompareColumns,
-  Eyebrow,
-  Heading,
-  Highlight,
-} from './ui';
-
-const beforeItems = [
-  m.landing_benefit1_before_1(),
-  m.landing_benefit1_before_2(),
-  m.landing_benefit1_before_3(),
-  m.landing_benefit1_before_4(),
-];
-
-const afterItems = [
-  m.landing_benefit1_after_1(),
-  m.landing_benefit1_after_2(),
-  m.landing_benefit1_after_3(),
-  m.landing_benefit1_after_4(),
-];
+import { CompareColumns, Eyebrow, Heading, Highlight } from './ui';
 
 export function Benefit1() {
+  const beforeItems = [
+    m.landing_benefit1_before_1(),
+    m.landing_benefit1_before_2(),
+    m.landing_benefit1_before_3(),
+    m.landing_benefit1_before_4(),
+  ];
+
+  const afterItems = [
+    m.landing_benefit1_after_1(),
+    m.landing_benefit1_after_2(),
+    m.landing_benefit1_after_3(),
+    m.landing_benefit1_after_4(),
+  ];
   return (
     <section
       id={SECTION_IDS.features}

@@ -3,21 +3,20 @@ import { m } from '@/paraglide/messages';
 import { CompareColumns, Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
 
-const beforeItems = [
-  m.landing_benefit2_before_1(),
-  m.landing_benefit2_before_2(),
-  m.landing_benefit2_before_3(),
-  m.landing_benefit2_before_4(),
-];
-
-const afterItems = [
-  m.landing_benefit2_after_1(),
-  m.landing_benefit2_after_2(),
-  m.landing_benefit2_after_3(),
-  m.landing_benefit2_after_4(),
-];
-
 export function Benefit2() {
+  const beforeItems = [
+    m.landing_benefit2_before_1(),
+    m.landing_benefit2_before_2(),
+    m.landing_benefit2_before_3(),
+    m.landing_benefit2_before_4(),
+  ];
+
+  const afterItems = [
+    m.landing_benefit2_after_1(),
+    m.landing_benefit2_after_2(),
+    m.landing_benefit2_after_3(),
+    m.landing_benefit2_after_4(),
+  ];
   return (
     <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
       <img
@@ -80,7 +79,7 @@ export function Benefit2() {
           />
         </div>
 
-        <div className="relative hidden shrink-0 lg:block lg:mt-10">
+        <div className="relative hidden shrink-0 lg:mt-10 lg:block">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <img

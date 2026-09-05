@@ -4,15 +4,15 @@ import { Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
 import { ParaglideMessage } from '@inlang/paraglide-js-react';
 
-const items = [
-  m.landing_promise_item_1,
-  m.landing_promise_item_2,
-  m.landing_promise_item_3,
-  m.landing_promise_item_4,
-  m.landing_promise_item_5,
-];
-
 export function PromiseSection() {
+  const items = [
+    m.landing_promise_item_1,
+    m.landing_promise_item_2,
+    m.landing_promise_item_3,
+    m.landing_promise_item_4,
+    m.landing_promise_item_5,
+  ];
+
   return (
     <section className="relative flex w-full flex-col gap-8 overflow-hidden bg-panel pb-16 lg:pt-8 lg:pb-24">
       <img

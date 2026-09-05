@@ -16,82 +16,81 @@ type Feature = {
 
 const theme: 'dark' | 'light' = 'light';
 
-const features: Feature[] = [
-  {
-    label: m.landing_app_feature_1_label(),
-    title: m.landing_app_feature_1_title(),
-    body: m.landing_app_feature_1_body(),
-    screenshot: {
-      desktop: '/images/landing/app/calendar.png',
-      mobile: '/images/landing/app/calendar.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_2_label(),
-    title: m.landing_app_feature_2_title(),
-    body: m.landing_app_feature_2_body(),
-    screenshot: {
-      desktop: '/images/landing/app/session.png',
-      mobile: '/images/landing/app/session.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_3_label(),
-    title: m.landing_app_feature_3_title(),
-    body: m.landing_app_feature_3_body(),
-    screenshot: {
-      desktop: '/images/landing/app/flashbook.png',
-      mobile: '/images/landing/app/flashbook.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_4_label(),
-    title: m.landing_app_feature_4_title(),
-    body: m.landing_app_feature_4_body(),
-    screenshot: {
-      desktop: '/images/landing/app/forms.png',
-      mobile: '/images/landing/app/forms.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_5_label(),
-    title: m.landing_app_feature_5_title(),
-    body: m.landing_app_feature_5_body(),
-    screenshot: {
-      desktop: '/images/landing/app/flashbook-configuration.png',
-      mobile: '/images/landing/app/flashbook-configuration.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_6_label(),
-    title: m.landing_app_feature_6_title(),
-    body: m.landing_app_feature_6_body(),
-    screenshot: {
-      desktop: '/images/landing/app/studios.png',
-      mobile: '/images/landing/app/studios.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_7_label(),
-    title: m.landing_app_feature_7_title(),
-    body: m.landing_app_feature_7_body(),
-    screenshot: {
-      desktop: '/images/landing/app/chat.png',
-      mobile: '/images/landing/app/chat.png',
-    },
-  },
-  {
-    label: m.landing_app_feature_8_label(),
-    title: m.landing_app_feature_8_title(),
-    body: m.landing_app_feature_8_body(),
-    screenshot: {
-      desktop: '/images/landing/app/website.png',
-      mobile: '/images/landing/app/website.png',
-    },
-  },
-];
-
 export function AppSection() {
+  const features: Feature[] = [
+    {
+      label: m.landing_app_feature_1_label(),
+      title: m.landing_app_feature_1_title(),
+      body: m.landing_app_feature_1_body(),
+      screenshot: {
+        desktop: '/images/landing/app/calendar.png',
+        mobile: '/images/landing/app/calendar.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_2_label(),
+      title: m.landing_app_feature_2_title(),
+      body: m.landing_app_feature_2_body(),
+      screenshot: {
+        desktop: '/images/landing/app/session.png',
+        mobile: '/images/landing/app/session.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_3_label(),
+      title: m.landing_app_feature_3_title(),
+      body: m.landing_app_feature_3_body(),
+      screenshot: {
+        desktop: '/images/landing/app/flashbook.png',
+        mobile: '/images/landing/app/flashbook.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_4_label(),
+      title: m.landing_app_feature_4_title(),
+      body: m.landing_app_feature_4_body(),
+      screenshot: {
+        desktop: '/images/landing/app/forms.png',
+        mobile: '/images/landing/app/forms.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_5_label(),
+      title: m.landing_app_feature_5_title(),
+      body: m.landing_app_feature_5_body(),
+      screenshot: {
+        desktop: '/images/landing/app/flashbook-configuration.png',
+        mobile: '/images/landing/app/flashbook-configuration.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_6_label(),
+      title: m.landing_app_feature_6_title(),
+      body: m.landing_app_feature_6_body(),
+      screenshot: {
+        desktop: '/images/landing/app/studios.png',
+        mobile: '/images/landing/app/studios.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_7_label(),
+      title: m.landing_app_feature_7_title(),
+      body: m.landing_app_feature_7_body(),
+      screenshot: {
+        desktop: '/images/landing/app/chat.png',
+        mobile: '/images/landing/app/chat.png',
+      },
+    },
+    {
+      label: m.landing_app_feature_8_label(),
+      title: m.landing_app_feature_8_title(),
+      body: m.landing_app_feature_8_body(),
+      screenshot: {
+        desktop: '/images/landing/app/website.png',
+        mobile: '/images/landing/app/website.png',
+      },
+    },
+  ];
   const [expandedIndex, setExpandedIndex] = useState(0);
   const expandedFeature = features[expandedIndex];
 
