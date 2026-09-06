@@ -1,6 +1,6 @@
 ---
-title: "What Should I Ask My Customers Before a Tattoo Session?"
-description: "A practical pre-session checklist for tattoo artists: the questions that prevent no-shows, surprises, and wasted chair time — plus a ready-to-use intake template."
+title: 'What Should I Ask My Customers Before a Tattoo Session?'
+description: 'A practical pre-session checklist for tattoo artists: the questions that prevent no-shows, surprises, and wasted chair time.'
 published: 2026-06-30
 author: tattou.ink
 category: Clients
@@ -15,11 +15,11 @@ tags:
   - consultation
 ---
 
-# What Should I Ask My Customers __Before a Tattoo Session__?
+# What Should I Ask My Customers **Before a Tattoo Session**?
 
 Every tattoo artist has lived this story: the client books a "small black-and-gray piece," shows up expecting full color the size of a forearm, forgot they're on blood thinners, didn't bring a reference, and now needs to be somewhere in 90 minutes. The session that should have flowed turns into damage control.
 
-Almost all of that is avoidable. The difference between a smooth session and a stressful one is usually decided *before* anyone picks up a machine — in the questions you ask up front.
+Almost all of that is avoidable. The difference between a smooth session and a stressful one is usually decided _before_ anyone picks up a machine — in the questions you ask up front.
 
 This guide walks through exactly what to ask your customers before a tattoo session, why each question matters, and how to collect the answers without drowning in DMs. At the end you'll find a copy-paste intake template you can start using today.
 
@@ -77,7 +77,7 @@ This is the section that most protects you and your client. Keep it factual and 
 
 - **Confirmed date, time, and studio address.**
 - **Deposit paid?**
-- **Aftercare instructions sent?** Sending these *before* the session means the client arrives already prepared.
+- **Aftercare instructions sent?** Sending these _before_ the session means the client arrives already prepared.
 
 ## How to actually collect this — without the chaos
 
@@ -100,13 +100,13 @@ Keep it short enough that clients actually finish it, but complete enough that n
 
 The best tattoo sessions are won before they begin. A clear design brief saves you from redrawing. A medical questionnaire protects everyone in the room. A confirmed policy prevents awkward conversations about deposits. And sending it all in one structured form means the answers are waiting for you, organized, instead of buried in a dozen message threads.
 
-If you've ever finished a long day of tattooing only to spend your evening answering the same booking questions over and over, the problem usually isn't *what* you ask — it's *how* you collect it.
+If you've ever finished a long day of tattooing only to spend your evening answering the same booking questions over and over, the problem usually isn't _what_ you ask — it's _how_ you collect it.
 
 ---
 
 ### Build the intake form that matches your vibe with tattou.ink
 
-Knowing the right questions is one thing. Sending them in a way that feels like *you* — and having every answer land in one organized place — is another. That's exactly what [**tattou.ink**](https://tattou.ink) was built for.
+Knowing the right questions is one thing. Sending them in a way that feels like _you_ — and having every answer land in one organized place — is another. That's exactly what [**tattou.ink**](https://tattou.ink) was built for.
 
 By default, tattou.ink collects:
 

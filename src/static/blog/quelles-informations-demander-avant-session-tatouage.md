@@ -1,6 +1,6 @@
 ---
 title: "Quelles informations demander à mes clients avant une séance de tatouage ?"
-description: "Une checklist pratique d'avant-séance pour les tatoueurs : les questions qui évitent les absences, les mauvaises surprises et le temps perdu sur la chaise — avec un modèle de formulaire prêt à l'emploi."
+description: "Une checklist pratique d'avant-séance pour les tatoueurs : les questions qui évitent les absences, les mauvaises surprises et le temps perdu sur la chaise."
 published: 2026-06-30
 author: tattou.ink
 category: Clients
