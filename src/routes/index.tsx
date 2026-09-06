@@ -4,8 +4,8 @@ import { Benefit2 } from '@/components/landing/Benefit2';
 import { Benefit3 } from '@/components/landing/Benefit3';
 import { CtaFinal } from '@/components/landing/CtaFinal';
 import { Footer } from '@/components/Footer';
-import { Header, Hero  } from '@/components/landing/Hero';
-import type {NavLink} from '@/components/landing/Hero';
+import { Header, Hero } from '@/components/landing/Hero';
+import type { NavLink } from '@/components/landing/Hero';
 import { Manifesto } from '@/components/landing/Manifesto';
 import { Pricing } from '@/components/landing/Pricing';
 import { Problem } from '@/components/landing/Problem';
@@ -17,12 +17,19 @@ import { m } from '@/paraglide/messages';
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { getLandingNavLinks } from '@/lib/navUtils';
+import { getLocale } from '@/paraglide/runtime';
+import {
+  getOrganizationNode,
+  getWebsiteNode,
+  jsonLdScript,
+} from '@/lib/structuredData';
 
 export const Route = createFileRoute('/')({
   component: App,
   head: () => {
     const title = m.major_any_newt_fry();
     const description = m.wise_this_panther_race();
+    const locale = getLocale();
     return {
       meta: [
         { title },
@@ -32,6 +39,7 @@ export const Route = createFileRoute('/')({
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
       ],
+      scripts: [jsonLdScript([getOrganizationNode(), getWebsiteNode(locale)])],
     };
   },
 });

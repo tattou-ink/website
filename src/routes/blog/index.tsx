@@ -1,8 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { extractLocaleFromUrl } from '@/paraglide/runtime';
+import { extractLocaleFromUrl, getLocale } from '@/paraglide/runtime';
 import { m } from '@/paraglide/messages';
 import { getAllBlogPosts } from '@/lib/blogUtils';
 import { BlogIndexPage } from '@/components/blog/BlogIndexPage';
+import {
+  BASE_URL,
+  getBreadcrumbNode,
+  getOrganizationNode,
+  getWebsiteNode,
+  jsonLdScript,
+} from '@/lib/structuredData';
+import { getLanguagePrefix } from '@/lib/languageUtils';
 
 const POSTS_PER_PAGE = 9;
 
@@ -27,12 +35,25 @@ export const Route = createFileRoute('/blog/')({
   head: () => {
     const title = m.blog_index_title_line();
     const description = m.blog_index_subtitle();
+    const locale = getLocale();
+    const home = `${BASE_URL}${getLanguagePrefix(locale)}/`;
+    const blogUrl = `${BASE_URL}${getLanguagePrefix(locale)}/blog`;
     return {
       meta: [
         { title },
         { name: 'description', content: description },
         { property: 'og:title', content: title },
         { property: 'og:description', content: description },
+      ],
+      scripts: [
+        jsonLdScript([
+          getOrganizationNode(),
+          getWebsiteNode(locale),
+          getBreadcrumbNode([
+            { name: m.blog_nav_home(), url: home },
+            { name: m.landing_nav_blog(), url: blogUrl },
+          ]),
+        ]),
       ],
     };
   },

@@ -45,7 +45,7 @@ export async function getBlogArticleDataOrThrowNotFound(
   if (!resolved) {
     throw notFound();
   }
-  const { post } = resolved;
+  const { post, href } = resolved;
 
   const markdown = await renderMarkdown(post.content);
 
@@ -53,7 +53,13 @@ export async function getBlogArticleDataOrThrowNotFound(
     .map((routeId) => resolveBlogPostByRouteId(routeId, locale))
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
-  return { post, markdown, related };
+  return {
+    post,
+    markdown,
+    related,
+    href: `${getLanguagePrefix(locale)}${href}`,
+    locale,
+  };
 }
 
 const dateFormatterByLocale: Record<Locale, Intl.DateTimeFormat> = {
