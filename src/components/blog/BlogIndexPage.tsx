@@ -32,7 +32,7 @@ export function BlogIndexPage({
     <main className="w-full bg-panel">
       <Header navLinks={navLinks} theme="light" />
 
-      <div className="relative">
+      <div className="relative overflow-clip">
         <img
           src="/images/landing/problem/paint-stroke.png"
           alt=""
