@@ -33,7 +33,7 @@ export function BlogArticleCard({
           width={width}
           height={height}
           widths={[400]}
-          loading={isLoadingHighPriority ? 'eager' : 'lazy'}
+          priority={isLoadingHighPriority}
           sizes="(min-width: 768px) 33vw, 80vw"
           className="size-full object-cover"
         />
