@@ -1,5 +1,6 @@
 import { m } from '@/paraglide/messages';
 
+import { Image } from '@/components/Image';
 import { Eyebrow, Heading, Highlight } from './ui';
 import { SmartCtaButton } from '../SmartCtaButton';
 
@@ -30,16 +31,20 @@ export function Benefit3() {
         </div>
 
         <div className="relative aspect-[402/900] w-full md:w-[40%] lg:block lg:aspect-[708/822] lg:w-[54%]">
-          <img
+          <Image
             src="/images/landing/benefit3/photo-desktop.jpg"
-            alt=""
+            width={708}
+            height={822}
+            sizes="(min-width: 1024px) 54vw, (min-width: 768px) 40vw, 100vw"
             className="size-full object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-b from-stencil-dark to-transparent to-10% lg:bg-linear-to-l lg:to-20%" />
           <div className="absolute inset-0 bg-linear-to-t from-[#1C1917] to-transparent to-10% lg:bg-linear-to-r lg:to-20%" />
-          <img
+          <Image
             src="/images/landing/benefit3/profile-with-frame.png"
-            alt=""
+            width={1206}
+            height={2495}
+            sizes="(min-width: 1024px) 43vw, 80vw"
             className="absolute top-1/2 left-1/2 w-[80%] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:transform lg:top-[11.7%] lg:left-[26.7%] lg:w-[42.7%]"
           />
         </div>

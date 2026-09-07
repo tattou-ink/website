@@ -1,26 +1,33 @@
 import { ParaglideMessage } from '@inlang/paraglide-js-react';
 import { m } from '@/paraglide/messages';
 
+import { Image } from '@/components/Image';
 import { Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
 
 export function Problem() {
   return (
     <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
-      <img
+      <Image
         src="/images/landing/problem/paint-stroke.png"
+        width={674}
+        height={370}
         alt=""
         aria-hidden
+        sizes="(min-width: 1024px) 384px, 288px"
         className={cn(
           'pointer-events-none absolute',
           '-top-8 -right-36 w-72 rotate-[45deg]',
           'lg:-top-8 lg:-right-64 lg:w-96',
         )}
       />
-      <img
+      <Image
         src="/images/landing/problem/paint-blob.png"
+        width={372}
+        height={374}
         alt=""
         aria-hidden
+        sizes="160px"
         className={cn(
           'pointer-events-none absolute hidden lg:block',
           'bottom-0 -left-16 w-40',
@@ -80,18 +87,22 @@ export function Problem() {
         </div>
 
         <div className="relative -mx-5 h-75 overflow-hidden border-y-2 border-stencil md:h-100 lg:hidden">
-          <img
+          <Image
             src="/images/landing/problem/photo.jpg"
-            alt=""
+            width={1536}
+            height={1024}
+            sizes="100vw"
             className="h-full w-full -translate-x-20 translate-y-10 scale-150 object-cover object-[60%_0%]"
           />
         </div>
-        <div className="relative hidden shrink-0 lg:block lg:mt-10">
+        <div className="relative hidden shrink-0 lg:mt-10 lg:block">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
-            <img
+            <Image
               src="/images/landing/problem/photo.jpg"
-              alt=""
+              width={1536}
+              height={1024}
+              sizes="519px"
               className="h-full w-full object-cover object-[80%_25%]"
             />
           </div>

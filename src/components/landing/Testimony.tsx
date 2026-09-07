@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 
 import { m } from '@/paraglide/messages';
 
+import { Image } from '@/components/Image';
 import { Eyebrow, Heading, Highlight } from './ui';
 
 // TODO: Use real testimonials when we have them.
@@ -71,16 +72,22 @@ export function Testimony() {
 
   return (
     <section className="relative w-full overflow-hidden bg-panel py-16 lg:py-24">
-      <img
+      <Image
         src="/images/landing/testimony/paint-tl.png"
+        width={231}
+        height={75}
         alt=""
         aria-hidden
+        sizes="224px"
         className="pointer-events-none absolute top-0 left-0 hidden w-56 lg:block"
       />
-      <img
+      <Image
         src="/images/landing/testimony/paint-br.png"
+        width={122}
+        height={70}
         alt=""
         aria-hidden
+        sizes="128px"
         className="pointer-events-none absolute right-0 bottom-0 w-24 lg:w-32"
       />
 

@@ -1,5 +1,6 @@
 import { m } from '@/paraglide/messages';
 
+import { Image } from '@/components/Image';
 import { Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
 import { ParaglideMessage } from '@inlang/paraglide-js-react';
@@ -15,10 +16,13 @@ export function PromiseSection() {
 
   return (
     <section className="relative flex w-full flex-col gap-8 overflow-hidden bg-panel pb-16 lg:pt-8 lg:pb-24">
-      <img
+      <Image
         src="/images/landing/promise/paint-tattou.png"
+        width={1201}
+        height={749}
         alt=""
         aria-hidden
+        sizes="(min-width: 1024px) 600px, 384px"
         className={cn(
           'pointer-events-none absolute',
           '-right-36 -bottom-16 w-96 rotate-[-15deg]',
@@ -57,9 +61,11 @@ export function PromiseSection() {
           </p>
         </div>
         <div className="relative aspect-square w-full shrink-0 max-lg:h-90 lg:w-[46%]">
-          <img
+          <Image
             src="/images/landing/promise/photo.jpg"
-            alt=""
+            width={1254}
+            height={1254}
+            sizes="(min-width: 1024px) 46vw, 100vw"
             className="size-full object-cover"
           />
         </div>

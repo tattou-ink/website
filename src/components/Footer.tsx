@@ -71,6 +71,9 @@ export function Footer({
                 : '/images/landing/logo-dark.svg'
             }
             alt="tattou.ink"
+            width={192}
+            height={41}
+            loading="lazy"
             className="h-full w-auto"
           />
         </a>

@@ -79,4 +79,23 @@ export function formatBlogDate(date: Date, locale: Locale) {
   return dateFormatterByLocale[locale].format(date);
 }
 
+// Native pixel dimensions of each hero image, used to set explicit
+// width/height on <img> and avoid layout shift while it loads.
+const heroImageDimensions: Record<string, { width: number; height: number }> = {
+  '/images/blog/what-to-ask-customers-before-tattoo-session.jpg': {
+    width: 2728,
+    height: 3529,
+  },
+  '/images/blog/how-to-appear-professional-to-tattoo-clients.jpg': {
+    width: 2000,
+    height: 2154,
+  },
+};
+
+const DEFAULT_HERO_IMAGE_DIMENSIONS = { width: 2000, height: 2154 };
+
+export function getHeroImageDimensions(heroImage: string) {
+  return heroImageDimensions[heroImage] ?? DEFAULT_HERO_IMAGE_DIMENSIONS;
+}
+
 export type { BlogPost };

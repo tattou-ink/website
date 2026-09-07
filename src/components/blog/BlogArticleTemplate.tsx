@@ -20,6 +20,7 @@ import { BlogRelatedArticles } from './BlogRelatedArticles';
 import { getBlogNavLinks } from './blogNav';
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Image } from '@/components/Image';
 
 const getChildrenWithHeaderProps = (children: React.ReactNode) =>
   React.Children.map(children, (child) => {
@@ -122,10 +123,13 @@ export function BlogArticleTemplate({
       <BlogHero src={post.heroImage} />
 
       <div className="relative overflow-hidden">
-        <img
+        <Image
           src="/images/landing/problem/paint-stroke.png"
+          width={674}
+          height={370}
           alt=""
           aria-hidden
+          sizes="152px"
           className={cn(
             'z-1',
             'pointer-events-none absolute',
@@ -133,10 +137,13 @@ export function BlogArticleTemplate({
             'lg:-top-16 lg:-right-32 lg:w-72',
           )}
         />
-        <img
+        <Image
           src="/images/landing/problem/paint-stroke.png"
+          width={674}
+          height={370}
           alt=""
           aria-hidden
+          sizes="152px"
           className={cn(
             'z-1',
             'pointer-events-none absolute',
