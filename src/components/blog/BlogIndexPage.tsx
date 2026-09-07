@@ -68,8 +68,9 @@ export function BlogIndexPage({
 
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-              {posts.map(({ post, href }) => (
+              {posts.map(({ post, href }, index) => (
                 <BlogArticleCard
+                  isLoadingHighPriority={index <= 1}
                   key={href}
                   post={post}
                   href={href}

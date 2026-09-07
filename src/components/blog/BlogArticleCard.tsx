@@ -8,10 +8,12 @@ import type { BlogPost } from '@/lib/blogUtils';
 export function BlogArticleCard({
   post,
   href,
+  isLoadingHighPriority,
   className = 'flex w-[80%] shrink-0 snap-start flex-col gap-3 md:w-auto md:shrink',
 }: {
   post: BlogPost;
   href: string;
+  isLoadingHighPriority: boolean;
   className?: string;
 }) {
   const locale = getLocale();
@@ -31,6 +33,7 @@ export function BlogArticleCard({
           width={width}
           height={height}
           widths={[400]}
+          loading={isLoadingHighPriority ? 'eager' : 'lazy'}
           sizes="(min-width: 768px) 33vw, 80vw"
           className="size-full object-cover"
         />
