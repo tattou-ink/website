@@ -144,7 +144,7 @@ export function AppSection() {
             sizes="288px"
             className={cn(
               'pointer-events-none absolute',
-              '-top-8 -right-36 w-72 rotate-[60deg]',
+              '-top-8 -right-24 w-72 rotate-[60deg]',
               'lg:-top-8 lg:-right-32 lg:w-72',
             )}
           />{' '}
@@ -261,7 +261,7 @@ export function AppSection() {
               return (
                 <li
                   key={feature.label}
-                  className="sticky mb-2"
+                  className={cn('sticky')}
                   style={{
                     top: MOBILE_CARD_TOP + i * MOBILE_CARD_STEP,
                     zIndex: i + 1,
@@ -270,8 +270,9 @@ export function AppSection() {
                   <article
                     className={cn(
                       'flex h-[calc(100svh-9.5rem)] max-h-[680px] min-h-[380px] flex-col overflow-hidden',
-                      'rounded  shadow-[0_-6px_20px_rgba(28,25,23,0.10)]',
+                      'rounded shadow-[0_-6px_20px_rgba(28,25,23,0.10)]',
                       theme === 'dark' ? 'bg-ink' : 'bg-[#faf8f6]',
+                      i === features.length - 1 ? 'pb-4' : 'pb-2',
                     )}
                   >
                     <div className="flex flex-col gap-2 p-5">
@@ -304,10 +305,11 @@ export function AppSection() {
                     </div>
                     {feature.screenshot ? (
                       <div className="flex min-h-0 flex-1 justify-center px-5 pb-5">
-                        <img
+                        <Image
                           src={feature.screenshot.mobile}
-                          alt=""
-                          loading="lazy"
+                          sizes="318px"
+                          width={feature.screenshot.width}
+                          height={feature.screenshot.height}
                           className="h-full w-auto max-w-full border-2 border-stencil object-contain"
                         />
                       </div>
