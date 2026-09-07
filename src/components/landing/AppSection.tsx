@@ -261,7 +261,7 @@ export function AppSection() {
               return (
                 <li
                   key={feature.label}
-                  className="sticky"
+                  className="sticky mb-2"
                   style={{
                     top: MOBILE_CARD_TOP + i * MOBILE_CARD_STEP,
                     zIndex: i + 1,
@@ -270,8 +270,8 @@ export function AppSection() {
                   <article
                     className={cn(
                       'flex h-[calc(100svh-9.5rem)] max-h-[680px] min-h-[380px] flex-col overflow-hidden',
-                      'rounded-lg border-2 border-stencil shadow-[0_-6px_20px_rgba(28,25,23,0.15)]',
-                      theme === 'dark' ? 'bg-ink' : 'bg-cream',
+                      'rounded  shadow-[0_-6px_20px_rgba(28,25,23,0.10)]',
+                      theme === 'dark' ? 'bg-ink' : 'bg-[#faf8f6]',
                     )}
                   >
                     <div className="flex flex-col gap-2 p-5">
@@ -318,7 +318,7 @@ export function AppSection() {
             })}
             {/* Holds the finished pile on screen for a beat before the page
                 scrolls on to the next section. */}
-            <li aria-hidden className="h-[5svh]" />
+            <li aria-hidden className="h-[10svh]" />
           </ol>
         </div>
 
