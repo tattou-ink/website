@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { m } from '@/paraglide/messages';
 import { Accordion } from 'radix-ui';
 
+import { Image } from '@/components/Image';
 import { SECTION_IDS } from './anchors';
 import { Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
@@ -11,7 +12,12 @@ type Feature = {
   label: string;
   title?: string;
   body?: string;
-  screenshot?: { desktop: string; mobile: string };
+  screenshot?: {
+    desktop: string;
+    mobile: string;
+    width: number;
+    height: number;
+  };
 };
 
 const theme: 'dark' | 'light' = 'light';
@@ -25,6 +31,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/calendar.png',
         mobile: '/images/landing/app/calendar.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -34,6 +42,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/session.png',
         mobile: '/images/landing/app/session.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -43,6 +53,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/flashbook.png',
         mobile: '/images/landing/app/flashbook.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -52,6 +64,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/forms.png',
         mobile: '/images/landing/app/forms.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -61,6 +75,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/flashbook-configuration.png',
         mobile: '/images/landing/app/flashbook-configuration.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -70,6 +86,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/studios.png',
         mobile: '/images/landing/app/studios.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -79,6 +97,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/chat.png',
         mobile: '/images/landing/app/chat.png',
+        width: 1206,
+        height: 2622,
       },
     },
     {
@@ -88,6 +108,8 @@ export function AppSection() {
       screenshot: {
         desktop: '/images/landing/app/website.png',
         mobile: '/images/landing/app/website.png',
+        width: 1179,
+        height: 2556,
       },
     },
   ];
@@ -104,10 +126,13 @@ export function AppSection() {
       )}
     >
       {theme === 'light' && (
-        <img
+        <Image
           src="/images/landing/problem/paint-stroke.png"
+          width={674}
+          height={370}
           alt=""
           aria-hidden
+          sizes="288px"
           className={cn(
             'pointer-events-none absolute',
             '-top-8 -right-36 w-72 rotate-[60deg]',
@@ -213,9 +238,11 @@ export function AppSection() {
                           {feature.body}
                         </p>
                         {feature.screenshot ? (
-                          <img
+                          <Image
                             src={feature.screenshot.mobile}
-                            alt=""
+                            width={feature.screenshot.width}
+                            height={feature.screenshot.height}
+                            sizes="80vw"
                             className="aspect[201/437] mt-4 w-[80%] self-center border-2 border-stencil md:hidden"
                           />
                         ) : null}
@@ -247,9 +274,11 @@ export function AppSection() {
                       style={{ width: `${100 / features.length}%` }}
                     >
                       {feature.screenshot ? (
-                        <img
+                        <Image
                           src={feature.screenshot.desktop}
-                          alt=""
+                          width={feature.screenshot.width}
+                          height={feature.screenshot.height}
+                          sizes="318px"
                           className="size-full object-cover"
                         />
                       ) : null}

@@ -1,5 +1,6 @@
 import { m } from '@/paraglide/messages';
 
+import { Image } from '@/components/Image';
 import { CompareColumns, Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
 
@@ -19,20 +20,26 @@ export function Benefit2() {
   ];
   return (
     <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
-      <img
+      <Image
         src="/images/landing/problem/paint-stroke.png"
+        width={674}
+        height={370}
         alt=""
         aria-hidden
+        sizes="(min-width: 1024px) 256px, 128px"
         className={cn(
           'pointer-events-none absolute',
           '-top-4 -left-8 w-32 rotate-[0deg]',
           'lg:-top-8 lg:-left-12 lg:w-64',
         )}
       />
-      <img
+      <Image
         src="/images/landing/promise/paint-tattou.png"
+        width={1201}
+        height={749}
         alt=""
         aria-hidden
+        sizes="600px"
         className={cn(
           'pointer-events-none absolute',
           'hidden',
@@ -72,9 +79,11 @@ export function Benefit2() {
         </div>
 
         <div className="relative -mx-5 h-[298px] border-y-2 border-stencil lg:hidden">
-          <img
+          <Image
             src="/images/landing/benefit2/photo.jpg"
-            alt=""
+            width={1254}
+            height={1254}
+            sizes="100vw"
             className="h-full w-full object-cover object-[70%_20%]"
           />
         </div>
@@ -82,9 +91,11 @@ export function Benefit2() {
         <div className="relative hidden shrink-0 lg:mt-10 lg:block">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
-            <img
+            <Image
               src="/images/landing/benefit2/photo.jpg"
-              alt=""
+              width={1254}
+              height={1254}
+              sizes="519px"
               className="h-full w-full object-cover object-[70%_20%]"
             />
           </div>

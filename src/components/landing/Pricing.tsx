@@ -1,5 +1,6 @@
 import { m } from '@/paraglide/messages';
 
+import { Image } from '@/components/Image';
 import { SECTION_IDS } from './anchors';
 import { CtaButton, Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
@@ -81,19 +82,25 @@ export function Pricing() {
       )}
     >
       <div className="relative overflow-x-clip px-5 py-16 max-lg:overflow-clip lg:px-20 lg:py-24">
-        <img
+        <Image
           src="/images/landing/problem/paint-blob.png"
+          width={372}
+          height={374}
           alt=""
           aria-hidden
+          sizes="192px"
           className={cn(
             'pointer-events-none absolute -right-16 w-48 rotate-90 lg:block',
             isAppSectionDark ? '-top-8' : '-top-24',
           )}
         />
-        <img
+        <Image
           src="/images/landing/pricing/paint-bl.png"
+          width={80}
+          height={43}
           alt=""
           aria-hidden
+          sizes="80px"
           className="pointer-events-none absolute bottom-0 left-0 w-20"
         />
 

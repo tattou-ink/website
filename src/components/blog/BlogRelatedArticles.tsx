@@ -16,7 +16,12 @@ export function BlogRelatedArticles({
       <Heading className="text-ink">{m.blog_related_heading()}</Heading>
       <div className="scrollbar-hide -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
         {related.map(({ post, href }) => (
-          <BlogArticleCard key={href} post={post} href={href} />
+          <BlogArticleCard
+            isLoadingHighPriority={false}
+            key={href}
+            post={post}
+            href={href}
+          />
         ))}
       </div>
     </div>

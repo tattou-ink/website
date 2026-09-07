@@ -39,6 +39,9 @@ export const Route = createFileRoute('/')({
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
       ],
+      // No manual <link rel="preload"> needed here: React's SSR renderer
+      // automatically emits one for any <img> that isn't loading="lazy"
+      // (see Hero's fetchPriority="high" image), matching its real srcset.
       scripts: [jsonLdScript([getOrganizationNode(), getWebsiteNode(locale)])],
     };
   },

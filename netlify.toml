@@ -4,3 +4,26 @@
 
 [functions]
   node_bundler = "esbuild"
+
+# Hashed build output (JS, CSS, self-hosted font files): the filename changes
+# whenever the content does, so it's safe to cache forever.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Static images served from /public. Paths are stable, so treat them the
+# same as hashed assets.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Every other (HTML) response: let the Netlify CDN serve a cached copy
+# immediately while it revalidates with the origin in the background.
+# Netlify-CDN-Cache-Control only affects Netlify's edge and is stripped
+# before reaching the browser.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"

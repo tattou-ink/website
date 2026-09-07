@@ -1,24 +1,42 @@
 import { Link } from '@tanstack/react-router';
 import { getLocale } from '@/paraglide/runtime';
 import { cn } from '@/lib/utils';
-import { formatBlogDate } from '@/lib/blogUtils';
+import { Image } from '@/components/Image';
+import { formatBlogDate, getHeroImageDimensions } from '@/lib/blogUtils';
 import type { BlogPost } from '@/lib/blogUtils';
 
 export function BlogArticleCard({
   post,
   href,
+  isLoadingHighPriority,
   className = 'flex w-[80%] shrink-0 snap-start flex-col gap-3 md:w-auto md:shrink',
 }: {
   post: BlogPost;
   href: string;
+  isLoadingHighPriority: boolean;
   className?: string;
 }) {
   const locale = getLocale();
+  const { width, height } = getHeroImageDimensions(post.heroImage);
 
   return (
-    <Link to={href} className={cn('flex flex-col gap-3 transition-all hover:scale-102', className)}>
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-charcoal-300 border-2 border-accent-highlight">
-        <img src={post.heroImage} alt="" className="size-full object-cover" />
+    <Link
+      to={href}
+      className={cn(
+        'flex flex-col gap-3 transition-all hover:scale-102',
+        className,
+      )}
+    >
+      <div className="relative aspect-[4/3] w-full overflow-hidden border-2 border-accent-highlight bg-charcoal-300">
+        <Image
+          src={post.heroImage}
+          width={width}
+          height={height}
+          widths={[400]}
+          priority={isLoadingHighPriority}
+          sizes="(min-width: 768px) 33vw, 80vw"
+          className="size-full object-cover"
+        />
         <span className="absolute top-3 left-3 rounded-xs bg-accent-highlight px-2 py-1 font-body text-[10px] leading-none text-cream uppercase">
           {post.category}
         </span>

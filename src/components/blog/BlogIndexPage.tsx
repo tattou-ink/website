@@ -12,6 +12,7 @@ import { getBlogNavLinks } from './blogNav';
 import { useEffect, useState } from 'react';
 import { ParaglideMessage } from '@inlang/paraglide-js-react';
 import { cn } from '@/lib/utils';
+import { Image } from '@/components/Image';
 
 export function BlogIndexPage({
   posts,
@@ -33,10 +34,14 @@ export function BlogIndexPage({
       <Header navLinks={navLinks} theme="light" />
 
       <div className="relative overflow-clip">
-        <img
+        <Image
           src="/images/landing/problem/paint-stroke.png"
+          width={674}
+          height={370}
           alt=""
           aria-hidden
+          loading="eager"
+          sizes="288px"
           className={cn(
             'pointer-events-none absolute',
             '-top-8 -right-18 w-48 rotate-[180deg]',
@@ -63,8 +68,9 @@ export function BlogIndexPage({
 
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-              {posts.map(({ post, href }) => (
+              {posts.map(({ post, href }, index) => (
                 <BlogArticleCard
+                  isLoadingHighPriority={index <= 1}
                   key={href}
                   post={post}
                   href={href}
