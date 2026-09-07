@@ -15,7 +15,7 @@ export function PromiseSection() {
   ];
 
   return (
-    <section className="relative flex w-full flex-col gap-8 overflow-hidden bg-panel pb-16 lg:pt-8 lg:pb-24">
+    <section className="relative flex w-full flex-col gap-8 overflow-clip bg-panel pb-16 lg:pt-8 lg:pb-24">
       <Image
         src="/images/landing/promise/paint-tattou.png"
         width={1201}

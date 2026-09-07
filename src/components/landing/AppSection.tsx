@@ -22,6 +22,11 @@ type Feature = {
 
 const theme: 'dark' | 'light' = 'light';
 
+// Mobile only: cards pile up on scroll. Each card sticks a few pixels lower
+// than the previous one so the stack underneath stays visible.
+const MOBILE_CARD_TOP = 72; // clears the fixed header
+const MOBILE_CARD_STEP = 6;
+
 export function AppSection() {
   const features: Feature[] = [
     {
@@ -120,25 +125,30 @@ export function AppSection() {
     <section
       id={SECTION_IDS.app}
       className={cn(
-        'relative overflow-hidden',
+        'relative',
         'w-full px-5 py-16 lg:px-20 lg:py-24',
         theme === 'dark' ? 'bg-ink' : 'bg-panel',
       )}
     >
       {theme === 'light' && (
-        <Image
-          src="/images/landing/problem/paint-stroke.png"
-          width={674}
-          height={370}
-          alt=""
+        <div
           aria-hidden
-          sizes="288px"
-          className={cn(
-            'pointer-events-none absolute',
-            '-top-8 -right-36 w-72 rotate-[60deg]',
-            'lg:-top-8 lg:-right-32 lg:w-72',
-          )}
-        />
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+        >
+          <Image
+            src="/images/landing/problem/paint-stroke.png"
+            width={674}
+            height={370}
+            alt=""
+            aria-hidden
+            sizes="288px"
+            className={cn(
+              'pointer-events-none absolute',
+              '-top-8 -right-24 w-72 rotate-[60deg]',
+              'lg:-top-8 lg:-right-32 lg:w-72',
+            )}
+          />{' '}
+        </div>
       )}
       <div className="grid gap-12 md:grid-cols-[500px_1fr] md:items-start md:gap-16 lg:grid-cols-[628px_1fr]">
         <div className="flex flex-col items-start gap-8">
@@ -169,7 +179,7 @@ export function AppSection() {
             onValueChange={(value) => {
               if (value) setExpandedIndex(Number(value));
             }}
-            className="flex w-full flex-col"
+            className="hidden w-full flex-col md:flex"
           >
             {features.map((feature, i) => {
               const isExpanded = i === expandedIndex;
@@ -237,15 +247,6 @@ export function AppSection() {
                         >
                           {feature.body}
                         </p>
-                        {feature.screenshot ? (
-                          <Image
-                            src={feature.screenshot.mobile}
-                            width={feature.screenshot.width}
-                            height={feature.screenshot.height}
-                            sizes="80vw"
-                            className="aspect[201/437] mt-4 w-[80%] self-center border-2 border-stencil md:hidden"
-                          />
-                        ) : null}
                       </div>
                     </Accordion.Content>
                   ) : null}
@@ -253,6 +254,74 @@ export function AppSection() {
               );
             })}
           </Accordion.Root>
+
+          <ol className="w-full md:hidden">
+            {features.map((feature, i) => {
+              if (!feature.title) return null;
+              return (
+                <li
+                  key={feature.label}
+                  className={cn('sticky')}
+                  style={{
+                    top: MOBILE_CARD_TOP + i * MOBILE_CARD_STEP,
+                    zIndex: i + 1,
+                  }}
+                >
+                  <article
+                    className={cn(
+                      'flex h-[calc(100svh-9.5rem)] max-h-[680px] min-h-[380px] flex-col overflow-hidden',
+                      'rounded shadow-[0_-6px_20px_rgba(28,25,23,0.10)]',
+                      theme === 'dark' ? 'bg-ink' : 'bg-[#faf8f6]',
+                      i === features.length - 1 ? 'pb-4' : 'pb-2',
+                    )}
+                  >
+                    <div className="flex flex-col gap-2 p-5">
+                      <p
+                        className={cn(
+                          'font-body text-sm leading-[21px] font-medium uppercase',
+                          theme === 'dark'
+                            ? 'text-accent-highlight-dark'
+                            : 'text-accent-highlight',
+                        )}
+                      >
+                        {feature.label}
+                      </p>
+                      <h3
+                        className={cn(
+                          'font-display text-xl leading-tight font-black uppercase',
+                          theme === 'dark' ? 'text-cream' : 'text-ink',
+                        )}
+                      >
+                        {feature.title}
+                      </h3>
+                      <p
+                        className={cn(
+                          'font-body text-sm leading-[21px]',
+                          theme === 'dark' ? 'text-cream' : 'text-charcoal-700',
+                        )}
+                      >
+                        {feature.body}
+                      </p>
+                    </div>
+                    {feature.screenshot ? (
+                      <div className="flex min-h-0 flex-1 justify-center px-5 pb-5">
+                        <Image
+                          src={feature.screenshot.mobile}
+                          sizes="318px"
+                          width={feature.screenshot.width}
+                          height={feature.screenshot.height}
+                          className="h-full w-auto max-w-full border-2 border-stencil object-contain"
+                        />
+                      </div>
+                    ) : null}
+                  </article>
+                </li>
+              );
+            })}
+            {/* Holds the finished pile on screen for a beat before the page
+                scrolls on to the next section. */}
+            <li aria-hidden className="h-[10svh]" />
+          </ol>
         </div>
 
         {expandedFeature.screenshot ? (

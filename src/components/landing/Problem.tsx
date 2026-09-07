@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 export function Problem() {
   return (
-    <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
+    <section className="relative w-full overflow-clip bg-panel px-5 py-16 lg:px-20 lg:py-24">
       <Image
         src="/images/landing/problem/paint-stroke.png"
         width={674}
