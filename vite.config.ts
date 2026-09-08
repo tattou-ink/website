@@ -20,7 +20,7 @@ const config = defineConfig({
       strategy: ['url', 'baseLocale'],
       urlPatterns: translatedPathnames,
     }),
-    netlify(),
+    netlify({ edgeSSR: true }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
