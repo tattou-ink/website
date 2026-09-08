@@ -126,6 +126,7 @@ export function AppSection() {
       id={SECTION_IDS.app}
       className={cn(
         'relative',
+        'scroll-mt-16',
         'w-full px-5 py-16 lg:px-20 lg:py-24',
         theme === 'dark' ? 'bg-ink' : 'bg-panel',
       )}

@@ -18,7 +18,7 @@ export type NavLink = { label: () => string } & (
 );
 
 const defaultNavLinks: NavLink[] = [
-  { label: m.landing_nav_app, path: '/', hash: SECTION_IDS.app },
+  { label: m.landing_nav_problem, path: '/', hash: SECTION_IDS.problem },
   { label: m.landing_nav_features, hash: SECTION_IDS.features },
   { label: m.landing_nav_pricing, hash: SECTION_IDS.pricing },
   { label: m.landing_nav_join, hash: SECTION_IDS.join },

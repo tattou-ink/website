@@ -34,7 +34,7 @@ export function Footer({
   const home = localizeHref('/');
 
   const navLinks = [
-    { label: m.landing_nav_app, href: `${home}#${SECTION_IDS.app}` },
+    { label: m.landing_nav_problem, href: `${home}#${SECTION_IDS.problem}` },
     { label: m.landing_nav_features, href: `${home}#${SECTION_IDS.features}` },
     { label: m.landing_nav_pricing, href: `${home}#${SECTION_IDS.pricing}` },
     { label: m.landing_nav_join, href: `${home}#${SECTION_IDS.join}` },

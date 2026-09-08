@@ -4,10 +4,14 @@ import { m } from '@/paraglide/messages';
 import { Image } from '@/components/Image';
 import { Eyebrow, Heading, Highlight } from './ui';
 import { cn } from '@/lib/utils';
+import { SECTION_IDS } from './anchors';
 
 export function Problem() {
   return (
-    <section className="relative w-full overflow-clip bg-panel px-5 py-16 lg:px-20 lg:py-24">
+    <section
+      id={SECTION_IDS.problem}
+      className="scroll-mt-16 relative w-full overflow-clip bg-panel px-5 py-16 lg:px-20 lg:py-24"
+    >
       <Image
         src="/images/landing/problem/paint-stroke.png"
         width={674}

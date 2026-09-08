@@ -75,6 +75,7 @@ export function Pricing() {
     <section
       id={SECTION_IDS.pricing}
       className={cn(
+        'scroll-mt-16',
         'relative w-full bg-panel max-lg:pt-2.5',
         isAppSectionDark && 'overflow-hidden',
         !isAppSectionDark &&
