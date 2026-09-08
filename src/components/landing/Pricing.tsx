@@ -101,7 +101,7 @@ export function Pricing() {
           alt=""
           aria-hidden
           sizes="80px"
-          className="pointer-events-none absolute bottom-0 left-0 w-20"
+          className="pointer-events-none absolute bottom-0 rotate-180 -right-0 w-20"
         />
 
         <div className="relative flex flex-col gap-12">
