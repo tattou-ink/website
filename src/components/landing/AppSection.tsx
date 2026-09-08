@@ -331,17 +331,17 @@ export function AppSection() {
               <div className="absolute top-4 left-4 aspect-[201/437] w-full border-2 border-stencil" />
               <div className="aspect-[201/437] w-full overflow-hidden">
                 <div
-                  className="flex h-full transition-transform duration-500 ease-out"
+                  className="flex w-full flex-col transition-transform duration-500 ease-out"
                   style={{
-                    width: `${features.length * 100}%`,
-                    transform: `translateX(-${(100 / features.length) * expandedIndex}%)`,
+                    height: `${features.length * 100}%`,
+                    transform: `translateY(-${(100 / features.length) * expandedIndex}%)`,
                   }}
                 >
                   {features.map((feature) => (
                     <div
                       key={feature.label}
-                      className="h-full shrink-0"
-                      style={{ width: `${100 / features.length}%` }}
+                      className="w-full shrink-0"
+                      style={{ height: `${100 / features.length}%` }}
                     >
                       {feature.screenshot ? (
                         <Image
