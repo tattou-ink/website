@@ -20,7 +20,7 @@ export function Benefit1() {
   return (
     <section
       id={SECTION_IDS.features}
-      className="w-full bg-ink px-5 py-16 lg:px-20 lg:py-24"
+      className="w-full bg-ink bg-[repeating-linear-gradient(to_right,var(--color-charcoal-900)_0,var(--color-charcoal-900)_1px,transparent_1px,transparent_80px)] px-5 py-16 lg:px-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[898px] flex-col items-start gap-8 lg:items-center">
         <div className="flex flex-col items-start gap-6 lg:items-center lg:text-center">

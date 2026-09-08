@@ -84,6 +84,7 @@ export function CompareColumn({
   className?: string;
 }) {
   const isAfter = variant === 'after';
+  const isFilledAndDark = tone === 'dark';
   const isFilledAndLight = isAfter && tone === 'light';
   const mutedTextClass = tone === 'dark' ? 'text-cream-muted' : 'text-taupe';
 
@@ -92,6 +93,7 @@ export function CompareColumn({
       className={cn(
         `rounded border p-6`,
         isFilledAndLight ? 'bg-stencil' : '',
+        isFilledAndDark && 'bg-ink',
         isAfter
           ? tone === 'light'
             ? 'border-stencil'

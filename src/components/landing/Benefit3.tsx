@@ -6,7 +6,7 @@ import { SmartCtaButton } from '../SmartCtaButton';
 
 export function Benefit3() {
   return (
-    <section className="relative w-full overflow-hidden bg-ink">
+    <section className="relative w-full overflow-hidden bg-ink bg-[repeating-linear-gradient(to_right,var(--color-charcoal-900)_0,var(--color-charcoal-900)_1px,transparent_1px,transparent_80px)]">
       <div className="flex flex-col md:flex-row-reverse md:items-center">
         <div className="flex flex-col items-start gap-8 px-5 py-16 md:w-[60%] md:px-20 md:py-24 lg:w-[46%]">
           <div className="flex flex-col items-start gap-6">
