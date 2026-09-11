@@ -6,7 +6,7 @@ import viteReact from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { translatedPathnames } from './i18n/lib';
 import contentCollections from '@content-collections/vite';
-import netlify from '@netlify/vite-plugin-tanstack-start';
+import { cloudflare } from '@cloudflare/vite-plugin';
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
@@ -20,11 +20,11 @@ const config = defineConfig({
       strategy: ['url', 'baseLocale'],
       urlPatterns: translatedPathnames,
     }),
-    netlify(),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
     contentCollections(),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
   ],
 });
 

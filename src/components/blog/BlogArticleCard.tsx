@@ -32,7 +32,6 @@ export function BlogArticleCard({
           src={post.heroImage}
           width={width}
           height={height}
-          widths={[400]}
           priority={isLoadingHighPriority}
           sizes="(min-width: 768px) 33vw, 80vw"
           className="size-full object-cover"

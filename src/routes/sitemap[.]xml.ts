@@ -69,8 +69,6 @@ export const Route = createFileRoute('/sitemap.xml')({
           headers: {
             'Content-Type': 'application/xml',
             'Cache-Control': 'public, max-age=0, must-revalidate',
-            'Netlify-CDN-Cache-Control':
-              'public, s-maxage=3600, stale-while-revalidate=86400, durable',
           },
         });
       },
