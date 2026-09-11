@@ -1,5 +1,7 @@
 import { cn } from '@/lib/utils';
 import type { ReactNode } from 'react';
+import { Select as SelectPrimitive } from 'radix-ui';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 
 export function Eyebrow({
   children,
@@ -189,5 +191,64 @@ export function CtaButton({
     <button type="button" onClick={onClick} className={sharedClassName}>
       {children}
     </button>
+  );
+}
+
+export function Select({
+  value,
+  onValueChange,
+  options,
+  className = '',
+}: {
+  value?: string;
+  onValueChange?: (value: string) => void;
+  options: { value: string; label: string }[];
+  className?: string;
+}) {
+  return (
+    <SelectPrimitive.Root value={value} onValueChange={onValueChange}>
+      <SelectPrimitive.Trigger
+        className={cn(
+          'inline-flex items-center justify-between gap-2 border border-cream-muted bg-panel px-4 py-3 font-body text-sm font-medium text-ink uppercase outline-none data-[placeholder]:text-taupe',
+          className,
+        )}
+      >
+        <SelectPrimitive.Value />
+        <SelectPrimitive.Icon>
+          <ChevronDown className="size-4 text-taupe" />
+        </SelectPrimitive.Icon>
+      </SelectPrimitive.Trigger>
+
+      <SelectPrimitive.Portal>
+        <SelectPrimitive.Content
+          position="popper"
+          sideOffset={4}
+          className="z-50 overflow-hidden border border-cream-muted bg-panel shadow-lg"
+        >
+          <SelectPrimitive.ScrollUpButton className="flex items-center justify-center py-1 text-taupe">
+            <ChevronUp className="size-4" />
+          </SelectPrimitive.ScrollUpButton>
+          <SelectPrimitive.Viewport className="p-1">
+            {options.map((option) => (
+              <SelectPrimitive.Item
+                key={option.value}
+                value={option.value}
+                className="relative flex cursor-default items-center gap-2 py-2 pr-8 pl-3 font-body text-sm text-ink uppercase outline-none select-none data-[highlighted]:bg-stencil data-[highlighted]:text-cream"
+              >
+                <SelectPrimitive.ItemText>
+                  {option.label}
+                </SelectPrimitive.ItemText>
+                <SelectPrimitive.ItemIndicator className="absolute right-2 flex items-center justify-center">
+                  <Check className="size-4" />
+                </SelectPrimitive.ItemIndicator>
+              </SelectPrimitive.Item>
+            ))}
+          </SelectPrimitive.Viewport>
+          <SelectPrimitive.ScrollDownButton className="flex items-center justify-center py-1 text-taupe">
+            <ChevronDown className="size-4" />
+          </SelectPrimitive.ScrollDownButton>
+        </SelectPrimitive.Content>
+      </SelectPrimitive.Portal>
+    </SelectPrimitive.Root>
   );
 }

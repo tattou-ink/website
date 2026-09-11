@@ -2,8 +2,14 @@ import { m } from '@/paraglide/messages';
 
 import { Image } from '@/components/Image';
 import { SECTION_IDS } from './anchors';
-import { CtaButton, Eyebrow, Heading, Highlight } from './ui';
+import { CtaButton, Eyebrow, Heading, Highlight, Select } from './ui';
 import { cn } from '@/lib/utils';
+import { useEffect, useMemo, useState } from 'react';
+import type { Currency } from '@/lib/currencyUtils';
+import { AVAILABLE_CURRENCIES } from '@/lib/currencyUtils';
+import { listSubscriptionPlans } from '@/api/subscriptionPlan';
+import type { SubscriptionPlan } from '@/api/subscriptionPlan';
+import { getLocale } from '@/paraglide/runtime';
 
 function PriceCard({
   name,
@@ -56,7 +62,61 @@ function PriceCard({
 // TODO: If using true here, make sure the stains and borders work as expected.
 const isAppSectionDark: boolean = false as const;
 
-export function Pricing() {
+export function Pricing({
+  defaultSubscriptionPlans,
+}: {
+  defaultSubscriptionPlans: SubscriptionPlan[];
+}) {
+  const defaultCurrency: Currency = useMemo(() => {
+    const firstSubscriptionPlan = defaultSubscriptionPlans[0];
+    return firstSubscriptionPlan ? firstSubscriptionPlan.currency : 'USD';
+  }, []);
+  const [subscriptionPlans, setSubscriptionPlans] = useState<
+    SubscriptionPlan[]
+  >(defaultSubscriptionPlans);
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency | null>(
+    null,
+  );
+
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      const subscriptionPlansWithGuessedCurrency = await listSubscriptionPlans(
+        {},
+      );
+
+      const firstSubscriptionPlanWithGuessedCurrency =
+        subscriptionPlansWithGuessedCurrency[0];
+      if (firstSubscriptionPlanWithGuessedCurrency) {
+        setSelectedCurrency(firstSubscriptionPlanWithGuessedCurrency.currency);
+      }
+      setSubscriptionPlans(subscriptionPlansWithGuessedCurrency);
+    };
+    fetchCurrencies();
+  }, []);
+
+  const currencyToDisplay = selectedCurrency || defaultCurrency;
+
+  const handleCurrencyChange = async (currency: Currency) => {
+    setSelectedCurrency(currency);
+    const subscriptionPlansForCurrency = await listSubscriptionPlans({
+      currency,
+    });
+    setSubscriptionPlans(subscriptionPlansForCurrency);
+  };
+
+  const monthlySubscription = subscriptionPlans.find(
+    (_plan) => _plan.period === 'month',
+  );
+  const yearlySubscription = subscriptionPlans.find(
+    (_plan) => _plan.period === 'year',
+  );
+
+  const formatPrice = new Intl.NumberFormat([getLocale()], {
+    currency: currencyToDisplay,
+    style: 'currency',
+    currencyDisplay: 'symbol',
+  });
+
   const featureColumns = [
     [
       m.landing_pricing_feature_1(),
@@ -102,10 +162,10 @@ export function Pricing() {
           alt=""
           aria-hidden
           sizes="80px"
-          className="pointer-events-none absolute bottom-0 rotate-180 -right-0 w-20"
+          className="pointer-events-none absolute -right-0 bottom-0 w-20 rotate-180"
         />
 
-        <div className="relative flex flex-col gap-12">
+        <div className="relative flex flex-col gap-6 md:gap-12">
           <div className="flex flex-col items-start gap-6">
             <Eyebrow theme="light">{m.landing_pricing_eyebrow()}</Eyebrow>
             <Heading className="text-ink">
@@ -118,23 +178,44 @@ export function Pricing() {
           </div>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-            <div className="grid w-full grid-cols-1 gap-8 pt-3 sm:grid-cols-2 lg:w-auto lg:shrink-0">
-              <PriceCard
-                name={m.landing_pricing_monthly_name()}
-                note={m.landing_pricing_monthly_note()}
-                price={m.landing_pricing_monthly_price()}
-                badge={m.landing_pricing_monthly_badge()}
-                highlighted
+            <div className="flex w-full flex-2 flex-col lg:flex-col-reverse gap-2 xl:flex-1">
+              <Select
+                className="mt-4 self-end lg:self-start"
+                value={currencyToDisplay}
+                onValueChange={(currency) =>
+                  handleCurrencyChange(currency as Currency)
+                }
+                options={AVAILABLE_CURRENCIES.map((_currency) => ({
+                  value: _currency.value,
+                  label: `${_currency.label} - ${_currency.symbol}`,
+                }))}
               />
-              <PriceCard
-                name={m.landing_pricing_yearly_name()}
-                note={m.landing_pricing_yearly_note()}
-                price={m.landing_pricing_yearly_price()}
-                disabled
-              />
+              <div className="grid w-full grid-cols-1 gap-8 pt-3 sm:grid-cols-2 lg:w-auto lg:shrink-0">
+                <PriceCard
+                  name={m.landing_pricing_monthly_name()}
+                  note={m.landing_pricing_monthly_note()}
+                  price={m.landing_pricing_monthly_price({
+                    pricePerMonth: monthlySubscription
+                      ? formatPrice.format(monthlySubscription.price / 100)
+                      : '-',
+                  })}
+                  badge={m.landing_pricing_monthly_badge()}
+                  highlighted
+                />
+                <PriceCard
+                  name={m.landing_pricing_yearly_name()}
+                  note={m.landing_pricing_yearly_note()}
+                  price={m.landing_pricing_yearly_price({
+                    pricePerYear: yearlySubscription
+                      ? formatPrice.format(yearlySubscription.price / 100)
+                      : '-',
+                  })}
+                  disabled
+                />
+              </div>
             </div>
 
-            <div className="flex flex-col gap-6 lg:max-w-[600px]">
+            <div className="flex flex-1 flex-col gap-6 lg:max-w-[600px]">
               <p className="font-body text-base leading-[24px] font-semibold text-ink lg:text-[18px]">
                 {m.landing_pricing_features_intro()}{' '}
                 <span className="text-stencil">

@@ -23,6 +23,7 @@ import {
   getWebsiteNode,
   jsonLdScript,
 } from '@/lib/structuredData';
+import { listSubscriptionPlans } from '@/api/subscriptionPlan';
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -45,10 +46,19 @@ export const Route = createFileRoute('/')({
       scripts: [jsonLdScript([getOrganizationNode(), getWebsiteNode(locale)])],
     };
   },
+  loader: async () => {
+    const defaultSubscriptionPlans = await listSubscriptionPlans({
+      currency: 'USD',
+    });
+
+    return { defaultSubscriptionPlans };
+  },
 });
 
 function App() {
   useActiveSectionHash();
+
+  const { defaultSubscriptionPlans } = Route.useLoaderData();
 
   const [navLinks, setNavLinks] = useState<NavLink[]>([]);
 
@@ -68,7 +78,7 @@ function App() {
       <Benefit3 />
       {/* <Testimony /> */}
       <AppSection />
-      <Pricing />
+      <Pricing defaultSubscriptionPlans={defaultSubscriptionPlans} />
       <Manifesto />
       <CtaFinal />
       <Footer mergeWithPreviousDarkSection={true} theme="dark" />
