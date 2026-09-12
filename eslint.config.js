@@ -16,6 +16,15 @@ export default [
     },
   },
   {
-    ignores: ["eslint.config.js", ".prettierrc"],
+    ignores: [
+      "eslint.config.js",
+      ".prettierrc",
+      "src/paraglide/**",
+      ".content-collections/**",
+      "src/components/ui/**",
+      ".netlify/**",
+      ".wrangler/**",
+      "dist/**",
+    ],
   },
 ]
