@@ -41,20 +41,26 @@ export const Route = createFileRoute('/sitemap.xml')({
       GET: async () => {
         const proSlugsToReference = await listProSlugsForSitemap();
         let content = Object.entries(localizedPathNames)
-          .map(([pagePath, pathByLanguage]) => {
-            const alternateLinks = Object.entries(pathByLanguage)
-              .map(
-                ([language, path]) =>
-                  `<xhtml:link rel="alternate" hreflang="${language}" href="${BASE_URL}${getLanguagePrefix(language)}${path}"/>`,
-              )
-              .join('\n    ');
-            return Object.entries(pathByLanguage).map(([language, path]) => {
-              return `<url>
+          .map(
+            ([
+              // @ts-ignore - easier like this.
+              pagePath,
+              pathByLanguage,
+            ]) => {
+              const alternateLinks = Object.entries(pathByLanguage)
+                .map(
+                  ([language, path]) =>
+                    `<xhtml:link rel="alternate" hreflang="${language}" href="${BASE_URL}${getLanguagePrefix(language)}${path}"/>`,
+                )
+                .join('\n    ');
+              return Object.entries(pathByLanguage).map(([language, path]) => {
+                return `<url>
     <loc>${BASE_URL}${getLanguagePrefix(language)}${path}</loc>
     ${alternateLinks}
   </url>`;
-            });
-          })
+              });
+            },
+          )
           .flat()
           .join('\n  ');
 

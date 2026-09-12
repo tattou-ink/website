@@ -93,7 +93,7 @@ export function Testimony() {
 
       <div className="flex flex-col gap-12 lg:gap-16">
         <div className="flex flex-col items-start gap-6 px-5 lg:px-20">
-          <Eyebrow>{m.landing_testimony_eyebrow()}</Eyebrow>
+          <Eyebrow theme='light'>{m.landing_testimony_eyebrow()}</Eyebrow>
           <Heading className="max-w-[635px] text-ink">
             {m.landing_testimony_title_line1()}
             <br />

@@ -325,7 +325,7 @@ export function AppSection() {
           </ol>
         </div>
 
-        {expandedFeature.screenshot ? (
+        {expandedFeature && expandedFeature.screenshot ? (
           <div className="mt-20 hidden min-w-[220px] shrink-0 justify-center md:flex">
             <div className="relative w-full max-w-[318px] border-2 border-stencil">
               <div className="absolute top-4 left-4 aspect-[201/437] w-full border-2 border-stencil" />
