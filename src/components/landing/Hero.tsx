@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { m } from '@/paraglide/messages';
 import { localizeHref } from '@/paraglide/runtime';
 import { cn } from '@/lib/utils';
-import { X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 import { LangSwitcher } from '@/components/LangSwitcher';
 import { Image } from '@/components/Image';
@@ -89,11 +89,14 @@ export function Header({
   return (
     <header
       className={cn(
-        'z-20 flex items-center justify-between px-4 transition-all duration-300 lg:px-12',
+        'z-20 flex items-center justify-between px-4 transition-all lg:px-12',
         isDark
           ? cn(
               'fixed inset-x-0 top-0',
-              isScrolled ? 'h-16 bg-ink shadow-md' : 'h-24 bg-transparent',
+              isScrolled ? 'duration-300' : 'duration-100',
+              isScrolled ? 'bg-ink' : 'bg-transparent',
+              menuOpen && 'bg-ink',
+              isScrolled ? 'h-16 shadow-md' : 'h-24',
             )
           : 'sticky top-0 h-12 bg-panel shadow-sm lg:h-16',
       )}
@@ -136,22 +139,12 @@ export function Header({
         aria-label="Menu"
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen((open) => !open)}
-        className="flex w-6 shrink-0 flex-col gap-1 lg:hidden"
+        className="flex shrink-0 flex-col gap-1 p-2 lg:hidden"
       >
         {menuOpen ? (
           <X className={cn('size-6', isDark ? 'text-cream' : 'text-ink')} />
         ) : (
-          <>
-            <span
-              className={cn('h-px w-full', isDark ? 'bg-cream' : 'bg-ink')}
-            />
-            <span
-              className={cn('h-px w-full', isDark ? 'bg-cream' : 'bg-ink')}
-            />
-            <span
-              className={cn('h-px w-full', isDark ? 'bg-cream' : 'bg-ink')}
-            />
-          </>
+          <Menu className={cn('size-6', isDark ? 'text-cream' : 'text-ink')} />
         )}
       </button>
 
@@ -163,7 +156,7 @@ export function Header({
             className={cn(
               'fixed inset-x-0 bottom-0 z-10 transition-all duration-300 lg:hidden',
               isDark
-                ? cn('bg-ink/60', isScrolled ? 'top-16' : 'top-24')
+                ? cn('bg-ink', isScrolled ? 'top-16' : 'top-24')
                 : 'top-12 bg-ink/40 lg:top-16',
             )}
           />
