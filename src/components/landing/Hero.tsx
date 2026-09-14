@@ -94,7 +94,7 @@ export function Header({
           ? cn(
               'fixed inset-x-0 top-0',
               isScrolled ? 'duration-300' : 'duration-100',
-              isScrolled ? 'bg-ink' : 'bg-transparent',
+              isScrolled ? 'bg-ink' : 'bg-[linear-gradient(to_bottom,#1C1917,#1C191700)]',
               menuOpen && 'bg-ink',
               isScrolled ? 'h-16 shadow-md' : 'h-24',
             )
