@@ -17,7 +17,7 @@ export function PromiseSection() {
   return (
     <section className="relative flex w-full flex-col gap-8 overflow-clip bg-panel pb-16 lg:pt-8 lg:pb-24">
       <Image
-        src="/images/landing/promise/paint-tattou.png"
+        src="/images/landing/paint-tattou.webp"
         width={1201}
         height={749}
         alt=""
@@ -62,7 +62,7 @@ export function PromiseSection() {
         </div>
         <div className="relative aspect-square w-full shrink-0 max-lg:h-90 lg:w-[46%]">
           <Image
-            src="/images/landing/promise/photo.jpg"
+            src="/images/landing/promise.webp"
             width={1254}
             height={1254}
             sizes="(min-width: 1024px) 46vw, 100vw"

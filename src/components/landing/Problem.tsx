@@ -13,7 +13,7 @@ export function Problem() {
       className="scroll-mt-16 relative w-full overflow-clip bg-panel px-5 py-16 lg:px-20 lg:py-24"
     >
       <Image
-        src="/images/landing/problem/paint-stroke.png"
+        src="/images/landing/paint-stroke.webp"
         width={674}
         height={370}
         alt=""
@@ -26,7 +26,7 @@ export function Problem() {
         )}
       />
       <Image
-        src="/images/landing/problem/paint-blob.png"
+        src="/images/landing/paint-blob.webp"
         width={372}
         height={374}
         alt=""
@@ -92,18 +92,18 @@ export function Problem() {
 
         <div className="relative -mx-5 h-75 overflow-hidden border-y-2 border-stencil md:h-100 lg:hidden">
           <Image
-            src="/images/landing/problem/photo.jpg"
+            src="/images/landing/problem.webp"
             width={1536}
             height={1024}
             sizes="100vw"
-            className="h-full w-full -translate-x-20 translate-y-10 scale-150 object-cover object-[60%_0%]"
+            className="h-full w-full object-cover scale-110 object-[20%_65%]"
           />
         </div>
         <div className="relative hidden shrink-0 lg:mt-10 lg:block">
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <Image
-              src="/images/landing/problem/photo.jpg"
+              src="/images/landing/problem.webp"
               width={1536}
               height={1024}
               sizes="519px"

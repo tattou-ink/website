@@ -21,7 +21,7 @@ export function Benefit2() {
   return (
     <section className="relative w-full overflow-hidden bg-panel px-5 py-16 lg:px-20 lg:py-24">
       <Image
-        src="/images/landing/problem/paint-stroke.png"
+        src="/images/landing/paint-stroke.webp"
         width={674}
         height={370}
         alt=""
@@ -34,7 +34,7 @@ export function Benefit2() {
         )}
       />
       <Image
-        src="/images/landing/promise/paint-tattou.png"
+        src="/images/landing/paint-tattou.webp"
         width={1201}
         height={749}
         alt=""
@@ -80,11 +80,11 @@ export function Benefit2() {
 
         <div className="relative -mx-5 h-[298px] border-y-2 border-stencil lg:hidden">
           <Image
-            src="/images/landing/benefit2/photo.jpg"
+            src="/images/landing/benefit2.webp"
             width={1254}
             height={1254}
             sizes="100vw"
-            className="h-full w-full object-cover object-[70%_20%]"
+            className="h-full w-full object-cover scale-110 object-[80%_75%]"
           />
         </div>
 
@@ -92,7 +92,7 @@ export function Benefit2() {
           <div className="absolute top-4 left-4 h-[654px] w-[519px] border-2 border-stencil" />
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <Image
-              src="/images/landing/benefit2/photo.jpg"
+              src="/images/landing/benefit2.webp"
               width={1254}
               height={1254}
               sizes="519px"

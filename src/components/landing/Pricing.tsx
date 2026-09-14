@@ -144,7 +144,7 @@ export function Pricing({
     >
       <div className="relative overflow-x-clip px-5 py-16 max-lg:overflow-clip lg:px-20 lg:py-24">
         <Image
-          src="/images/landing/problem/paint-blob.png"
+          src="/images/landing/paint-blob.webp"
           width={372}
           height={374}
           alt=""
@@ -156,13 +156,13 @@ export function Pricing({
           )}
         />
         <Image
-          src="/images/landing/pricing/paint-bl.png"
+          src="/images/landing/paint-stroke-small.webp"
           width={80}
           height={43}
           alt=""
           aria-hidden
           sizes="80px"
-          className="pointer-events-none absolute -right-0 bottom-0 w-20 rotate-180"
+          className="pointer-events-none absolute -right-3 bottom-0 w-20 rotate-180"
         />
 
         <div className="relative flex flex-col gap-6 md:gap-12">

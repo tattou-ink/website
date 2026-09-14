@@ -137,7 +137,7 @@ export function AppSection() {
           className="pointer-events-none absolute inset-0 overflow-hidden"
         >
           <Image
-            src="/images/landing/problem/paint-stroke.png"
+            src="/images/landing/paint-stroke.webp"
             width={674}
             height={370}
             alt=""

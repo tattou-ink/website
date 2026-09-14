@@ -32,7 +32,7 @@ export function Benefit3() {
 
         <div className="relative aspect-[402/900] w-full md:w-[40%] lg:block lg:aspect-[708/822] lg:w-[54%]">
           <Image
-            src="/images/landing/benefit3/photo-desktop.jpg"
+            src="/images/landing/benefit3.webp"
             width={708}
             height={822}
             sizes="(min-width: 1024px) 54vw, (min-width: 768px) 40vw, 100vw"
@@ -41,7 +41,7 @@ export function Benefit3() {
           <div className="absolute inset-0 bg-linear-to-b from-stencil-dark to-transparent to-10% lg:bg-linear-to-l lg:to-20%" />
           <div className="absolute inset-0 bg-linear-to-t from-[#1C1917] to-transparent to-10% lg:bg-linear-to-r lg:to-20%" />
           <Image
-            src="/images/landing/benefit3/profile-with-frame.png"
+            src="/images/landing/benefit3/profile-with-frame.webp"
             width={1206}
             height={2495}
             sizes="(min-width: 1024px) 43vw, 80vw"
