@@ -85,7 +85,7 @@ export function Benefit2() {
             height={1254}
             sizes="100vw"
             alt={m.fit_flat_termite_lift()}
-            className="h-full w-full scale-110 object-cover object-[80%_75%]"
+            className="h-full w-full scale-110 object-cover object-[80%_75%] sm:scale-100 sm:object-[80%_45%]"
           />
         </div>
 

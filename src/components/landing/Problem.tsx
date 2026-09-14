@@ -97,7 +97,7 @@ export function Problem() {
             width={1536}
             height={1024}
             sizes="100vw"
-            className="h-full w-full scale-110 object-cover object-[20%_65%]"
+            className="h-full w-full scale-110 object-cover object-[20%_65%] sm:scale-100 sm:object-[20%_45%]"
           />
         </div>
         <div className="relative hidden shrink-0 lg:mt-10 lg:block">
