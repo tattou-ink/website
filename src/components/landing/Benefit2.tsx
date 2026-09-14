@@ -84,7 +84,8 @@ export function Benefit2() {
             width={1254}
             height={1254}
             sizes="100vw"
-            className="h-full w-full object-cover scale-110 object-[80%_75%]"
+            alt={m.fit_flat_termite_lift()}
+            className="h-full w-full scale-110 object-cover object-[80%_75%]"
           />
         </div>
 
@@ -93,6 +94,7 @@ export function Benefit2() {
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <Image
               src="/images/landing/benefit2.webp"
+              alt={m.fit_flat_termite_lift()}
               width={1254}
               height={1254}
               sizes="519px"

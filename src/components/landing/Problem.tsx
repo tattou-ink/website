@@ -10,7 +10,7 @@ export function Problem() {
   return (
     <section
       id={SECTION_IDS.problem}
-      className="scroll-mt-16 relative w-full overflow-clip bg-panel px-5 py-16 lg:px-20 lg:py-24"
+      className="relative w-full scroll-mt-16 overflow-clip bg-panel px-5 py-16 lg:px-20 lg:py-24"
     >
       <Image
         src="/images/landing/paint-stroke.webp"
@@ -93,10 +93,11 @@ export function Problem() {
         <div className="relative -mx-5 h-75 overflow-hidden border-y-2 border-stencil md:h-100 lg:hidden">
           <Image
             src="/images/landing/problem.webp"
+            alt={m.simple_trite_mantis_stop()}
             width={1536}
             height={1024}
             sizes="100vw"
-            className="h-full w-full object-cover scale-110 object-[20%_65%]"
+            className="h-full w-full scale-110 object-cover object-[20%_65%]"
           />
         </div>
         <div className="relative hidden shrink-0 lg:mt-10 lg:block">
@@ -104,6 +105,7 @@ export function Problem() {
           <div className="relative h-[654px] w-[519px] overflow-hidden border-2 border-stencil">
             <Image
               src="/images/landing/problem.webp"
+              alt={m.simple_trite_mantis_stop()}
               width={1536}
               height={1024}
               sizes="519px"

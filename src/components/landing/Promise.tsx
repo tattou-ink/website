@@ -63,6 +63,7 @@ export function PromiseSection() {
         <div className="relative aspect-square w-full shrink-0 max-lg:h-90 lg:w-[46%]">
           <Image
             src="/images/landing/promise.webp"
+            alt={m.dirty_gray_maggot_approve()}
             width={1254}
             height={1254}
             sizes="(min-width: 1024px) 46vw, 100vw"

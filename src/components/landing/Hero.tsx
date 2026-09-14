@@ -198,19 +198,21 @@ export function Hero() {
     >
       <Image
         src="/images/landing/hero-mobile.webp"
+        alt={m.full_steep_racoon_grin()}
         width={1536}
         height={1024}
         priority
         sizes="100vw"
-        className="absolute inset-0 -z-10 size-full object-cover object-[30%_30%] lg:object-center md:hidden"
+        className="absolute inset-0 -z-10 size-full object-cover object-[30%_30%] md:hidden lg:object-center"
       />
       <Image
         src="/images/landing/hero-desktop.webp"
+        alt={m.full_steep_racoon_grin()}
         width={1536}
         height={1024}
         priority
         sizes="100vw"
-        className="absolute inset-0 -z-10 size-full object-cover md:object-center hidden md:block"
+        className="absolute inset-0 -z-10 hidden size-full object-cover md:block md:object-center"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(28,25,23,0.55),rgba(28,25,23,0)_60%)] lg:hidden" />
 
